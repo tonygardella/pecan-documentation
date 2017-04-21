@@ -32,8 +32,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
   
   
-<link rel="prev" href="using-git.html">
-<link rel="next" href="adding-an-ecosystem-model.html">
+<link rel="prev" href="met-data.html">
+<link rel="next" href="coding-style.html">
 
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -478,51 +478,57 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="directory-structure" class="section level1">
-<h1><span class="header-section-number">26</span> Directory structure</h1>
-<div id="overview-of-pecan-repository-as-of-pecan-1.2" class="section level2">
-<h2><span class="header-section-number">26.1</span> Overview of PEcAn repository as of PEcAn 1.2</h2>
-<!--This needsto be updated to the latest version-->
-<!--Should Also include a guideline to structurs so that people know where to put things as they add them-->
-<pre><code>trunk/             # Overall repository
- +- all            # Dummy Package to load all PEcAn R packages
- +- common         # Core functions
- +- db             # Modules for querying the database
- +- depreciated    # code from PEcAn &lt; 1.1 for reference or merging into new packages
- +- models         # Directory of wrapper scripts for each ecosystem model
-    +- ed          # Wrapper scripts for running ED within PEcAn
-    +- sipnet      # Wrapper scripts for running SIPNET within PEcAn
-    +- ...         # Wrapper scripts for running [MODELX] within PEcAn
- +- modules        # Core modules
-    +- allometry
-    +- data.atmosphere
-    +- data.hydrology
-    +- data.land
-    +- meta.analysis
-    +- priors
-    +- rtm
-    +- uncertainty
- +- qaqc           # Database and model QAQC scripts
- +- scripts        # R and Shell scripts for use with PEcAn
-    +- shell       # Shell scripts, e.g.. install.all.sh, check.all.sh
-    +- R           # R scripts e.g. pft.add.spp.R, workflow.R, install.dependencies.R 
-    +- fia         # FIA module
- +- utils          # Misc. utility functions
- +- visualization  # Advanced PEcAn visualization module
- +- web            # Main PEcAn website files
- +- documentation  # index_vm.html, references, other misc.</code></pre>
+<div id="how-to-insert-new-input-data" class="section level1">
+<h1><span class="header-section-number">29</span> How to Insert new Input Data</h1>
+<p>To upload model driver data [or any other model input data or data used for model calibration/validation]…</p>
+<p>From your BETY interface:</p>
+<ul>
+<li>Create a DBFILES entry for the path to the file
+<ul>
+<li>From the menu click RUNS then FILES</li>
+<li>Click “New File”</li>
+<li>Select the machine your file is located at</li>
+<li>Fill in the File Path where your file is located (aka folder or directory) NOT including the name of the file itself</li>
+<li>Fill in the File Name with the name of the file itself. Note that some types of input records will refer to be ALL the files in a directory and thus File Name can be blank</li>
+<li>Click Update</li>
+</ul></li>
+<li>Create an INPUT entry for your data
+<ul>
+<li>From the menu click RUNS then INPUTS</li>
+<li>Click “New Input”</li>
+<li>Select the SITE that this data is associated with the input data set</li>
+<li>Other required fields are a unique name for the input, the start and end dates of the data set, and the format of the data. If the data is not in a currently known format you will need to create a NEW FORMAT and possibly a <a href="Adding-an-Input-Converter.html">new Input Converter</a></li>
+<li>Parent ID is an optional variable to indicated that one dataset was derived from another.</li>
+<li>Click “Create”</li>
+</ul></li>
+<li>Associate the DBFILE with the INPUT
+<ul>
+<li>In the RUNS -&gt; INPUTS table, search and find the input record you just created</li>
+<li>Click on the EDIT icon</li>
+<li>Select “View related Files”</li>
+<li>In the Search window, search for the DBFILE you just created</li>
+</ul></li>
+<li>Once you have found the DBFILE, click on the “+” icon to add the file</li>
+<li>Click on “Update” at the bottom when you are done.</li>
+</ul>
+
+<p>PEcAn has a single xml configuration file. This fill will dictate what models to run, where, with what input files and for how long. Each model has its own configuration file as well.</p>
+<div id="pecan-configuration-files" class="section level3">
+<h3><span class="header-section-number">29.0.1</span> <a href="PEcAn-Configuration">PEcAn Configuration Files</a></h3>
+<p>This file is often called pecan.xml. The system will try to find this file in the following locations:<br />
+* Passed in when calling R with –settings<br />
+* Passed in to read.settings() function * PECAN_SETTINGS environment variable * File called pecan.xml in the current working folder<br />
+Once any of these are loaded it will try to locate a pecan.xml in the outdir specified in the loaded file.</p>
 </div>
-<div id="generic-r-package-structure" class="section level2">
-<h2><span class="header-section-number">26.2</span> Generic R package structure:</h2>
-<p>see the R development wiki for more information on writing code and adding data.</p>
-<pre><code> +- DESCRIPTION    # short description of the PEcAn library
- +- R/             # location of R source code
- +- man/           # Documentation
- +- tests/         # runall.R script to call all R test scripts
- +- inst/          # location of install scripts and misc.
-    +- tests/      # location of PEcAn testing scripts
-    +- extdata/    # misc. data files (in misc. formats)
- +- data/          # data used in testing and examples (saved as *.RData or *.rda files)</code></pre>
+<div id="model-specific-configuration-files" class="section level3">
+<h3><span class="header-section-number">29.0.2</span> Model-specific configuration files</h3>
+<ul>
+<li><a href="../users_guide/advanced_users_guideED2-Configuration">ED2</a><br />
+</li>
+<li><a href="../users_guide/advanced_users_guide/SIPNET-Configuration">SIPNET</a><br />
+</li>
+<li><a href="../BIOCRO-Configuration.md">BIOCRO</a></li>
+</ul>
 
 </div>
 </div>
@@ -531,8 +537,8 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
           </div>
         </div>
       </div>
-<a href="using-git.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="adding-an-ecosystem-model.html" class="navigation navigation-next " aria-label="Next page""><i class="fa fa-angle-right"></i></a>
+<a href="met-data.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="coding-style.html" class="navigation navigation-next " aria-label="Next page""><i class="fa fa-angle-right"></i></a>
 
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
 <script src="libs/gitbook-2.6.7/js/lunr.js"></script>
