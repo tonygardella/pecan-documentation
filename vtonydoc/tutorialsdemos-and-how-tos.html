@@ -25,7 +25,7 @@
 <meta name="author" content="By: PEcAn Team">
 
 
-<meta name="date" content="2019-02-13">
+<meta name="date" content="2019-02-19">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -165,13 +165,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="2.1.5" data-path="tutorialsdemos-and-how-tos.html"><a href="tutorialsdemos-and-how-tos.html#createvm"><i class="fa fa-check"></i><b>2.1.5</b> Creating a Virtual Machine</a></li>
 <li class="chapter" data-level="2.1.6" data-path="tutorialsdemos-and-how-tos.html"><a href="tutorialsdemos-and-how-tos.html#vm-desktop-conversion"><i class="fa fa-check"></i><b>2.1.6</b> VM Desktop Conversion</a></li>
 <li class="chapter" data-level="2.1.7" data-path="tutorialsdemos-and-how-tos.html"><a href="tutorialsdemos-and-how-tos.html#docker-index"><i class="fa fa-check"></i><b>2.1.7</b> Docker</a></li>
-<li class="chapter" data-level="2.1.8" data-path="tutorialsdemos-and-how-tos.html"><a href="tutorialsdemos-and-how-tos.html#docker-intro"><i class="fa fa-check"></i><b>2.1.8</b> Introduction to Docker?</a></li>
-<li class="chapter" data-level="2.1.9" data-path="tutorialsdemos-and-how-tos.html"><a href="tutorialsdemos-and-how-tos.html#docker-compose"><i class="fa fa-check"></i><b>2.1.9</b> <code>docker-compose</code></a></li>
-<li class="chapter" data-level="2.1.10" data-path="tutorialsdemos-and-how-tos.html"><a href="tutorialsdemos-and-how-tos.html#docker-quickstart"><i class="fa fa-check"></i><b>2.1.10</b> Quickstart for Docker and PEcAn</a></li>
-<li class="chapter" data-level="2.1.11" data-path="tutorialsdemos-and-how-tos.html"><a href="tutorialsdemos-and-how-tos.html#pecan-docker"><i class="fa fa-check"></i><b>2.1.11</b> PEcAn Docker Architecture</a></li>
-<li class="chapter" data-level="2.1.12" data-path="tutorialsdemos-and-how-tos.html"><a href="tutorialsdemos-and-how-tos.html#model-docker"><i class="fa fa-check"></i><b>2.1.12</b> Models using Docker</a></li>
-<li class="chapter" data-level="2.1.13" data-path="tutorialsdemos-and-how-tos.html"><a href="tutorialsdemos-and-how-tos.html#docker-build-images"><i class="fa fa-check"></i><b>2.1.13</b> Building and modifying images</a></li>
-<li class="chapter" data-level="2.1.14" data-path="tutorialsdemos-and-how-tos.html"><a href="tutorialsdemos-and-how-tos.html#docker-troubleshooting"><i class="fa fa-check"></i><b>2.1.14</b> Troubleshooting Docker</a></li>
+<li class="chapter" data-level="2.1.8" data-path="tutorialsdemos-and-how-tos.html"><a href="tutorialsdemos-and-how-tos.html#docker-compose"><i class="fa fa-check"></i><b>2.1.8</b> <code>docker-compose</code></a></li>
+<li class="chapter" data-level="2.1.9" data-path="tutorialsdemos-and-how-tos.html"><a href="tutorialsdemos-and-how-tos.html#docker-build-images"><i class="fa fa-check"></i><b>2.1.9</b> Building and modifying images</a></li>
+<li class="chapter" data-level="2.1.10" data-path="tutorialsdemos-and-how-tos.html"><a href="tutorialsdemos-and-how-tos.html#docker-troubleshooting"><i class="fa fa-check"></i><b>2.1.10</b> Troubleshooting Docker</a></li>
 </ul></li>
 <li class="chapter" data-level="2.2" data-path="tutorialsdemos-and-how-tos.html"><a href="tutorialsdemos-and-how-tos.html#docker-migrate"><i class="fa fa-check"></i><b>2.2</b> Migrating PEcAn from VM to Docker</a><ul>
 <li class="chapter" data-level="2.2.1" data-path="tutorialsdemos-and-how-tos.html"><a href="tutorialsdemos-and-how-tos.html#running-bety-as-a-docker-container"><i class="fa fa-check"></i><b>2.2.1</b> Running BETY as a docker container</a></li>
@@ -765,18 +761,19 @@ It contains the following sections:</p>
 <ul>
 <li><a href="tutorialsdemos-and-how-tos.html#docker-intro">Introduction to Docker</a> – Brief introduction to Docker and <code>docker-compose</code></li>
 <li><a href="tutorialsdemos-and-how-tos.html#docker-quickstart">Docker quickstart</a> – Brief tutorial for setting up a Docker-based PEcAn instance</li>
-<li><a href="tutorialsdemos-and-how-tos.html#pecan-docker">PEcAn Docker infrastructure</a> – Detailed description of the containers comprising the PEcAn Docker-based infrastructure</li>
+<li><a href="tutorialsdemos-and-how-tos.html#pecan-docker">PEcAn Docker Architecture</a> – Detailed description of the containers comprising the PEcAn Docker-based infrastructure</li>
 <li><a href="tutorialsdemos-and-how-tos.html#model-docker">Dockerfiles for models</a> – General guide for writing Dockerfiles for new models</li>
 <li><a href="tutorialsdemos-and-how-tos.html#docker-migrate">Migrating from VM to Docker</a> – Steps to migrate from running PEcAn on a VM to a docker.</li>
 </ul>
 
-</div>
-<div id="docker-intro" class="section level3">
-<h3><span class="header-section-number">2.1.8</span> Introduction to Docker?</h3>
+<div id="docker-intro" class="section level4">
+<h4><span class="header-section-number">2.1.7.1</span> Introduction to Docker?</h4>
 <p><a href="tutorialsdemos-and-how-tos.html#what-is-docker">What is Docker</a>
-<a href="tutorialsdemos-and-how-tos.html#working-with-docker">Working with Docker</a></p>
+<a href="tutorialsdemos-and-how-tos.html#working-with-docker">Working with Docker</a>
+<span id="docker-compose"><code>docker-compose</code></span></p>
+</div>
 <div id="what-is-docker" class="section level4">
-<h4><span class="header-section-number">2.1.8.1</span> What is Docker?</h4>
+<h4><span class="header-section-number">2.1.7.2</span> What is Docker?</h4>
 <p>For a quick and accessible introduction to Docker, we suggest this YouTube video: <a href="https://www.youtube.com/watch?v=YFl2mCHdv24">Learn Docker in 12 Minutes</a>.</p>
 <p>For more comprehensive Docker documentation, we refer you to the <a href="https://docs.docker.com/">Docker documentation website</a>.</p>
 <p>For a useful analogy for Docker containerization, we refer you to the webcomic <a href="https://xkcd.com/1988/">xkcd</a>.</p>
@@ -804,7 +801,7 @@ Furthermore, using separate Docker containers for each ecosystem model helps avo
 <p>The full PEcAn Docker stack is described in more detail in the <a href="tutorialsdemos-and-how-tos.html#pecan-docker">next section</a>.</p>
 </div>
 <div id="working-with-docker" class="section level4">
-<h4><span class="header-section-number">2.1.8.2</span> Working with Docker</h4>
+<h4><span class="header-section-number">2.1.7.3</span> Working with Docker</h4>
 <p>To run an image, you can use the Docker command line interface.
 For example, the following runs a PostgreSQL image based on the <a href="https://hub.docker.com/r/mdillon/postgis/">pre-existing PostGIS image</a> by <code>mdillon</code>:</p>
 <pre class="sourceCode bash"><code class="sourceCode bash"><span class="ex">docker</span> run \
@@ -842,7 +839,7 @@ The following options were used:</p>
 </div>
 </div>
 <div id="docker-compose" class="section level3">
-<h3><span class="header-section-number">2.1.9</span> <code>docker-compose</code></h3>
+<h3><span class="header-section-number">2.1.8</span> <code>docker-compose</code></h3>
 <p>For a quick introduction to <code>docker-compose</code>, we recommend the following YouTube video: <a href="https://www.youtube.com/watch?v=Qw9zlE3t8Ko">Docker Compose in 12 Minutes</a>.</p>
 <p>The complete <code>docker-compose</code> references can be found on the <a href="https://docs.docker.com/compose/">Docker documentation website</a>.</p>
 <p><code>docker-compose</code> provides a convenient way to configure and run a multi-container Docker stack.
@@ -861,12 +858,17 @@ To configure BETY as described above, we can use a <code>docker-compose.yml</cod
 <pre><code>docker-compose up</code></pre>
 <p>This will start the application, and you will see the log files for the 2 different containers.</p>
 
-</div>
-<div id="docker-quickstart" class="section level3">
-<h3><span class="header-section-number">2.1.10</span> Quickstart for Docker and PEcAn</h3>
+<div id="docker-quickstart" class="section level4">
+<h4><span class="header-section-number">2.1.8.1</span> Quickstart for Docker and PEcAn</h4>
 <p>This is a short documentation on how to start with Docker and PEcAn. This will not go into much detail about about how to use docker.</p>
+<p><a href="tutorialsdemos-and-how-tos.html#install-docker">Install Docker</a>
+<a href="tutorialsdemos-and-how-tos.html#curl-model-runs">Start model runs using curl</a>
+<a href="tutorialsdemos-and-how-tos.html#pecan-setup-compose">Setup PEcAn using docker-compose</a>
+<a href="tutorialsdemos-and-how-tos.html#pecan-docker-quickstart-init">Initialize the PEcAn database (first time only)</a>
+<a href="tutorialsdemos-and-how-tos.html#start-pecan">Start PEcAn</a></p>
+</div>
 <div id="install-docker" class="section level4">
-<h4><span class="header-section-number">2.1.10.1</span> Install Docker</h4>
+<h4><span class="header-section-number">2.1.8.2</span> Install Docker</h4>
 <p>You will need to install docker first. See <a href="https://www.docker.com/community-edition#/download" class="uri">https://www.docker.com/community-edition#/download</a></p>
 <p>Once Docker is installed, make sure it is running.
 To test that Docker is installed and running, open a terminal and run the following commands:</p>
@@ -878,8 +880,8 @@ Refer to the Docker documentation for debugging.</p>
 Try running the command without <code>sudo</code> first.
 If that fails, but running as <code>sudo</code> succeeds, see <a href="https://docs.docker.com/install/linux/linux-postinstall/">these instructions</a> for steps to use Docker as a non-root user.</p>
 </div>
-<div id="setup-pecan-using-docker-compose" class="section level4">
-<h4><span class="header-section-number">2.1.10.2</span> Setup PEcAn using docker-compose</h4>
+<div id="pecan-setup-compose" class="section level4">
+<h4><span class="header-section-number">2.1.8.3</span> Setup PEcAn using docker-compose</h4>
 <p>The PEcAn Docker stack is configured using a <code>docker-compose.yml</code> file (see also <a href="tutorialsdemos-and-how-tos.html#docker-compose"><code>docker-compose</code></a>).
 If you cloned the PEcAn source from GitHub, you can find this file in the root directory of the repository.
 Alternatively, if you do not want to clone the PEcAn source, you can download just this file directly from GitHub <a href="https://github.com/PecanProject/pecan/blob/develop/docker-compose.yml">here</a>. (NOTE that this is the latest, <code>develop</code> branch version. If you want a specific release, you should change the branch accordingly.).</p>
@@ -889,7 +891,7 @@ If you want to explicitly point <code>docker-compose</code> to a specific file, 
 (NOTE that this <code>-f</code> option must go <em>immediately</em> after <code>docker-compose</code>. More generally, <code>docker-compose</code> options are very sensitive to their location relative to other commands in the same line – that is, <code>docker-compose -f /my/docker-compose.yml -p pecan up -d postgres</code> is <em>not</em> the same as <code>docker-compose -d postgres -p pecan up -f /my/docker-compose.yml</code>. If expected ever don’t seem to be working, check that the arguments are in the right order.)</p>
 </div>
 <div id="pecan-docker-quickstart-init" class="section level4">
-<h4><span class="header-section-number">2.1.10.3</span> Initialize the PEcAn database (first time only)</h4>
+<h4><span class="header-section-number">2.1.8.4</span> Initialize the PEcAn database (first time only)</h4>
 <p>The commands described in this section will set up the PEcAn database (BETY) and pre-load it with some common “default” data.</p>
 <pre class="sourceCode bash"><code class="sourceCode bash"><span class="ex">docker-compose</span> -p pecan up -d postgres
 
@@ -978,7 +980,7 @@ Added guestuser with access_level=4 and page_access_level=4 with id=331</code></
 <p>Successful execution of this command should take some time because it involves downloading and copying reasonably large amounts of data and performing a number of database operations.</p>
 </div>
 <div id="start-pecan" class="section level4">
-<h4><span class="header-section-number">2.1.10.4</span> Start PEcAn</h4>
+<h4><span class="header-section-number">2.1.8.5</span> Start PEcAn</h4>
 <p>If you already completed the above steps, you can start the full stack by just running the following:</p>
 <pre class="sourceCode bash"><code class="sourceCode bash"><span class="ex">docker-compose</span> -p pecan up -d</code></pre>
 <p>This will build and start all containers required to run PEcAn.
@@ -995,8 +997,8 @@ Once this is done you have a working instance of PEcAn.</p>
 <li>Monitor, service that monitors models and shows all models that are online as well as how many instances are online and the number of jobs waiting. The output is in JSON – <a href="http://localhost:8000/monitor/" class="uri">http://localhost:8000/monitor/</a></li>
 </ul>
 </div>
-<div id="start-model-runs-using-curl" class="section level4">
-<h4><span class="header-section-number">2.1.10.5</span> Start model runs using curl</h4>
+<div id="curl-model-runs" class="section level4">
+<h4><span class="header-section-number">2.1.8.6</span> Start model runs using curl</h4>
 <p>To test PEcAn you can use the following <code>curl</code> statement, or use the webpage to submit a request:</p>
 <pre class="sourceCode bash"><code class="sourceCode bash"><span class="ex">curl</span> -v -X POST \
     -F <span class="st">&#39;hostname=docker&#39;</span> \
@@ -1023,11 +1025,26 @@ Once this is done you have a working instance of PEcAn.</p>
 <p>To run multiple executors in parallel you can duplicate the executor section in the docker-compose file and just rename it from executor to executor1 and executor2 for example. The same can be done for the models. To make this easier it helps to deploy the containers using Kubernetes allowing to easily scale up and down the containers.</p>
 
 </div>
+<div id="pecan-docker" class="section level4">
+<h4><span class="header-section-number">2.1.8.7</span> PEcAn Docker Architecture</h4>
+<p><a href="tutorialsdemos-and-how-tos.html#pecan-docker-overview">Overview</a>
+<a href="tutorialsdemos-and-how-tos.html#pecan-docker-compose">PEcAn’s <code>docker-compose</code></a>
+<a href="tutorialsdemos-and-how-tos.html#pecan-dc-structure">Top-level structure</a>
+<a href="tutorialsdemos-and-how-tos.html#pecan-dc-traefik"><code>traefik</code></a>
+<a href="tutorialsdemos-and-how-tos.html#pecan-dc-portainer"><code>portainer</code></a>
+<a href="tutorialsdemos-and-how-tos.html#pecan-dc-minio"><code>minio</code></a>
+<a href="tutorialsdemos-and-how-tos.html#pecan-dc-thredds"><code>thredds</code></a>
+<a href="tutorialsdemos-and-how-tos.html#pecan-dc-postgres"><code>postgres</code></a>
+<a href="tutorialsdemos-and-how-tos.html#pecan-dc-rabbitmq"><code>rabbitmq</code></a>
+<a href="tutorialsdemos-and-how-tos.html#pecan-dc-bety"><code>bety</code></a>
+<a href="tutorialsdemos-and-how-tos.html#pecan-dc-docs"><code>docs</code></a>
+<a href="tutorialsdemos-and-how-tos.html#pecan-dc-web"><code>web</code></a>
+<a href="tutorialsdemos-and-how-tos.html#pecan-dc-executor"><code>executor</code></a>
+<a href="tutorialsdemos-and-how-tos.html#pecan-dc-monitor"><code>monitor</code></a>
+<a href="tutorialsdemos-and-how-tos.html#pecan-dc-models">Model-specific containers</a></p>
 </div>
-<div id="pecan-docker" class="section level3">
-<h3><span class="header-section-number">2.1.11</span> PEcAn Docker Architecture</h3>
 <div id="pecan-docker-overview" class="section level4">
-<h4><span class="header-section-number">2.1.11.1</span> Overview</h4>
+<h4><span class="header-section-number">2.1.8.8</span> Overview</h4>
 <p>The PEcAn docker architecture consists of many containers (see figure below) that will communicate with each other. The goal of this architecture is to easily expand the PEcAn system by deploying new model containers and registering them with PEcAn. Once this is done the user can now use these new models in their work. The PEcAn framework will setup the configurations for the models, and send a message to the model containers to start execution. Once the execution is finished the PEcAn framework will continue. This is exactly as if the model is running on a HPC machine. Models can be executed in parallel by launching multiple model containers.</p>
 <p><img src="06_reference/04_docker/pecan-docker.png" width="50%" height="50%" style="display: block; margin: auto;" /></p>
 <p>As can be seen in the figure the architecture leverages of two standard containers (in orange). The first container is postgresql with postgis (<a href="https://hub.docker.com/r/mdillon/postgis/">mdillon/postgis</a>) which is used to store the database used by both BETY and PEcAn. The second containers is a messagebus, more specifically RabbitMQ (<a href="https://hub.docker.com/_/rabbitmq/">rabbitmq</a>).</p>
@@ -1042,7 +1059,7 @@ Once this is done you have a working instance of PEcAn.</p>
 <p>The model containers contain the actual models that are executed as well as small wrappers to make them work in the PEcAn framework. The containers will run the model based on the parameters received from the message bus and convert the outputs back to the standard PEcAn output format. Once the container is finished processing a message it will immediatly get the next message and start processing it.</p>
 </div>
 <div id="pecan-docker-compose" class="section level4">
-<h4><span class="header-section-number">2.1.11.2</span> PEcAn’s <code>docker-compose</code></h4>
+<h4><span class="header-section-number">2.1.8.9</span> PEcAn’s <code>docker-compose</code></h4>
 <p>The PEcAn Docker architecture is described in full by the PEcAn <code>docker-compose.yml</code> file.
 For full <code>docker-compose</code> syntax, see the <a href="https://docs.docker.com/compose/">official documentation</a>.</p>
 <p>This section describes the <a href="tutorialsdemos-and-how-tos.html#pecan-dc-structure">top-level structure</a> and each of the services, which are as follows:</p>
@@ -1341,7 +1358,7 @@ volumes:
       o: bind</code></pre>
 </div>
 <div id="pecan-dc-structure" class="section level4">
-<h4><span class="header-section-number">2.1.11.3</span> Top-level structure</h4>
+<h4><span class="header-section-number">2.1.8.10</span> Top-level structure</h4>
 <p>The root of the <code>docker-compose.yml</code> file contains three sections:</p>
 <ul>
 <li><p><code>services</code> – This is a list of services provided by the application, with each service corresponding to a container.
@@ -1376,7 +1393,7 @@ It is used by almost all of the services in the PEcAn stack, and is typically mo
 </ul>
 </div>
 <div id="pecan-dc-traefik" class="section level4">
-<h4><span class="header-section-number">2.1.11.4</span> <code>traefik</code></h4>
+<h4><span class="header-section-number">2.1.8.11</span> <code>traefik</code></h4>
 <p><a href="https://traefik.io/">Traefik</a> manages communication among the different PEcAn services and between PEcAn and the web.
 Among other things, <code>traefik</code> facilitates the setup of web access to each PEcAn service via common and easy-to-remember URLs.
 For instance, the following lines in the <code>web</code> service configure access to the PEcAn web interface via the URL <a href="http://localhost:8000/pecan/" class="uri">http://localhost:8000/pecan/</a> :</p>
@@ -1422,7 +1439,7 @@ For instance, the following lines in the <code>web</code> service configure acce
   - traefik:/config</code></pre>
 </div>
 <div id="pecan-dc-portainer" class="section level4">
-<h4><span class="header-section-number">2.1.11.5</span> <code>portainer</code></h4>
+<h4><span class="header-section-number">2.1.8.12</span> <code>portainer</code></h4>
 <p><a href="https://portainer.io/">portainer</a> is lightweight management UI that allows you to manage the docker host (or swarm). You can use this service to monitor the different containers, see the logfiles, and start and stop containers.</p>
 <p>The portainer service configuration looks like this:</p>
 <pre><code>portainer:
@@ -1443,7 +1460,7 @@ For instance, the following lines in the <code>web</code> service configure acce
 <p>Portainer is accessible by browsing to <code>localhost:8000/portainer/</code>. You can either set the password in the <code>.env</code> file (for an example see env.example) or you can use the web browser and go to the portainer url. If this is the first time it will ask for your password.</p>
 </div>
 <div id="pecan-dc-minio" class="section level4">
-<h4><span class="header-section-number">2.1.11.6</span> <code>minio</code></h4>
+<h4><span class="header-section-number">2.1.8.13</span> <code>minio</code></h4>
 <p><a href="https://github.com/minio/minio">Minio</a> is a service that provides access to the a folder on disk through a variety of protocols, including S3 buckets and web-based access.
 We mainly use Minio to facilitate access to PEcAn data using a web browser without the need for CLI tools.</p>
 <p>Our current configuration is as follows:</p>
@@ -1471,7 +1488,7 @@ Therefore, the recommended way to perform any file management tasks other than i
 <span class="co"># Now, you can move files between `/data` and `/localdir`, create new directories, etc.</span></code></pre>
 </div>
 <div id="pecan-dc-thredds" class="section level4">
-<h4><span class="header-section-number">2.1.11.7</span> <code>thredds</code></h4>
+<h4><span class="header-section-number">2.1.8.14</span> <code>thredds</code></h4>
 <p>This service allows PEcAn model outputs to be accessible via the <a href="https://www.unidata.ucar.edu/software/thredds/current/tds/">THREDDS data server (TDS)</a>.
 When the PEcAn stack is running, the catalog can be explored in a web browser at <a href="http://localhost:8000/thredds/catalog.html" class="uri">http://localhost:8000/thredds/catalog.html</a>.
 Specific output files can also be accessed from the command line via commands like the following:</p>
@@ -1493,7 +1510,7 @@ For additional information about the syntax of this file, see the extensive <a h
   - traefik.backend=thredds</code></pre>
 </div>
 <div id="pecan-dc-postgres" class="section level4">
-<h4><span class="header-section-number">2.1.11.8</span> <code>postgres</code></h4>
+<h4><span class="header-section-number">2.1.8.15</span> <code>postgres</code></h4>
 <p>This service provides a working PostGIS database.
 Our configuration is fairly straightforward:</p>
 <pre><code>postgres:
@@ -1512,7 +1529,7 @@ As mentioned above, the hostname of this service is just its name, i.e. <code>po
 </ul>
 </div>
 <div id="pecan-dc-rabbitmq" class="section level4">
-<h4><span class="header-section-number">2.1.11.9</span> <code>rabbitmq</code></h4>
+<h4><span class="header-section-number">2.1.8.16</span> <code>rabbitmq</code></h4>
 <p><a href="https://www.rabbitmq.com/">RabbitMQ</a> is a message broker service.
 In PEcAn, RabbitMQ functions as a task manager and scheduler, coordinating the execution of different tasks (such as running models and analyzing results) associated with the PEcAn workflow.</p>
 <p>Our configuration is as follows:</p>
@@ -1536,7 +1553,7 @@ In PEcAn, RabbitMQ functions as a task manager and scheduler, coordinating the e
 For production instances of PEcAn, we highly recommend changing these credentials to something more secure, and removing access to the RabbitMQ management console via Traefik.</p>
 </div>
 <div id="pecan-dc-bety" class="section level4">
-<h4><span class="header-section-number">2.1.11.10</span> <code>bety</code></h4>
+<h4><span class="header-section-number">2.1.8.17</span> <code>bety</code></h4>
 <p>This service operates the BETY web interface, which is effectively a web-based front-end to the PostgreSQL database.
 Unlike the <code>postgres</code> service, which contains all the data needed to run PEcAn models, this service is not essential to the PEcAn workflow.
 However, note that certain features of the PEcAn web interface do link to the BETY web interface and will not work if this container is not running.</p>
@@ -1558,7 +1575,7 @@ However, note that certain features of the PEcAn web interface do link to the BE
 <p>The BETY container Dockerfile is located in the root directory of the <a href="https://github.com/pecan/bety">BETY GitHub repository</a> (<a href="https://github.com/PecanProject/bety/blob/master/Dockerfile">direct link</a>).</p>
 </div>
 <div id="pecan-dc-docs" class="section level4">
-<h4><span class="header-section-number">2.1.11.11</span> <code>docs</code></h4>
+<h4><span class="header-section-number">2.1.8.18</span> <code>docs</code></h4>
 <p>This service will show the documentation for the version of PEcAn running as well as a homepage with links to all relevant endpoints. You can access this at <a href="http://localhost:8000/" class="uri">http://localhost:8000/</a>. You can find the documentation for PEcAn at <a href="http://localhost:8000/docs/pecan/" class="uri">http://localhost:8000/docs/pecan/</a>.</p>
 <p>Our current configuration is as follows:</p>
 <pre><code>docs:
@@ -1571,7 +1588,7 @@ However, note that certain features of the PEcAn web interface do link to the BE
   - traefik.backend=docs</code></pre>
 </div>
 <div id="pecan-dc-web" class="section level4">
-<h4><span class="header-section-number">2.1.11.12</span> <code>web</code></h4>
+<h4><span class="header-section-number">2.1.8.19</span> <code>web</code></h4>
 <p>This service runs the PEcAn web interface.
 It is effectively a thin wrapper around a standard Apache web server container from Docker Hub that installs some additional dependencies and copies over the necessary files from the PEcAn source code.</p>
 <p>Our configuration is as follows:</p>
@@ -1597,7 +1614,7 @@ It is effectively a thin wrapper around a standard Apache web server container f
 <p>In terms of <a href="#pecan-docker-develop">actively developing PEcAn using Docker</a>, this is the service to modify when making changes to the web interface (i.e. PHP, HTML, and JavaScript code located in the PEcAn <code>web</code> directory).</p>
 </div>
 <div id="pecan-dc-executor" class="section level4">
-<h4><span class="header-section-number">2.1.11.13</span> <code>executor</code></h4>
+<h4><span class="header-section-number">2.1.8.20</span> <code>executor</code></h4>
 <p>This service is in charge of running the R code underlying the core PEcAn workflow.
 However, it is <em>not</em> in charge of executing the models themselves – model binaries are located on their <a href="tutorialsdemos-and-how-tos.html#pecan-dc-models">own dedicated Docker containers</a>, and model execution is coordinated by RabbitMQ.</p>
 <p>Our configuration is as follows:</p>
@@ -1619,7 +1636,7 @@ To facilitate caching, the <code>pecan/base</code> image is itself built on top 
 Note that, unlike changes to the <code>web</code> image’s PHP code, changes to the R source code do not immediately propagate to the PEcAn container; instead, you have to re-compile the code by running <code>make</code> inside the container.</p>
 </div>
 <div id="pecan-dc-monitor" class="section level4">
-<h4><span class="header-section-number">2.1.11.14</span> <code>monitor</code></h4>
+<h4><span class="header-section-number">2.1.8.21</span> <code>monitor</code></h4>
 <p>This service will show all models that are currently running <a href="http://localhost:8000/monitor/" class="uri">http://localhost:8000/monitor/</a>. This list returned is JSON and shows all models (grouped by type and version) that are currently running, or where seen in the past. This list will also contain a list of all current active containers, as well as how many jobs are waiting to be processed.</p>
 <p>This service is also responsible for registering any new models with PEcAn so users can select it and execute the model from the web interface.</p>
 <p>Our current configuration is as follows:</p>
@@ -1639,7 +1656,7 @@ Note that, unlike changes to the <code>web</code> image’s PHP code, changes to
   volumes: pecan:/data</code></pre>
 </div>
 <div id="pecan-dc-models" class="section level4">
-<h4><span class="header-section-number">2.1.11.15</span> Model-specific containers</h4>
+<h4><span class="header-section-number">2.1.8.22</span> Model-specific containers</h4>
 <p>Additional models are added as additional services.
 In general, their configuration should be similar to the following configuration for SIPNET, which ships with PEcAn:</p>
 <pre><code>sipnet:
@@ -1653,13 +1670,16 @@ In general, their configuration should be similar to the following configuration
 For additional tips on constructing a Dockerfile for your model, see <a href="tutorialsdemos-and-how-tos.html#model-docker">Dockerfiles for Models</a>.</p>
 
 </div>
-</div>
-<div id="model-docker" class="section level3">
-<h3><span class="header-section-number">2.1.12</span> Models using Docker</h3>
+<div id="model-docker" class="section level4">
+<h4><span class="header-section-number">2.1.8.23</span> Models using Docker</h4>
 <p>This section will discuss how to add new models to PEcAn docker. To be able to add a new model to PEcAn when using docker is as simple as starting a new container. The model will come online and let the PEcAn framework know there is a new model available, there is no need to go through the process of registering this model with PEcAn. Users will be able to select this new model from web interface and run with this model selected.</p>
 <p>For this process to work a docker image of the model will need to be created as well as small json file that is used to announce this new model. A separate service in PEcAn (<a href="tutorialsdemos-and-how-tos.html#pecan-dc-monitor"><code>monitor</code></a>) will use this json file to keep track of all models available as well as register these models with PEcAn.</p>
+<p><a href="tutorialsdemos-and-how-tos.html#model-docker-json-file">Model information</a>
+<a href="tutorialsdemos-and-how-tos.html#model-docker-Dockerfile">Model build</a>
+<a href="tutorialsdemos-and-how-tos.html#common-docker-problems">Common problems</a></p>
+</div>
 <div id="model-docker-json-file" class="section level4">
-<h4><span class="header-section-number">2.1.12.1</span> Model information</h4>
+<h4><span class="header-section-number">2.1.8.24</span> Model information</h4>
 <p>Each model will have a small json file called model_info.json that is used to describe the model and to used by the monitor service to register the model with PEcAn. This file will contain information about the model that is send as part of the heartbeat of the container to the monitor service. Below is an example of this file for the ED model. The required fields are <code>name</code>, <code>type</code>, <code>version</code> and <code>binary</code>. There are 2 special values that can be used, <code>@VERSION@</code> which will be replaced by the version that is passed in when building the container, and <code>@BINARY@</code> which will be replaced by the binary when building the docker image.</p>
 <pre class="sourceCode json"><code class="sourceCode json"><span class="fu">{</span>
   <span class="dt">&quot;name&quot;</span><span class="fu">:</span> <span class="st">&quot;ED2.2&quot;</span><span class="fu">,</span>
@@ -1684,7 +1704,7 @@ For additional tips on constructing a Dockerfile for your model, see <a href="tu
 - <code>citation</code> : how the model should be cited in publications.</p>
 </div>
 <div id="model-docker-Dockerfile" class="section level4">
-<h4><span class="header-section-number">2.1.12.2</span> Model build</h4>
+<h4><span class="header-section-number">2.1.8.25</span> Model build</h4>
 <p>In general we try to minimize the size of the images. To be able to do this we split the process of creating the building of the model images into two pieces (or leverage of an image that exists from the original model developers). If you look at the example Dockerfile you will see that there are 2 sections, the first section will build the model binary, the second section will build the actual PEcAn model, which copies the binary from the first section.</p>
 <p>This is an example of how the ED2 model is build. This will install all the packages needed to build ED2 model, gets the latest version from GitHub and builds the model.</p>
 <p>The second section will create the actual model runner. This will leverage the PEcAn model image that has PEcAn already installed as well as the python code to listen for messages and run the actual model code. This will install some additional packages needed by the model binary (more about that below), copy the model_info.json file and change the <code>@VERSION@</code> and <code>@BINARY@</code> placeholders.</p>
@@ -1781,12 +1801,12 @@ As such, <strong>variables depending on other variables must be set in a separat
     --volume pecan_pecan:/data
     <span class="ex">pecan/model-ed2-git</span></code></pre>
 </div>
-<div id="common-problems" class="section level4">
-<h4><span class="header-section-number">2.1.12.3</span> Common problems</h4>
+<div id="common-docker-problems" class="section level4">
+<h4><span class="header-section-number">2.1.8.26</span> Common problems</h4>
 <p>Following are some solutions for common problems that you might encounter when building the docker images for a model.</p>
 </div>
 <div id="debugging-missing-libraries" class="section level4">
-<h4><span class="header-section-number">2.1.12.4</span> Debugging missing libraries</h4>
+<h4><span class="header-section-number">2.1.8.27</span> Debugging missing libraries</h4>
 <p>When building the model binary it might require specific libraries to be installed. In the second stage the model binary is copied into a new image, which could result in the binary missing specific libraries. In the case of the ED2 model the following was used to find the libraries that are needed to be installed (libgfortran5 and libopenmpi3).</p>
 <p>The first step is to build the model using the Dockerfile (in this case the ap-get install was missing in the second stage).</p>
 <pre><code>Step 5/9 : RUN git clone https://github.com/EDmodel/ED2.git     &amp;&amp; cd ED2/ED/build     &amp;&amp; curl -o make/include.mk.VM http://isda.ncsa.illinois.edu/~kooper/EBI/include.mk.opt.`uname -s`     &amp;&amp; if [ &quot;${MODEL_VERSION}&quot; != &quot;git&quot; ]; then git checkout ${MODEL_VERSION}; fi     &amp;&amp; ./install.sh -g -p VM
@@ -1821,7 +1841,7 @@ Successfully tagged pecan/pecan-ed2:latest</code></pre>
 </div>
 </div>
 <div id="docker-build-images" class="section level3">
-<h3><span class="header-section-number">2.1.13</span> Building and modifying images</h3>
+<h3><span class="header-section-number">2.1.9</span> Building and modifying images</h3>
 <p>For general use, it is sufficient to use the pre-built PEcAn images hosted on <a href="https://hub.docker.com/r/pecan/">Docker Hub</a> (see <a href="tutorialsdemos-and-how-tos.html#docker-quickstart">Docker quickstart</a>).
 However, there are cases where it makes sense to re-build the Docker images locally.
 The following is a list of PEcAn-specific images and reasons why you would want to rebuild them locally:</p>
@@ -1893,7 +1913,7 @@ However, if you wanted to, for instance, build <code>:local</code> images corres
 The convention in PEcAn is to put Dockerfiles for core PEcAn functionality in <code>docker/base/</code> and for specific models in <code>docker/models/</code>, and to name these files <code>Dockerfile.&lt;image name&gt;</code>.</p></li>
 </ul>
 <div id="docker-local-devel" class="section level4">
-<h4><span class="header-section-number">2.1.13.1</span> Local development and testing with Docker</h4>
+<h4><span class="header-section-number">2.1.9.1</span> Local development and testing with Docker</h4>
 <p>The following is an example of one possible workflow for developing and testing PEcAn using local Docker images.
 The basic idea is to mount a local version of the PEcAn source code onto a running <code>pecan/executor</code> image, and then send a special “rebuild” RabbitMQ message to the container to trigger the rebuild whenever you make changes.
 NOTE: All commands assume you are working from the PEcAn source code root directory.</p>
@@ -1948,9 +1968,9 @@ This is required on the PNNL cluster because its servers’ IP addresses often c
 </div>
 </div>
 <div id="docker-troubleshooting" class="section level3">
-<h3><span class="header-section-number">2.1.14</span> Troubleshooting Docker</h3>
+<h3><span class="header-section-number">2.1.10</span> Troubleshooting Docker</h3>
 <div id="package-not-available-while-building-images" class="section level4">
-<h4><span class="header-section-number">2.1.14.1</span> “Package not available” while building images</h4>
+<h4><span class="header-section-number">2.1.10.1</span> “Package not available” while building images</h4>
 <p><strong>PROBLEM</strong>: Packages fail to install while building <code>pecan/depends</code> and/or <code>pecan/base</code> with an error like the following:</p>
 <pre><code>Installing package into ‘/usr/local/lib/R/site-library’
 (as ‘lib’ is unspecified)
