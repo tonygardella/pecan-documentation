@@ -160,9 +160,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="2.1" data-path="tutorialsdemos-and-how-tos.html"><a href="tutorialsdemos-and-how-tos.html#pecan-manual-setup"><i class="fa fa-check"></i><b>2.1</b> Install PEcAn</a><ul>
 <li class="chapter" data-level="2.1.1" data-path="tutorialsdemos-and-how-tos.html"><a href="tutorialsdemos-and-how-tos.html#pecanvm"><i class="fa fa-check"></i><b>2.1.1</b> PEcAn Virtual Machine</a></li>
 <li class="chapter" data-level="2.1.2" data-path="tutorialsdemos-and-how-tos.html"><a href="tutorialsdemos-and-how-tos.html#docker-index"><i class="fa fa-check"></i><b>2.1.2</b> Docker</a></li>
-<li class="chapter" data-level="2.1.3" data-path="tutorialsdemos-and-how-tos.html"><a href="tutorialsdemos-and-how-tos.html#docker-compose"><i class="fa fa-check"></i><b>2.1.3</b> <code>docker-compose</code></a></li>
-<li class="chapter" data-level="2.1.4" data-path="tutorialsdemos-and-how-tos.html"><a href="tutorialsdemos-and-how-tos.html#docker-troubleshooting"><i class="fa fa-check"></i><b>2.1.4</b> Troubleshooting Docker</a></li>
-<li class="chapter" data-level="2.1.5" data-path="tutorialsdemos-and-how-tos.html"><a href="tutorialsdemos-and-how-tos.html#osinstall"><i class="fa fa-check"></i><b>2.1.5</b> OS Specific Installations</a></li>
+<li class="chapter" data-level="2.1.3" data-path="tutorialsdemos-and-how-tos.html"><a href="tutorialsdemos-and-how-tos.html#osinstall"><i class="fa fa-check"></i><b>2.1.3</b> OS Specific Installations</a></li>
 </ul></li>
 <li class="chapter" data-level="2.2" data-path="tutorialsdemos-and-how-tos.html"><a href="tutorialsdemos-and-how-tos.html#user-tut"><i class="fa fa-check"></i><b>2.2</b> User Tutorial Section</a><ul>
 <li class="chapter" data-level="2.2.1" data-path="tutorialsdemos-and-how-tos.html"><a href="tutorialsdemos-and-how-tos.html#demo-table"><i class="fa fa-check"></i><b>2.2.1</b> PEcAn Demos</a></li>
@@ -743,6 +741,7 @@ It contains the following sections:</p>
 <li><a href="tutorialsdemos-and-how-tos.html#pecan-docker">PEcAn Docker Architecture</a> – Detailed description of the containers comprising the PEcAn Docker-based infrastructure</li>
 <li><a href="tutorialsdemos-and-how-tos.html#model-docker">Dockerfiles for models</a> – General guide for writing Dockerfiles for new models</li>
 <li><a href="tutorialsdemos-and-how-tos.html#docker-build-images">Building and modifying images</a></li>
+<li><span id="docker-troubleshooting">Troubleshooting Docker</span></li>
 <li><a href="tutorialsdemos-and-how-tos.html#docker-migrate">Migrating from VM to Docker</a> – Steps to migrate from running PEcAn on a VM to a docker.</li>
 </ul>
 
@@ -817,9 +816,8 @@ The following options were used:</p>
 <pre><code>docker stop postgresql</code></pre>
 <p>Containers that are running in the foreground (without the <code>--detach</code>) can be stopped by pressing <code>Ctrl-C</code>. Any containers running in the background (with <code>--detach</code>) will continue running until the machine is restarted or the container is stopped using <code>docker stop</code>.</p>
 </div>
-</div>
-<div id="docker-compose" class="section level3">
-<h3><span class="header-section-number">2.1.3</span> <code>docker-compose</code></h3>
+<div id="docker-compose" class="section level4">
+<h4><span class="header-section-number">2.1.2.4</span> <code>docker-compose</code></h4>
 <p>For a quick introduction to <code>docker-compose</code>, we recommend the following YouTube video: <a href="https://www.youtube.com/watch?v=Qw9zlE3t8Ko">Docker Compose in 12 Minutes</a>.</p>
 <p>The complete <code>docker-compose</code> references can be found on the <a href="https://docs.docker.com/compose/">Docker documentation website</a>.</p>
 <p><code>docker-compose</code> provides a convenient way to configure and run a multi-container Docker stack.
@@ -838,8 +836,9 @@ To configure BETY as described above, we can use a <code>docker-compose.yml</cod
 <pre><code>docker-compose up</code></pre>
 <p>This will start the application, and you will see the log files for the 2 different containers.</p>
 
+</div>
 <div id="docker-quickstart" class="section level4">
-<h4><span class="header-section-number">2.1.3.1</span> Quickstart for Docker and PEcAn</h4>
+<h4><span class="header-section-number">2.1.2.5</span> Quickstart for Docker and PEcAn</h4>
 <p>This is a short documentation on how to start with Docker and PEcAn. This will not go into much detail about about how to use docker.</p>
 <p><a href="tutorialsdemos-and-how-tos.html#install-docker">Install Docker</a>
 <a href="tutorialsdemos-and-how-tos.html#curl-model-runs">Start model runs using curl</a>
@@ -848,7 +847,7 @@ To configure BETY as described above, we can use a <code>docker-compose.yml</cod
 <a href="tutorialsdemos-and-how-tos.html#start-pecan">Start PEcAn</a></p>
 </div>
 <div id="install-docker" class="section level4">
-<h4><span class="header-section-number">2.1.3.2</span> Install Docker</h4>
+<h4><span class="header-section-number">2.1.2.6</span> Install Docker</h4>
 <p>You will need to install docker first. See <a href="https://www.docker.com/community-edition#/download" class="uri">https://www.docker.com/community-edition#/download</a></p>
 <p>Once Docker is installed, make sure it is running.
 To test that Docker is installed and running, open a terminal and run the following commands:</p>
@@ -861,7 +860,7 @@ Try running the command without <code>sudo</code> first.
 If that fails, but running as <code>sudo</code> succeeds, see <a href="https://docs.docker.com/install/linux/linux-postinstall/">these instructions</a> for steps to use Docker as a non-root user.</p>
 </div>
 <div id="pecan-setup-compose" class="section level4">
-<h4><span class="header-section-number">2.1.3.3</span> Setup PEcAn using docker-compose</h4>
+<h4><span class="header-section-number">2.1.2.7</span> Setup PEcAn using docker-compose</h4>
 <p>The PEcAn Docker stack is configured using a <code>docker-compose.yml</code> file (see also <a href="tutorialsdemos-and-how-tos.html#docker-compose"><code>docker-compose</code></a>).
 If you cloned the PEcAn source from GitHub, you can find this file in the root directory of the repository.
 Alternatively, if you do not want to clone the PEcAn source, you can download just this file directly from GitHub <a href="https://github.com/PecanProject/pecan/blob/develop/docker-compose.yml">here</a>. (NOTE that this is the latest, <code>develop</code> branch version. If you want a specific release, you should change the branch accordingly.).</p>
@@ -871,7 +870,7 @@ If you want to explicitly point <code>docker-compose</code> to a specific file, 
 (NOTE that this <code>-f</code> option must go <em>immediately</em> after <code>docker-compose</code>. More generally, <code>docker-compose</code> options are very sensitive to their location relative to other commands in the same line – that is, <code>docker-compose -f /my/docker-compose.yml -p pecan up -d postgres</code> is <em>not</em> the same as <code>docker-compose -d postgres -p pecan up -f /my/docker-compose.yml</code>. If expected ever don’t seem to be working, check that the arguments are in the right order.)</p>
 </div>
 <div id="pecan-docker-quickstart-init" class="section level4">
-<h4><span class="header-section-number">2.1.3.4</span> Initialize the PEcAn database (first time only)</h4>
+<h4><span class="header-section-number">2.1.2.8</span> Initialize the PEcAn database (first time only)</h4>
 <p>The commands described in this section will set up the PEcAn database (BETY) and pre-load it with some common “default” data.</p>
 <pre class="sourceCode bash"><code class="sourceCode bash"><span class="ex">docker-compose</span> -p pecan up -d postgres
 
@@ -960,7 +959,7 @@ Added guestuser with access_level=4 and page_access_level=4 with id=331</code></
 <p>Successful execution of this command should take some time because it involves downloading and copying reasonably large amounts of data and performing a number of database operations.</p>
 </div>
 <div id="start-pecan" class="section level4">
-<h4><span class="header-section-number">2.1.3.5</span> Start PEcAn</h4>
+<h4><span class="header-section-number">2.1.2.9</span> Start PEcAn</h4>
 <p>If you already completed the above steps, you can start the full stack by just running the following:</p>
 <pre class="sourceCode bash"><code class="sourceCode bash"><span class="ex">docker-compose</span> -p pecan up -d</code></pre>
 <p>This will build and start all containers required to run PEcAn.
@@ -978,7 +977,7 @@ Once this is done you have a working instance of PEcAn.</p>
 </ul>
 </div>
 <div id="curl-model-runs" class="section level4">
-<h4><span class="header-section-number">2.1.3.6</span> Start model runs using curl</h4>
+<h4><span class="header-section-number">2.1.2.10</span> Start model runs using curl</h4>
 <p>To test PEcAn you can use the following <code>curl</code> statement, or use the webpage to submit a request:</p>
 <pre class="sourceCode bash"><code class="sourceCode bash"><span class="ex">curl</span> -v -X POST \
     -F <span class="st">&#39;hostname=docker&#39;</span> \
@@ -1006,7 +1005,7 @@ Once this is done you have a working instance of PEcAn.</p>
 
 </div>
 <div id="pecan-docker" class="section level4">
-<h4><span class="header-section-number">2.1.3.7</span> PEcAn Docker Architecture</h4>
+<h4><span class="header-section-number">2.1.2.11</span> PEcAn Docker Architecture</h4>
 <p><a href="tutorialsdemos-and-how-tos.html#pecan-docker-overview">Overview</a>
 <a href="tutorialsdemos-and-how-tos.html#pecan-docker-compose">PEcAn’s <code>docker-compose</code></a>
 <a href="tutorialsdemos-and-how-tos.html#pecan-dc-structure">Top-level structure</a>
@@ -1024,7 +1023,7 @@ Once this is done you have a working instance of PEcAn.</p>
 <a href="tutorialsdemos-and-how-tos.html#pecan-dc-models">Model-specific containers</a></p>
 </div>
 <div id="pecan-docker-overview" class="section level4">
-<h4><span class="header-section-number">2.1.3.8</span> Overview</h4>
+<h4><span class="header-section-number">2.1.2.12</span> Overview</h4>
 <p>The PEcAn docker architecture consists of many containers (see figure below) that will communicate with each other. The goal of this architecture is to easily expand the PEcAn system by deploying new model containers and registering them with PEcAn. Once this is done the user can now use these new models in their work. The PEcAn framework will setup the configurations for the models, and send a message to the model containers to start execution. Once the execution is finished the PEcAn framework will continue. This is exactly as if the model is running on a HPC machine. Models can be executed in parallel by launching multiple model containers.</p>
 <p><img src="06_reference/04_docker/pecan-docker.png" width="50%" height="50%" style="display: block; margin: auto;" /></p>
 <p>As can be seen in the figure the architecture leverages of two standard containers (in orange). The first container is postgresql with postgis (<a href="https://hub.docker.com/r/mdillon/postgis/">mdillon/postgis</a>) which is used to store the database used by both BETY and PEcAn. The second containers is a messagebus, more specifically RabbitMQ (<a href="https://hub.docker.com/_/rabbitmq/">rabbitmq</a>).</p>
@@ -1039,7 +1038,7 @@ Once this is done you have a working instance of PEcAn.</p>
 <p>The model containers contain the actual models that are executed as well as small wrappers to make them work in the PEcAn framework. The containers will run the model based on the parameters received from the message bus and convert the outputs back to the standard PEcAn output format. Once the container is finished processing a message it will immediatly get the next message and start processing it.</p>
 </div>
 <div id="pecan-docker-compose" class="section level4">
-<h4><span class="header-section-number">2.1.3.9</span> PEcAn’s <code>docker-compose</code></h4>
+<h4><span class="header-section-number">2.1.2.13</span> PEcAn’s <code>docker-compose</code></h4>
 <p>The PEcAn Docker architecture is described in full by the PEcAn <code>docker-compose.yml</code> file.
 For full <code>docker-compose</code> syntax, see the <a href="https://docs.docker.com/compose/">official documentation</a>.</p>
 <p>This section describes the <a href="tutorialsdemos-and-how-tos.html#pecan-dc-structure">top-level structure</a> and each of the services, which are as follows:</p>
@@ -1338,7 +1337,7 @@ volumes:
       o: bind</code></pre>
 </div>
 <div id="pecan-dc-structure" class="section level4">
-<h4><span class="header-section-number">2.1.3.10</span> Top-level structure</h4>
+<h4><span class="header-section-number">2.1.2.14</span> Top-level structure</h4>
 <p>The root of the <code>docker-compose.yml</code> file contains three sections:</p>
 <ul>
 <li><p><code>services</code> – This is a list of services provided by the application, with each service corresponding to a container.
@@ -1373,7 +1372,7 @@ It is used by almost all of the services in the PEcAn stack, and is typically mo
 </ul>
 </div>
 <div id="pecan-dc-traefik" class="section level4">
-<h4><span class="header-section-number">2.1.3.11</span> <code>traefik</code></h4>
+<h4><span class="header-section-number">2.1.2.15</span> <code>traefik</code></h4>
 <p><a href="https://traefik.io/">Traefik</a> manages communication among the different PEcAn services and between PEcAn and the web.
 Among other things, <code>traefik</code> facilitates the setup of web access to each PEcAn service via common and easy-to-remember URLs.
 For instance, the following lines in the <code>web</code> service configure access to the PEcAn web interface via the URL <a href="http://localhost:8000/pecan/" class="uri">http://localhost:8000/pecan/</a> :</p>
@@ -1419,7 +1418,7 @@ For instance, the following lines in the <code>web</code> service configure acce
   - traefik:/config</code></pre>
 </div>
 <div id="pecan-dc-portainer" class="section level4">
-<h4><span class="header-section-number">2.1.3.12</span> <code>portainer</code></h4>
+<h4><span class="header-section-number">2.1.2.16</span> <code>portainer</code></h4>
 <p><a href="https://portainer.io/">portainer</a> is lightweight management UI that allows you to manage the docker host (or swarm). You can use this service to monitor the different containers, see the logfiles, and start and stop containers.</p>
 <p>The portainer service configuration looks like this:</p>
 <pre><code>portainer:
@@ -1440,7 +1439,7 @@ For instance, the following lines in the <code>web</code> service configure acce
 <p>Portainer is accessible by browsing to <code>localhost:8000/portainer/</code>. You can either set the password in the <code>.env</code> file (for an example see env.example) or you can use the web browser and go to the portainer url. If this is the first time it will ask for your password.</p>
 </div>
 <div id="pecan-dc-minio" class="section level4">
-<h4><span class="header-section-number">2.1.3.13</span> <code>minio</code></h4>
+<h4><span class="header-section-number">2.1.2.17</span> <code>minio</code></h4>
 <p><a href="https://github.com/minio/minio">Minio</a> is a service that provides access to the a folder on disk through a variety of protocols, including S3 buckets and web-based access.
 We mainly use Minio to facilitate access to PEcAn data using a web browser without the need for CLI tools.</p>
 <p>Our current configuration is as follows:</p>
@@ -1468,7 +1467,7 @@ Therefore, the recommended way to perform any file management tasks other than i
 <span class="co"># Now, you can move files between `/data` and `/localdir`, create new directories, etc.</span></code></pre>
 </div>
 <div id="pecan-dc-thredds" class="section level4">
-<h4><span class="header-section-number">2.1.3.14</span> <code>thredds</code></h4>
+<h4><span class="header-section-number">2.1.2.18</span> <code>thredds</code></h4>
 <p>This service allows PEcAn model outputs to be accessible via the <a href="https://www.unidata.ucar.edu/software/thredds/current/tds/">THREDDS data server (TDS)</a>.
 When the PEcAn stack is running, the catalog can be explored in a web browser at <a href="http://localhost:8000/thredds/catalog.html" class="uri">http://localhost:8000/thredds/catalog.html</a>.
 Specific output files can also be accessed from the command line via commands like the following:</p>
@@ -1490,7 +1489,7 @@ For additional information about the syntax of this file, see the extensive <a h
   - traefik.backend=thredds</code></pre>
 </div>
 <div id="pecan-dc-postgres" class="section level4">
-<h4><span class="header-section-number">2.1.3.15</span> <code>postgres</code></h4>
+<h4><span class="header-section-number">2.1.2.19</span> <code>postgres</code></h4>
 <p>This service provides a working PostGIS database.
 Our configuration is fairly straightforward:</p>
 <pre><code>postgres:
@@ -1509,7 +1508,7 @@ As mentioned above, the hostname of this service is just its name, i.e. <code>po
 </ul>
 </div>
 <div id="pecan-dc-rabbitmq" class="section level4">
-<h4><span class="header-section-number">2.1.3.16</span> <code>rabbitmq</code></h4>
+<h4><span class="header-section-number">2.1.2.20</span> <code>rabbitmq</code></h4>
 <p><a href="https://www.rabbitmq.com/">RabbitMQ</a> is a message broker service.
 In PEcAn, RabbitMQ functions as a task manager and scheduler, coordinating the execution of different tasks (such as running models and analyzing results) associated with the PEcAn workflow.</p>
 <p>Our configuration is as follows:</p>
@@ -1533,7 +1532,7 @@ In PEcAn, RabbitMQ functions as a task manager and scheduler, coordinating the e
 For production instances of PEcAn, we highly recommend changing these credentials to something more secure, and removing access to the RabbitMQ management console via Traefik.</p>
 </div>
 <div id="pecan-dc-bety" class="section level4">
-<h4><span class="header-section-number">2.1.3.17</span> <code>bety</code></h4>
+<h4><span class="header-section-number">2.1.2.21</span> <code>bety</code></h4>
 <p>This service operates the BETY web interface, which is effectively a web-based front-end to the PostgreSQL database.
 Unlike the <code>postgres</code> service, which contains all the data needed to run PEcAn models, this service is not essential to the PEcAn workflow.
 However, note that certain features of the PEcAn web interface do link to the BETY web interface and will not work if this container is not running.</p>
@@ -1555,7 +1554,7 @@ However, note that certain features of the PEcAn web interface do link to the BE
 <p>The BETY container Dockerfile is located in the root directory of the <a href="https://github.com/pecan/bety">BETY GitHub repository</a> (<a href="https://github.com/PecanProject/bety/blob/master/Dockerfile">direct link</a>).</p>
 </div>
 <div id="pecan-dc-docs" class="section level4">
-<h4><span class="header-section-number">2.1.3.18</span> <code>docs</code></h4>
+<h4><span class="header-section-number">2.1.2.22</span> <code>docs</code></h4>
 <p>This service will show the documentation for the version of PEcAn running as well as a homepage with links to all relevant endpoints. You can access this at <a href="http://localhost:8000/" class="uri">http://localhost:8000/</a>. You can find the documentation for PEcAn at <a href="http://localhost:8000/docs/pecan/" class="uri">http://localhost:8000/docs/pecan/</a>.</p>
 <p>Our current configuration is as follows:</p>
 <pre><code>docs:
@@ -1568,7 +1567,7 @@ However, note that certain features of the PEcAn web interface do link to the BE
   - traefik.backend=docs</code></pre>
 </div>
 <div id="pecan-dc-web" class="section level4">
-<h4><span class="header-section-number">2.1.3.19</span> <code>web</code></h4>
+<h4><span class="header-section-number">2.1.2.23</span> <code>web</code></h4>
 <p>This service runs the PEcAn web interface.
 It is effectively a thin wrapper around a standard Apache web server container from Docker Hub that installs some additional dependencies and copies over the necessary files from the PEcAn source code.</p>
 <p>Our configuration is as follows:</p>
@@ -1594,7 +1593,7 @@ It is effectively a thin wrapper around a standard Apache web server container f
 <p>In terms of <a href="#pecan-docker-develop">actively developing PEcAn using Docker</a>, this is the service to modify when making changes to the web interface (i.e. PHP, HTML, and JavaScript code located in the PEcAn <code>web</code> directory).</p>
 </div>
 <div id="pecan-dc-executor" class="section level4">
-<h4><span class="header-section-number">2.1.3.20</span> <code>executor</code></h4>
+<h4><span class="header-section-number">2.1.2.24</span> <code>executor</code></h4>
 <p>This service is in charge of running the R code underlying the core PEcAn workflow.
 However, it is <em>not</em> in charge of executing the models themselves – model binaries are located on their <a href="tutorialsdemos-and-how-tos.html#pecan-dc-models">own dedicated Docker containers</a>, and model execution is coordinated by RabbitMQ.</p>
 <p>Our configuration is as follows:</p>
@@ -1616,7 +1615,7 @@ To facilitate caching, the <code>pecan/base</code> image is itself built on top 
 Note that, unlike changes to the <code>web</code> image’s PHP code, changes to the R source code do not immediately propagate to the PEcAn container; instead, you have to re-compile the code by running <code>make</code> inside the container.</p>
 </div>
 <div id="pecan-dc-monitor" class="section level4">
-<h4><span class="header-section-number">2.1.3.21</span> <code>monitor</code></h4>
+<h4><span class="header-section-number">2.1.2.25</span> <code>monitor</code></h4>
 <p>This service will show all models that are currently running <a href="http://localhost:8000/monitor/" class="uri">http://localhost:8000/monitor/</a>. This list returned is JSON and shows all models (grouped by type and version) that are currently running, or where seen in the past. This list will also contain a list of all current active containers, as well as how many jobs are waiting to be processed.</p>
 <p>This service is also responsible for registering any new models with PEcAn so users can select it and execute the model from the web interface.</p>
 <p>Our current configuration is as follows:</p>
@@ -1636,7 +1635,7 @@ Note that, unlike changes to the <code>web</code> image’s PHP code, changes to
   volumes: pecan:/data</code></pre>
 </div>
 <div id="pecan-dc-models" class="section level4">
-<h4><span class="header-section-number">2.1.3.22</span> Model-specific containers</h4>
+<h4><span class="header-section-number">2.1.2.26</span> Model-specific containers</h4>
 <p>Additional models are added as additional services.
 In general, their configuration should be similar to the following configuration for SIPNET, which ships with PEcAn:</p>
 <pre><code>sipnet:
@@ -1651,7 +1650,7 @@ For additional tips on constructing a Dockerfile for your model, see <a href="tu
 
 </div>
 <div id="model-docker" class="section level4">
-<h4><span class="header-section-number">2.1.3.23</span> Models using Docker</h4>
+<h4><span class="header-section-number">2.1.2.27</span> Models using Docker</h4>
 <p>This section will discuss how to add new models to PEcAn docker. To be able to add a new model to PEcAn when using docker is as simple as starting a new container. The model will come online and let the PEcAn framework know there is a new model available, there is no need to go through the process of registering this model with PEcAn. Users will be able to select this new model from web interface and run with this model selected.</p>
 <p>For this process to work a docker image of the model will need to be created as well as small json file that is used to announce this new model. A separate service in PEcAn (<a href="tutorialsdemos-and-how-tos.html#pecan-dc-monitor"><code>monitor</code></a>) will use this json file to keep track of all models available as well as register these models with PEcAn.</p>
 <p><a href="tutorialsdemos-and-how-tos.html#model-docker-json-file">Model information</a>
@@ -1659,7 +1658,7 @@ For additional tips on constructing a Dockerfile for your model, see <a href="tu
 <a href="tutorialsdemos-and-how-tos.html#common-docker-problems">Common problems</a></p>
 </div>
 <div id="model-docker-json-file" class="section level4">
-<h4><span class="header-section-number">2.1.3.24</span> Model information</h4>
+<h4><span class="header-section-number">2.1.2.28</span> Model information</h4>
 <p>Each model will have a small json file called model_info.json that is used to describe the model and to used by the monitor service to register the model with PEcAn. This file will contain information about the model that is send as part of the heartbeat of the container to the monitor service. Below is an example of this file for the ED model. The required fields are <code>name</code>, <code>type</code>, <code>version</code> and <code>binary</code>. There are 2 special values that can be used, <code>@VERSION@</code> which will be replaced by the version that is passed in when building the container, and <code>@BINARY@</code> which will be replaced by the binary when building the docker image.</p>
 <pre class="sourceCode json"><code class="sourceCode json"><span class="fu">{</span>
   <span class="dt">&quot;name&quot;</span><span class="fu">:</span> <span class="st">&quot;ED2.2&quot;</span><span class="fu">,</span>
@@ -1684,7 +1683,7 @@ For additional tips on constructing a Dockerfile for your model, see <a href="tu
 - <code>citation</code> : how the model should be cited in publications.</p>
 </div>
 <div id="model-docker-Dockerfile" class="section level4">
-<h4><span class="header-section-number">2.1.3.25</span> Model build</h4>
+<h4><span class="header-section-number">2.1.2.29</span> Model build</h4>
 <p>In general we try to minimize the size of the images. To be able to do this we split the process of creating the building of the model images into two pieces (or leverage of an image that exists from the original model developers). If you look at the example Dockerfile you will see that there are 2 sections, the first section will build the model binary, the second section will build the actual PEcAn model, which copies the binary from the first section.</p>
 <p>This is an example of how the ED2 model is build. This will install all the packages needed to build ED2 model, gets the latest version from GitHub and builds the model.</p>
 <p>The second section will create the actual model runner. This will leverage the PEcAn model image that has PEcAn already installed as well as the python code to listen for messages and run the actual model code. This will install some additional packages needed by the model binary (more about that below), copy the model_info.json file and change the <code>@VERSION@</code> and <code>@BINARY@</code> placeholders.</p>
@@ -1782,11 +1781,11 @@ As such, <strong>variables depending on other variables must be set in a separat
     <span class="ex">pecan/model-ed2-git</span></code></pre>
 </div>
 <div id="common-docker-problems" class="section level4">
-<h4><span class="header-section-number">2.1.3.26</span> Common problems</h4>
+<h4><span class="header-section-number">2.1.2.30</span> Common problems</h4>
 <p>Following are some solutions for common problems that you might encounter when building the docker images for a model.</p>
 </div>
 <div id="debugging-missing-libraries" class="section level4">
-<h4><span class="header-section-number">2.1.3.27</span> Debugging missing libraries</h4>
+<h4><span class="header-section-number">2.1.2.31</span> Debugging missing libraries</h4>
 <p>When building the model binary it might require specific libraries to be installed. In the second stage the model binary is copied into a new image, which could result in the binary missing specific libraries. In the case of the ED2 model the following was used to find the libraries that are needed to be installed (libgfortran5 and libopenmpi3).</p>
 <p>The first step is to build the model using the Dockerfile (in this case the ap-get install was missing in the second stage).</p>
 <pre><code>Step 5/9 : RUN git clone https://github.com/EDmodel/ED2.git     &amp;&amp; cd ED2/ED/build     &amp;&amp; curl -o make/include.mk.VM http://isda.ncsa.illinois.edu/~kooper/EBI/include.mk.opt.`uname -s`     &amp;&amp; if [ &quot;${MODEL_VERSION}&quot; != &quot;git&quot; ]; then git checkout ${MODEL_VERSION}; fi     &amp;&amp; ./install.sh -g -p VM
@@ -1820,7 +1819,7 @@ Successfully tagged pecan/pecan-ed2:latest</code></pre>
 
 </div>
 <div id="docker-build-images" class="section level4">
-<h4><span class="header-section-number">2.1.3.28</span> Building and modifying images</h4>
+<h4><span class="header-section-number">2.1.2.32</span> Building and modifying images</h4>
 <p>The only other section on this page is:
 <a href="tutorialsdemos-and-how-tos.html#docker-local-devel">Local development and testing with Docker</a></p>
 <p>For general use, it is sufficient to use the pre-built PEcAn images hosted on <a href="https://hub.docker.com/r/pecan/">Docker Hub</a> (see <a href="tutorialsdemos-and-how-tos.html#docker-quickstart">Docker quickstart</a>).
@@ -1895,7 +1894,7 @@ The convention in PEcAn is to put Dockerfiles for core PEcAn functionality in <c
 </ul>
 </div>
 <div id="docker-local-devel" class="section level4">
-<h4><span class="header-section-number">2.1.3.29</span> Local development and testing with Docker</h4>
+<h4><span class="header-section-number">2.1.2.33</span> Local development and testing with Docker</h4>
 <p>The following is an example of one possible workflow for developing and testing PEcAn using local Docker images.
 The basic idea is to mount a local version of the PEcAn source code onto a running <code>pecan/executor</code> image, and then send a special “rebuild” RabbitMQ message to the container to trigger the rebuild whenever you make changes.
 NOTE: All commands assume you are working from the PEcAn source code root directory.</p>
@@ -1948,11 +1947,11 @@ This is required on the PNNL cluster because its servers’ IP addresses often c
         <span class="kw">-</span> <span class="fu">subnet:</span><span class="at"> 10.17.1.0/24</span></code></pre>
 
 </div>
+<div id="docker-troubleshooting" class="section level4">
+<h4><span class="header-section-number">2.1.2.34</span> Troubleshooting Docker</h4>
 </div>
-<div id="docker-troubleshooting" class="section level3">
-<h3><span class="header-section-number">2.1.4</span> Troubleshooting Docker</h3>
 <div id="package-not-available-while-building-images" class="section level4">
-<h4><span class="header-section-number">2.1.4.1</span> “Package not available” while building images</h4>
+<h4><span class="header-section-number">2.1.2.35</span> “Package not available” while building images</h4>
 <p><strong>PROBLEM</strong>: Packages fail to install while building <code>pecan/depends</code> and/or <code>pecan/base</code> with an error like the following:</p>
 <pre><code>Installing package into ‘/usr/local/lib/R/site-library’
 (as ‘lib’ is unspecified)
@@ -1969,12 +1968,12 @@ Then, build the image as usual.</p>
 
 </div>
 <div id="docker-migrate" class="section level4">
-<h4><span class="header-section-number">2.1.4.2</span> Migrating PEcAn from VM to Docker</h4>
+<h4><span class="header-section-number">2.1.2.36</span> Migrating PEcAn from VM to Docker</h4>
 <p>This document assumes you have read through the <a href="tutorialsdemos-and-how-tos.html#docker-intro">Introduction to Docker</a> as well as <a href="tutorialsdemos-and-how-tos.html#docker-quickstart">Docker quickstart</a> and have docker running on the VM.</p>
 <p>This document will slowly replace each of the components with the appropriate docker images. At then end of this document you should be able to use the docker-compose command to bring up the full docker stack as if you had started with this origianally.</p>
 </div>
 <div id="running-bety-as-a-docker-container" class="section level4">
-<h4><span class="header-section-number">2.1.4.3</span> Running BETY as a docker container</h4>
+<h4><span class="header-section-number">2.1.2.37</span> Running BETY as a docker container</h4>
 <p>This will replace the BETY application running on the machine with a docker image. This will assume you still have the database running on the local machine and the only thing we replace is the BETY application.</p>
 <p>If you are running systemd (Ubuntu 16.04 or Centos 7) you can copy the following file to /etc/systemd/system/bety.service (replace LOCAL_SERVER=99 with your actual server). If you have postgres running on another server replace 127.0.0.1 with the actual ip address of the postgres server.</p>
 <pre><code>[Unit]
@@ -2004,7 +2003,7 @@ systemctl start bety</code></pre>
 </div>
 </div>
 <div id="osinstall" class="section level3">
-<h3><span class="header-section-number">2.1.5</span> OS Specific Installations</h3>
+<h3><span class="header-section-number">2.1.3</span> OS Specific Installations</h3>
 <ul>
 <li><a href="tutorialsdemos-and-how-tos.html#ubuntu">Ubuntu</a></li>
 <li><a href="#centos/redhat">CentOS</a></li>
@@ -2015,11 +2014,11 @@ systemctl start bety</code></pre>
 </ul>
 
 <div id="ubuntu" class="section level4">
-<h4><span class="header-section-number">2.1.5.1</span> Ubuntu</h4>
+<h4><span class="header-section-number">2.1.3.1</span> Ubuntu</h4>
 <p>These are specific notes for installing PEcAn on Ubuntu (14.04) and will be referenced from the main <a href="Installing-PEcAn">installing PEcAn</a> page. You will at least need to install the build environment and Postgres sections. If you want to access the database/PEcAn using a web browser you will need to install Apache. To access the database using the BETY interface, you will need to have Ruby installed.</p>
 <p>This document also contains information on how to install the Rstudio server edition as well as any other packages that can be helpful.</p>
 <div id="install-build-environment" class="section level5">
-<h5><span class="header-section-number">2.1.5.1.1</span> Install build environment</h5>
+<h5><span class="header-section-number">2.1.3.1.1</span> Install build environment</h5>
 <pre class="sourceCode bash"><code class="sourceCode bash"><span class="fu">sudo</span> -s
 
 <span class="co"># point to latest R</span>
@@ -2051,7 +2050,7 @@ systemctl start bety</code></pre>
 <span class="bu">exit</span></code></pre>
 </div>
 <div id="install-postgres" class="section level5">
-<h5><span class="header-section-number">2.1.5.1.2</span> Install Postgres</h5>
+<h5><span class="header-section-number">2.1.3.1.2</span> Install Postgres</h5>
 <p>Documentation: <a href="http://trac.osgeo.org/postgis/wiki/UsersWikiPostGIS21UbuntuPGSQL93Apt" class="uri">http://trac.osgeo.org/postgis/wiki/UsersWikiPostGIS21UbuntuPGSQL93Apt</a></p>
 <pre class="sourceCode bash"><code class="sourceCode bash"><span class="fu">sudo</span> -s
 
@@ -2103,7 +2102,7 @@ Alias /pecan <span class="va">${HOME}</span>/pecan/web
 <span class="bu">exit</span></code></pre>
 </div>
 <div id="apache-configuration-bety" class="section level5">
-<h5><span class="header-section-number">2.1.5.1.3</span> Apache Configuration BETY</h5>
+<h5><span class="header-section-number">2.1.3.1.3</span> Apache Configuration BETY</h5>
 <pre class="sourceCode bash"><code class="sourceCode bash"><span class="fu">sudo</span> -s
 
 <span class="co"># install all ruby related packages</span>
@@ -2126,7 +2125,7 @@ PassengerRuby /usr/bin/ruby2.0
 <span class="ex">/etc/init.d/apache2</span> restart</code></pre>
 </div>
 <div id="rstudio-server" class="section level5">
-<h5><span class="header-section-number">2.1.5.1.4</span> Rstudio-server</h5>
+<h5><span class="header-section-number">2.1.3.1.4</span> Rstudio-server</h5>
 <p><em>NOTE This will allow anybody to login to the machine through the rstudio interface and run any arbitrary code. The login used however is the same as the system login/password.</em></p>
 <pre class="sourceCode bash"><code class="sourceCode bash"><span class="fu">wget</span> http://download2.rstudio.org/rstudio-server-0.98.1103-amd64.deb</code></pre>
 <pre class="sourceCode bash"><code class="sourceCode bash"><span class="co"># bceome root</span>
@@ -2156,18 +2155,18 @@ RedirectMatch permanent ^/rstudio$ /rstudio/
 <span class="bu">exit</span></code></pre>
 </div>
 <div id="additional-packages" class="section level5">
-<h5><span class="header-section-number">2.1.5.1.5</span> Additional packages</h5>
+<h5><span class="header-section-number">2.1.3.1.5</span> Additional packages</h5>
 <p>HDF5 Tools, netcdf, GDB and emacs</p>
 <pre class="sourceCode bash"><code class="sourceCode bash"><span class="fu">sudo</span> apt-get -y install hdf5-tools cdo nco netcdf-bin ncview gdb emacs ess nedit</code></pre>
 
 </div>
 </div>
 <div id="centosredhat-centosredhat" class="section level4">
-<h4><span class="header-section-number">2.1.5.2</span> CentOS/RedHat {#centos/redhat}</h4>
+<h4><span class="header-section-number">2.1.3.2</span> CentOS/RedHat {#centos/redhat}</h4>
 <p>These are specific notes for installing PEcAn on CentOS (7) and will be referenced from the main <a href="Installing-PEcAn">installing PEcAn</a> page. You will at least need to install the build environment and Postgres sections. If you want to access the database/PEcAn using a web browser you will need to install Apache. To access the database using the BETY interface, you will need to have Ruby installed.</p>
 <p>This document also contains information on how to install the Rstudio server edition as well as any other packages that can be helpful.</p>
 <div id="install-build-environment-1" class="section level5">
-<h5><span class="header-section-number">2.1.5.2.1</span> Install build environment</h5>
+<h5><span class="header-section-number">2.1.3.2.1</span> Install build environment</h5>
 <pre class="sourceCode bash"><code class="sourceCode bash"><span class="fu">sudo</span> -s
 
 <span class="co"># install packages needed for PEcAn</span>
@@ -2206,7 +2205,7 @@ RedirectMatch permanent ^/rstudio$ /rstudio/
 <span class="bu">echo</span> <span class="st">&quot;module load mpi&quot;</span> <span class="op">&gt;&gt;</span> ~/.bashrc
 <span class="ex">module</span> load mpi</code></pre>
 <div id="install-and-configure-postgresql-udunits2-netcdf" class="section level6">
-<h6><span class="header-section-number">2.1.5.2.1.1</span> Install and configure PostgreSQL, udunits2, NetCDF</h6>
+<h6><span class="header-section-number">2.1.3.2.1.1</span> Install and configure PostgreSQL, udunits2, NetCDF</h6>
 <pre class="sourceCode bash"><code class="sourceCode bash"><span class="fu">sudo</span> -s
 
 <span class="co"># point to latest PostgreSQL</span>
@@ -2236,7 +2235,7 @@ RedirectMatch permanent ^/rstudio$ /rstudio/
 </div>
 </div>
 <div id="apache-configuration-pecan" class="section level5">
-<h5><span class="header-section-number">2.1.5.2.2</span> Apache Configuration PEcAn</h5>
+<h5><span class="header-section-number">2.1.3.2.2</span> Apache Configuration PEcAn</h5>
 <p>Install and Start Apache</p>
 <pre class="sourceCode bash"><code class="sourceCode bash"><span class="ex">yum</span> -y install httpd
 <span class="ex">systemctl</span> enable httpd
@@ -2267,7 +2266,7 @@ Alias /pecan /home/carya/pecan/web
 <span class="bu">exit</span></code></pre>
 </div>
 <div id="apache-configuration-bety-1" class="section level5">
-<h5><span class="header-section-number">2.1.5.2.3</span> Apache Configuration BETY</h5>
+<h5><span class="header-section-number">2.1.3.2.3</span> Apache Configuration BETY</h5>
 <pre class="sourceCode bash"><code class="sourceCode bash"><span class="fu">sudo</span> -s
 
 <span class="co"># install all ruby related packages</span>
@@ -2296,7 +2295,7 @@ PassengerRuby /usr/bin/ruby
 <span class="ex">systemctl</span> restart httpd</code></pre>
 </div>
 <div id="rstudio-server-1" class="section level5">
-<h5><span class="header-section-number">2.1.5.2.4</span> Rstudio-server</h5>
+<h5><span class="header-section-number">2.1.3.2.4</span> Rstudio-server</h5>
 <p>NEED FIXING</p>
 <p><em>NOTE This will allow anybody to login to the machine through the rstudio interface and run any arbitrary code. The login used however is the same as the system login/password.</em></p>
 <pre class="sourceCode bash"><code class="sourceCode bash"><span class="fu">wget</span> http://download2.rstudio.org/rstudio-server-0.98.1103-amd64.deb</code></pre>
@@ -2328,7 +2327,7 @@ RedirectMatch permanent ^/rstudio$ /rstudio/
 <p><em>Alternative Rstudio instructions</em></p>
 </div>
 <div id="install-and-configure-rstudio-server" class="section level5">
-<h5><span class="header-section-number">2.1.5.2.5</span> Install and configure Rstudio-server</h5>
+<h5><span class="header-section-number">2.1.3.2.5</span> Install and configure Rstudio-server</h5>
 <p>Install RStudio Server by following the <a href="https://www.rstudio.com/products/rstudio/download-server/">official documentation</a> for your platform.
 Then, proceed with the following:</p>
 <ul>
@@ -2345,7 +2344,7 @@ Then, proceed with the following:</p>
 <li>now you should be able to access <code>http://&lt;server&gt;/rstudio</code></li>
 </ul>
 <div id="install-ruby-netcdf-gem" class="section level6">
-<h6><span class="header-section-number">2.1.5.2.5.1</span> Install ruby-netcdf gem</h6>
+<h6><span class="header-section-number">2.1.3.2.5.1</span> Install ruby-netcdf gem</h6>
 <pre class="sourceCode bash"><code class="sourceCode bash"><span class="bu">cd</span> <span class="va">$RUBY_APPLICATION_HOME</span>
 <span class="bu">export</span> <span class="va">$NETCDF_URL=</span>http://www.gfd-dennou.org/arch/ruby/products/ruby-netcdf/release/ruby-netcdf-0.6.6.tar.gz
 <span class="bu">export</span> <span class="va">$NETCDF_DIR=</span>/usr/local/netcdf
@@ -2366,7 +2365,7 @@ Then, proceed with the following:</p>
 </div>
 </div>
 <div id="additional-packages-1" class="section level5">
-<h5><span class="header-section-number">2.1.5.2.6</span> Additional packages</h5>
+<h5><span class="header-section-number">2.1.3.2.6</span> Additional packages</h5>
 <p>NEED FIXING</p>
 <p>HDF5 Tools, netcdf, GDB and emacs</p>
 <pre class="sourceCode bash"><code class="sourceCode bash"><span class="fu">sudo</span> apt-get -y install hdf5-tools cdo nco netcdf-bin ncview gdb emacs ess nedit</code></pre>
@@ -2374,11 +2373,11 @@ Then, proceed with the following:</p>
 </div>
 </div>
 <div id="macosx" class="section level4">
-<h4><span class="header-section-number">2.1.5.3</span> Mac OSX</h4>
+<h4><span class="header-section-number">2.1.3.3</span> Mac OSX</h4>
 <p>These are specific notes for installing PEcAn on Mac OSX and will be referenced from the main <a href="Installing-PEcAn">installing PEcAn</a> page. You will at least need to install the build environment and Postgres sections. If you want to access the database/PEcAn using a web browser you will need to install Apache. To access the database using the BETY interface, you will need to have Ruby installed.</p>
 <p>This document also contains information on how to install the Rstudio server edition as well as any other packages that can be helpful.</p>
 <div id="install-build-environment-2" class="section level5">
-<h5><span class="header-section-number">2.1.5.3.1</span> Install build environment</h5>
+<h5><span class="header-section-number">2.1.3.3.1</span> Install build environment</h5>
 <pre class="sourceCode bash"><code class="sourceCode bash"><span class="co"># install R</span>
 <span class="co"># download from http://cran.r-project.org/bin/macosx/</span>
 
@@ -2413,7 +2412,7 @@ Then, proceed with the following:</p>
 <span class="bu">cd</span> ..</code></pre>
 </div>
 <div id="install-postgres-1" class="section level5">
-<h5><span class="header-section-number">2.1.5.3.2</span> Install Postgres</h5>
+<h5><span class="header-section-number">2.1.3.3.2</span> Install Postgres</h5>
 <p>For those on a Mac I use the following app for postgresql which has
 postgis already installed (<a href="http://postgresapp.com/" class="uri">http://postgresapp.com/</a>)</p>
 <p>To get postgis run the following commands in psql:</p>
@@ -2428,13 +2427,13 @@ postgis already installed (<a href="http://postgresapp.com/" class="uri">http://
 <p>To check your postgis run the following command again in psql: <code>SELECT PostGIS_full_version();</code></p>
 </div>
 <div id="additional-installs" class="section level5">
-<h5><span class="header-section-number">2.1.5.3.3</span> Additional installs</h5>
+<h5><span class="header-section-number">2.1.3.3.3</span> Additional installs</h5>
 <div id="install-jags" class="section level6">
-<h6><span class="header-section-number">2.1.5.3.3.1</span> Install JAGS</h6>
+<h6><span class="header-section-number">2.1.3.3.3.1</span> Install JAGS</h6>
 <p>Download JAGS from <a href="http://sourceforge.net/projects/mcmc-jags/files/JAGS/3.x/Mac%20OS%20X/JAGS-Mavericks-3.4.0.dmg/download">http://sourceforge.net/projects/mcmc-jags/files/JAGS/3.x/Mac%20OS%20X/JAGS-Mavericks-3.4.0.dmg/download</a></p>
 </div>
 <div id="install-udunits" class="section level6">
-<h6><span class="header-section-number">2.1.5.3.3.2</span> Install udunits</h6>
+<h6><span class="header-section-number">2.1.3.3.3.2</span> Install udunits</h6>
 <p>Installing udunits-2 on MacOSX is done from source.</p>
 <ul>
 <li>download most recent <a href="http://www.unidata.ucar.edu/downloads/udunits/index.jsp">version of Udunits here</a></li>
@@ -2449,7 +2448,7 @@ postgis already installed (<a href="http://postgresapp.com/" class="uri">http://
 </div>
 </div>
 <div id="apache-configuration" class="section level5">
-<h5><span class="header-section-number">2.1.5.3.4</span> Apache Configuration</h5>
+<h5><span class="header-section-number">2.1.3.3.4</span> Apache Configuration</h5>
 <p>Mac does not support pdo/postgresql by default. The easiest way to install is use: <a href="http://php-osx.liip.ch/" class="uri">http://php-osx.liip.ch/</a></p>
 <p>To enable pecan to run from your webserver.</p>
 <pre class="sourceCode bash"><code class="sourceCode bash"><span class="fu">cat</span> <span class="op">&gt;</span> /etc/apache2/others/pecan.conf <span class="op">&lt;&lt; EOF</span>
@@ -2462,23 +2461,23 @@ Alias /pecan <span class="va">${PWD}</span>/pecan/web
 <span class="op">EOF</span></code></pre>
 </div>
 <div id="ruby" class="section level5">
-<h5><span class="header-section-number">2.1.5.3.5</span> Ruby</h5>
+<h5><span class="header-section-number">2.1.3.3.5</span> Ruby</h5>
 <p>The default version of ruby should work. Or use <a href="https://jewelrybox.unfiniti.com/">JewelryBox</a>.</p>
 </div>
 <div id="rstudio-server-2" class="section level5">
-<h5><span class="header-section-number">2.1.5.3.6</span> Rstudio Server</h5>
+<h5><span class="header-section-number">2.1.3.3.6</span> Rstudio Server</h5>
 <p>For the mac you can download <a href="http://www.rstudio.com/">Rstudio Desktop</a>.</p>
 
 </div>
 </div>
 <div id="install-bety" class="section level4">
-<h4><span class="header-section-number">2.1.5.4</span> Installing BETY</h4>
+<h4><span class="header-section-number">2.1.3.4</span> Installing BETY</h4>
 <p>**************THIS PAGE IS DEPRECATED*************</p>
 <p>Official Instructions for BETY are maintained here: <a href="https://pecan.gitbook.io/betydb-documentation" class="uri">https://pecan.gitbook.io/betydb-documentation</a></p>
 <p>If you would like to install the Docker Version of BETY, please consult the <a href="tutorialsdemos-and-how-tos.html#pecan-docker">PEcAn Docker</a> section.</p>
 </div>
 <div id="install-database-data" class="section level4">
-<h4><span class="header-section-number">2.1.5.5</span> Install Database + Data</h4>
+<h4><span class="header-section-number">2.1.3.5</span> Install Database + Data</h4>
 <ul>
 <li><em>note</em> To install BETYdb without PEcAn, first download the <a href="https://raw.githubusercontent.com/PecanProject/pecan/master/scripts/load.bety.sh"><code>load.bety.sh</code> script</a></li>
 </ul>
@@ -2503,14 +2502,14 @@ Alias /pecan <span class="va">${PWD}</span>/pecan/web
 <span class="fu">chmod</span> 777 ~/output</code></pre>
 </div>
 <div id="installing-betydb-web-application" class="section level4">
-<h4><span class="header-section-number">2.1.5.6</span> Installing BETYdb Web Application</h4>
+<h4><span class="header-section-number">2.1.3.6</span> Installing BETYdb Web Application</h4>
 <p>There are two flavors of BETY, PHP and RUBY. The PHP version allows for a minimal interaction with the database while the RUBY version allows for full interaction with the database.</p>
 <div id="php-version" class="section level5">
-<h5><span class="header-section-number">2.1.5.6.1</span> PHP version</h5>
+<h5><span class="header-section-number">2.1.3.6.1</span> PHP version</h5>
 <p>The php version comes with PEcAn and is already configured.</p>
 </div>
 <div id="ruby-version" class="section level5">
-<h5><span class="header-section-number">2.1.5.6.2</span> RUBY version</h5>
+<h5><span class="header-section-number">2.1.3.6.2</span> RUBY version</h5>
 <p>The RUBY version requires a few extra packages to be installed first.</p>
 <p>Next we install the web app.</p>
 <pre class="sourceCode bash"><code class="sourceCode bash"><span class="co"># install bety</span>
@@ -2556,7 +2555,7 @@ REST_AUTH_DIGEST_STRETCHES = 10
 </div>
 </div>
 <div id="install-models" class="section level4">
-<h4><span class="header-section-number">2.1.5.7</span> Install Models</h4>
+<h4><span class="header-section-number">2.1.3.7</span> Install Models</h4>
 <p>This page contains instructions on how to download and install ecosystem models that have been or are being coupled to PEcAn.
 These instructions have been tested on the PEcAn unbuntu VM. Commands may vary on other operating systems.
 Also, some model downloads require permissions before downloading, making them unavailable to the general public. Please contact the PEcAn team if you would like access to a model that is not already installed on the default PEcAn VM.</p>
@@ -2576,7 +2575,7 @@ Also, some model downloads require permissions before downloading, making them u
 
 </div>
 <div id="inst-biocro" class="section level4">
-<h4><span class="header-section-number">2.1.5.8</span> BioCro</h4>
+<h4><span class="header-section-number">2.1.3.8</span> BioCro</h4>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Public</span>
 echo <span class="st">&#39;devtools::install_github(&quot;ebimodeling/biocro&quot;)&#39;</span> <span class="op">|</span><span class="st"> </span>R <span class="op">--</span>vanilla
 <span class="co"># Development:</span>
@@ -2585,7 +2584,7 @@ echo <span class="st">&#39;devtools::install_github(&quot;ebimodeling/biocro-dev
 
 </div>
 <div id="inst-clm45" class="section level4">
-<h4><span class="header-section-number">2.1.5.9</span> CLM 4.5</h4>
+<h4><span class="header-section-number">2.1.3.9</span> CLM 4.5</h4>
 <p>The version of CLM installed on PEcAn is the ORNL branch provided by Dan Ricciuto. This version includes Dan’s point-level CLM processing scripts</p>
 <p>Download the code (~300M compressed), input data (1.7GB compressed and expands to 14 GB), and a few misc inputs.</p>
 <pre class="sourceCode bash"><code class="sourceCode bash"><span class="fu">mkdir</span> models
@@ -2627,7 +2626,7 @@ echo <span class="st">&#39;devtools::install_github(&quot;ebimodeling/biocro-dev
 <pre class="sourceCode bash"><code class="sourceCode bash"><span class="bu">cd</span> ~/carya/models/clm4_5_1_r085/scripts
 <span class="ex">python</span> runCLM.py --site US-UMB ––compset I1850CLM45CN --mach ubuntu --ccsm_input /home/carya/models/ccsm_inputdata --tstep 1 --nopointdata --coldstart --cpl_bypass --clean_build</code></pre>
 <div id="clm-test-run" class="section level5">
-<h5><span class="header-section-number">2.1.5.9.1</span> CLM Test Run</h5>
+<h5><span class="header-section-number">2.1.3.9.1</span> CLM Test Run</h5>
 <p>You will see a new directory in scripts: US-UMB_I1850CLM45CN
 Enter this directory and run (you shouldn’t have to do this normally, but there is a bug with the python script and doing this ensures all files get to the right place):</p>
 <pre class="sourceCode bash"><code class="sourceCode bash"><span class="ex">./US-UMB_I1850CLM45CN.build</span></code></pre>
@@ -2645,7 +2644,7 @@ These are netcdf files containing monthly averages of lots of variables.</p>
 </div>
 </div>
 <div id="inst-dalec" class="section level4">
-<h4><span class="header-section-number">2.1.5.10</span> DALEC</h4>
+<h4><span class="header-section-number">2.1.3.10</span> DALEC</h4>
 <pre class="sourceCode bash"><code class="sourceCode bash"><span class="bu">cd</span>
 <span class="ex">curl</span> -o dalec_EnKF_pub.tgz http://isda.ncsa.illinois.edu/~kooper/EBI/dalec_EnKF_pub.tgz
 <span class="fu">tar</span> zxf dalec_EnKF_pub.tgz
@@ -2658,9 +2657,9 @@ These are netcdf files containing monthly averages of lots of variables.</p>
 
 </div>
 <div id="inst-ed2" class="section level4">
-<h4><span class="header-section-number">2.1.5.11</span> ED2</h4>
+<h4><span class="header-section-number">2.1.3.11</span> ED2</h4>
 <div id="ed2.2-r46-used-in-pecan-manuscript" class="section level5">
-<h5><span class="header-section-number">2.1.5.11.1</span> ED2.2 r46 (used in PEcAn manuscript)</h5>
+<h5><span class="header-section-number">2.1.3.11.1</span> ED2.2 r46 (used in PEcAn manuscript)</h5>
 <pre class="sourceCode bash"><code class="sourceCode bash"><span class="co"># ----------------------------------------------------------------------</span>
 <span class="co"># Get version r46 with a few patches for ubuntu</span>
 <span class="bu">cd</span>
@@ -2686,7 +2685,7 @@ These are netcdf files containing monthly averages of lots of variables.</p>
 <span class="bu">time</span> ed2.r46</code></pre>
 </div>
 <div id="ed-2.2-r82" class="section level5">
-<h5><span class="header-section-number">2.1.5.11.2</span> ED 2.2 r82</h5>
+<h5><span class="header-section-number">2.1.3.11.2</span> ED 2.2 r82</h5>
 <pre class="sourceCode bash"><code class="sourceCode bash"><span class="bu">cd</span>
 <span class="ex">curl</span> -o ED.r82.tgz http://isda.ncsa.illinois.edu/~kooper/EBI/ED.r82.tgz
 <span class="fu">tar</span> zxf ED.r82.tgz
@@ -2710,7 +2709,7 @@ These are netcdf files containing monthly averages of lots of variables.</p>
 <span class="bu">time</span> ed2.r82</code></pre>
 </div>
 <div id="ed-2.2-bleeding-edge" class="section level5">
-<h5><span class="header-section-number">2.1.5.11.3</span> ED 2.2 bleeding edge</h5>
+<h5><span class="header-section-number">2.1.3.11.3</span> ED 2.2 bleeding edge</h5>
 <pre class="sourceCode bash"><code class="sourceCode bash"><span class="bu">cd</span>
 <span class="fu">git</span> clone https://github.com/EDmodel/ED2.git
 
@@ -2723,7 +2722,7 @@ These are netcdf files containing monthly averages of lots of variables.</p>
 </div>
 </div>
 <div id="inst-fates" class="section level4">
-<h4><span class="header-section-number">2.1.5.12</span> CLM-FATES</h4>
+<h4><span class="header-section-number">2.1.3.12</span> CLM-FATES</h4>
 <p>Prerequisites</p>
 <pre><code>sudo apt-get upgrade libnetcdf-dev
 sudo apt-get install subversion
@@ -2751,7 +2750,7 @@ cd ed-clm/cime/scripts/</code></pre>
 
 </div>
 <div id="inst-gday" class="section level4">
-<h4><span class="header-section-number">2.1.5.13</span> GDAY</h4>
+<h4><span class="header-section-number">2.1.3.13</span> GDAY</h4>
 <p>Navigate to a directory you would like to store GDAY and run the following:</p>
 <pre class="sourceCode bash"><code class="sourceCode bash"><span class="fu">git</span> clone https://github.com/mdekauwe/GDAY.git
 
@@ -2764,7 +2763,7 @@ cd ed-clm/cime/scripts/</code></pre>
 
 </div>
 <div id="inst-jules" class="section level4">
-<h4><span class="header-section-number">2.1.5.14</span> JULES</h4>
+<h4><span class="header-section-number">2.1.3.14</span> JULES</h4>
 <p>INSTALL STEPS:
 1) Download JULES and FCM
 JULES:
@@ -2799,14 +2798,14 @@ Registration: <a href="http://jules-lsm.github.io/access_req/JULES_access.html" 
 
 </div>
 <div id="inst-linkages" class="section level4">
-<h4><span class="header-section-number">2.1.5.15</span> LINKAGES</h4>
+<h4><span class="header-section-number">2.1.3.15</span> LINKAGES</h4>
 <div id="r-installation" class="section level5">
-<h5><span class="header-section-number">2.1.5.15.1</span> R Installation</h5>
+<h5><span class="header-section-number">2.1.3.15.1</span> R Installation</h5>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Public</span>
 echo <span class="st">&#39;devtools::install_github(&quot;araiho/linkages_package&quot;)&#39;</span> <span class="op">|</span><span class="st"> </span>R <span class="op">--</span>vanilla</code></pre>
 </div>
 <div id="fortran-version" class="section level5">
-<h5><span class="header-section-number">2.1.5.15.2</span> FORTRAN VERSION</h5>
+<h5><span class="header-section-number">2.1.3.15.2</span> FORTRAN VERSION</h5>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="co">#FORTRAN VERSION</span>
 cd
 git clone https<span class="op">:</span><span class="er">//</span>github.com<span class="op">/</span>araiho<span class="op">/</span>Linkages.git
@@ -2817,13 +2816,13 @@ sudo cp linkages <span class="op">/</span>usr<span class="op">/</span>local<span
 </div>
 </div>
 <div id="inst-lpj-guess" class="section level4">
-<h4><span class="header-section-number">2.1.5.16</span> LPJ-GUESS</h4>
+<h4><span class="header-section-number">2.1.3.16</span> LPJ-GUESS</h4>
 <p>Instructions to download source code</p>
 <p>Go to <a href="http://web.nateko.lu.se/lpj-guess/download.html">LPJ-GUESS website</a> for instructions to access code.</p>
 
 </div>
 <div id="inst-maespa" class="section level4">
-<h4><span class="header-section-number">2.1.5.17</span> MAESPA</h4>
+<h4><span class="header-section-number">2.1.3.17</span> MAESPA</h4>
 <p>Navigate to a directory you would like store MAESPA and run the following:</p>
 <pre class="sourceCode bash"><code class="sourceCode bash"><span class="fu">git</span> clone https://bitbucket.org/remkoduursma/maespa.git
 
@@ -2833,14 +2832,14 @@ sudo cp linkages <span class="op">/</span>usr<span class="op">/</span>local<span
 <p><code>maespa.out</code> is your executable. Example input files can be found in the <code>inpufiles</code> directory. Executing measpa.out from within one of the example directories will produce output.</p>
 <p>MAESPA developers have also developed a wrapper package called Maeswrap. The usual R package installation method <code>install.packages</code> may present issues with downloading an unpacking a dependency package called <code>rgl</code>. Here are a couple of solutions:</p>
 <div id="solution-1" class="section level5">
-<h5><span class="header-section-number">2.1.5.17.1</span> Solution 1</h5>
+<h5><span class="header-section-number">2.1.3.17.1</span> Solution 1</h5>
 <pre class="sourceCode bash"><code class="sourceCode bash"><span class="co">### From the Command Line</span>
 <span class="fu">sudo</span> apt-get install r-cran-rgl</code></pre>
 <p>then from within R</p>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="kw">install.packages</span>(<span class="st">&quot;Maeswrap&quot;</span>)</code></pre>
 </div>
 <div id="solution-2" class="section level5">
-<h5><span class="header-section-number">2.1.5.17.2</span> Solution 2</h5>
+<h5><span class="header-section-number">2.1.3.17.2</span> Solution 2</h5>
 <pre class="sourceCode bash"><code class="sourceCode bash"><span class="co">### From the Command line </span>
 <span class="fu">sudo</span> apt-get install libglu1-mesa-dev</code></pre>
 <p>then from within R</p>
@@ -2849,7 +2848,7 @@ sudo cp linkages <span class="op">/</span>usr<span class="op">/</span>local<span
 </div>
 </div>
 <div id="sipnet-inst-sipnet" class="section level4">
-<h4><span class="header-section-number">2.1.5.18</span> SIPNET {inst-sipnet}</h4>
+<h4><span class="header-section-number">2.1.3.18</span> SIPNET {inst-sipnet}</h4>
 <pre class="sourceCode bash"><code class="sourceCode bash"><span class="bu">cd</span>
 <span class="ex">curl</span> -o sipnet_unk.tar.gz http://isda.ncsa.illinois.edu/~kooper/EBI/sipnet_unk.tar.gz
 <span class="fu">tar</span> zxf sipnet_unk.tar.gz
@@ -2859,7 +2858,7 @@ sudo cp linkages <span class="op">/</span>usr<span class="op">/</span>local<span
 <span class="fu">make</span>
 <span class="fu">sudo</span> cp sipnet /usr/local/bin/sipnet.runk</code></pre>
 <div id="sipnet-testrun" class="section level5">
-<h5><span class="header-section-number">2.1.5.18.1</span> SIPNET testrun</h5>
+<h5><span class="header-section-number">2.1.3.18.1</span> SIPNET testrun</h5>
 <pre class="sourceCode bash"><code class="sourceCode bash"><span class="bu">cd</span>
 <span class="ex">curl</span> -o testrun.sipnet.tar.gz http://isda.ncsa.illinois.edu/~kooper/EBI/testrun.sipnet.tar.gz
 <span class="fu">tar</span> zxf testrun.sipnet.tar.gz
@@ -2870,10 +2869,10 @@ sudo cp linkages <span class="op">/</span>usr<span class="op">/</span>local<span
 </div>
 </div>
 <div id="install-data" class="section level4">
-<h4><span class="header-section-number">2.1.5.19</span> Installing data for PEcAn</h4>
+<h4><span class="header-section-number">2.1.3.19</span> Installing data for PEcAn</h4>
 <p>PEcAn assumes some of the data to be installed on the machine. This page will describe how to install this data.</p>
 <div id="site-information" class="section level5">
-<h5><span class="header-section-number">2.1.5.19.1</span> Site Information</h5>
+<h5><span class="header-section-number">2.1.3.19.1</span> Site Information</h5>
 <p>These are large-ish files that contain data used with ED2 and SIPNET</p>
 <pre class="sourceCode bash"><code class="sourceCode bash"><span class="fu">rm</span> -rf sites
 <span class="ex">curl</span> -o sites.tgz http://isda.ncsa.illinois.edu/~kooper/EBI/sites.tgz
@@ -2887,7 +2886,7 @@ sudo cp linkages <span class="op">/</span>usr<span class="op">/</span>local<span
 <span class="fu">rm</span> inputs.tgz</code></pre>
 </div>
 <div id="fia-database" class="section level5">
-<h5><span class="header-section-number">2.1.5.19.2</span> FIA database</h5>
+<h5><span class="header-section-number">2.1.3.19.2</span> FIA database</h5>
 <p>FIA database is large and will add an extra 10GB to the installation.</p>
 <pre class="sourceCode bash"><code class="sourceCode bash"><span class="co"># download and install database</span>
 <span class="ex">curl</span> -o fia5data.psql.gz http://isda.ncsa.illinois.edu/~kooper/EBI/fia5data.psql.gz
@@ -2898,7 +2897,7 @@ sudo cp linkages <span class="op">/</span>usr<span class="op">/</span>local<span
 <span class="fu">rm</span> fia5data.psql</code></pre>
 </div>
 <div id="flux-camp" class="section level5">
-<h5><span class="header-section-number">2.1.5.19.3</span> Flux Camp</h5>
+<h5><span class="header-section-number">2.1.3.19.3</span> Flux Camp</h5>
 <p>Following will install the data for flux camp (as well as the demo script for PEcAn).</p>
 <pre class="sourceCode bash"><code class="sourceCode bash"><span class="bu">cd</span>
 <span class="ex">curl</span> -o plot.tgz http://isda.ncsa.illinois.edu/~kooper/EBI/plot.tgz
@@ -2906,7 +2905,7 @@ sudo cp linkages <span class="op">/</span>usr<span class="op">/</span>local<span
 <span class="fu">rm</span> plot.tgz</code></pre>
 </div>
 <div id="harvard-for-ed-tutorial" class="section level5">
-<h5><span class="header-section-number">2.1.5.19.4</span> Harvard for ED tutorial</h5>
+<h5><span class="header-section-number">2.1.3.19.4</span> Harvard for ED tutorial</h5>
 <p>Add datasets and runs</p>
 <pre class="sourceCode bash"><code class="sourceCode bash"><span class="ex">curl</span> -o Santarem_Km83.zip http://isda.ncsa.illinois.edu/~kooper/EBI/Santarem_Km83.zip
 <span class="fu">unzip</span> -d sites Santarem_Km83.zip
