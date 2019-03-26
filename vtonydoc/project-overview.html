@@ -5,11 +5,11 @@
 
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>The Predictive Ecosystem Analyzer</title>
-  <meta name="description" content="The Predictive Ecosystem Analyzer">
+  <title>1 Project Overview | The Predictive Ecosystem Analyzer</title>
+  <meta name="description" content="1 Project Overview | The Predictive Ecosystem Analyzer">
   <meta name="generator" content="bookdown  and GitBook 2.6.7">
 
-  <meta property="og:title" content="The Predictive Ecosystem Analyzer" />
+  <meta property="og:title" content="1 Project Overview | The Predictive Ecosystem Analyzer" />
   <meta property="og:type" content="book" />
   
   
@@ -17,7 +17,7 @@
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="The Predictive Ecosystem Analyzer" />
+  <meta name="twitter:title" content="1 Project Overview | The Predictive Ecosystem Analyzer" />
   
   
   
@@ -32,8 +32,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
   
   
-
-<link rel="next" href="project-overview.html">
+<link rel="prev" href="index.html">
+<link rel="next" href="contributor-covenant-code-of-conduct.html">
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -328,7 +328,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="4.20" data-path="pecan-manual-setup.html"><a href="pecan-manual-setup.html#data-assimilation-with-dart"><i class="fa fa-check"></i><b>4.20</b> Data assimilation with DART</a></li>
 </ul></li>
 <li class="part"><span><b>IV Appendix</b></span><ul>
-<li class="chapter" data-level="4.21" data-path="index.html"><a href="#todo"><i class="fa fa-check"></i><b>4.21</b> TODO:</a></li>
+<li class="chapter" data-level="4.21" data-path="01_introduction/01_project_overview.html"><a href="#todo"><i class="fa fa-check"></i><b>4.21</b> TODO:</a></li>
 <li class="chapter" data-level="4.22" data-path="pecan-manual-setup.html"><a href="pecan-manual-setup.html#faq"><i class="fa fa-check"></i><b>4.22</b> FAQ</a></li>
 </ul></li>
 </ul>
@@ -348,31 +348,66 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="header">
-<h1 class="title">The Predictive Ecosystem Analyzer</h1>
-<p class="author"><em>By: PEcAn Team</em></p>
-<p class="date"><em>2019-03-26</em></p>
-</div>
-<div id="welcome" class="section level1 unnumbered">
-<h1>Welcome</h1>
-<p><strong>Ecosystem science, policy, and management informed by the best available data and models</strong></p>
-<p><img src="figures/PecanLogo.png" width="50%" height="50%" style="display: block; margin: auto;" /></p>
-<p><strong>Our Mission:</strong></p>
-<p><strong>Develop and promote accessible tools for reproducible ecosystem modeling and forecasting</strong></p>
-<p><a href="http://pecanproject.github.io/">PEcAn Website</a></p>
-<p><a href="https://join.slack.com/t/pecanproject/shared_invite/enQtMzkyODUyMjQyNTgzLTYyZTZiZWQ4NGE1YWU3YWIyMTVmZjEyYzA3OWJhYTZmOWQwMDkwZGU0Mjc4Nzk0NGYwYTIyM2RiZmMyNjg5MTE">Public Chat Room</a></p>
-<p><a href="https://github.com/PecanProject/pecan">Github Repository</a></p>
-<html>
-<head>
-<style>
-.page-inner{max-width:80% !important;}
-</style>
-</head>
-</html>
-
-</div>
-
-
+<div id="project-overview" class="section level1">
+<h1><span class="header-section-number">1</span> Project Overview</h1>
+<p>The Predictive Ecosystem Analyzer (PEcAn) is an integrated informatics toolbox for ecosystem modeling (Dietze et al. 2013, LeBauer et al. 2013). PEcAn consists of:</p>
+<ol style="list-style-type: decimal">
+<li><p>An application program interface (API) that encapsulates an ecosystem model, providing a common interface, inputs, and output.</p></li>
+<li><p>Core utilities for handling and tracking model runs and the flows of information and uncertainties into and out of models and analyses</p></li>
+<li><p>An accessible web-based user interface and visualization tools</p></li>
+<li><p>An extensible collection of modules to handle specific types of analyses (sensitivity, uncertainty, ensemble), model-data syntheses (benchmarking, parameter data assimilation, state data assimilation), and data processing (model inputs and data constraints)</p></li>
+</ol>
+<p><img src="figures/PEcAn_Components.jpeg" width="335" style="display: block; margin: auto;" /></p>
+<p>This project is motivated by the fact that many of the most pressing questions about global change are limited by our ability to synthesize existing data and strategically prioritize the collection of new data. This project seeks to improve this ability by developing a framework for integrating multiple data sources in a sensible manner.</p>
+<p>The workflow system allows ecosystem modeling to be more reproducible, automated, and transparent in terms of operations applied to data, and thus ultimately more comprehensible to both peers and the public. It reduces the redundancy of effort among modeling groups, facilitate collaboration, and make models more accessible the rest of the research community.</p>
+<p>PEcAn is not itself an ecosystem model, and it can be used to with a variety of different ecosystem models; integrating a model involves writing a wrapper to convert inputs and outputs to and from the standards used by PEcAn. Currently, PEcAn supports multiple models listed <a href="pecan-manual-setup.html#pecan-models">PEcAn Models</a>.</p>
+<p><strong>Acknowledgements</strong></p>
+<p>The PEcAn project is supported financially by the following:</p>
+<ul>
+<li>National Science Foundation (NSF):
+<ul>
+<li><a href="https://www.nsf.gov/awardsearch/showAward?AWD_ID=1062547">1062547</a></li>
+<li><a href="https://www.nsf.gov/awardsearch/showAward?AWD_ID=1062204">1062204</a></li>
+<li><a href="https://www.nsf.gov/awardsearch/showAward?AWD_ID=1241894">1241894</a></li>
+<li><a href="https://www.nsf.gov/awardsearch/showAward?AWD_ID=1261582">1261582</a></li>
+<li><a href="https://www.nsf.gov/awardsearch/showAward?AWD_ID=1318164">1318164</a></li>
+<li><a href="https://www.nsf.gov/awardsearch/showAward?AWD_ID=1346748">1346748</a></li>
+<li><a href="https://www.nsf.gov/awardsearch/showAward?AWD_ID=1458021">1458021</a></li>
+<li><a href="https://www.nsf.gov/awardsearch/showAward?AWD_ID=1638577">1638577</a></li>
+<li><a href="https://www.nsf.gov/awardsearch/showAward?AWD_ID=1655095">1655095</a></li>
+<li><a href="https://www.nsf.gov/awardsearch/showAward?AWD_ID=1702996">1702996</a></li>
+</ul></li>
+<li>National Aeronautics and Space Administration (NASA)
+<ul>
+<li>NNX14AH65G</li>
+<li>NNX16AO13H</li>
+<li>80NSSC17K0711</li>
+</ul></li>
+<li>Department of Defense, Strategic Environmental Research and Development Program (DOD-SERDP), grant <a href="https://www.serdp-estcp.org/Program-Areas/Resource-Conservation-and-Resiliency/Infrastructure-Resiliency/Vulnerability-and-Impact-Assessment/RC-2636/RC-2636">RC2636</a></li>
+<li>Energy Biosciences Institute, University of Illinois</li>
+<li>Amazon Web Services (AWS)</li>
+<li><a href="https://summerofcode.withgoogle.com/organizations/4612291316678656/">Google Summer of Code</a></li>
+</ul>
+<p>BETY-db is a product of the Energy Biosciences Institute at the University of Illinois at Urbana-Champaign. We gratefully acknowledge the great effort of other researchers who generously made their own data available for further study.</p>
+<p>PEcAn is a collaboration among research groups at the Department of Earth And Environment at Boston University, the Energy Biosciences Institute at the University of Illinois, the Image Spatial Data Analysis group at NCSA, the Department of Atmospheric &amp; Oceanic Sciences at the University Wisconsin-Madison, the Terrestrial Ecosystem Science &amp; Technology (TEST) Group at Brookhaven National Laboratory, and the Joint Global Change Research Institute (JGCRI) at the Pacific Northwest National Laboratory.</p>
+<p>Any opinions, findings, and conclusions or recommendations expressed in this material are those of the author(s) and do not necessarily reflect the views of the NSF, NASA, Boston University, University of Illinois, Brookhaven National Lab, Pacific National Lab, Battelle, the US Department of Defense, or the US Department of Energy.</p>
+<p><strong>PEcAn Publications</strong></p>
+<ul>
+<li>Fer I, R Kelly, P Moorcroft, AD Richardson, E Cowdery, MC Dietze. 2018. Linking big models to big data: efficient ecosystem model calibration through Bayesian model emulation. Biogeosciences Discussions</li>
+<li>Feng X, Uriarte M, González G, et al. Improving predictions of tropical forest response to climate change through integration of field studies and ecosystem modeling. Glob Change Biol. 2018;24:e213–e232.<a href="https://doi.org/10.1111/gcb.13863">doi:10.1111/gcb.13863</a></li>
+<li>Dietze, M. C. (2017), Prediction in ecology: a first-principles framework. Ecol Appl, 27: 2048-2060. <a href="doi:10.1002/eap.1589" class="uri">doi:10.1002/eap.1589</a></li>
+<li>Fisher RA, Koven CD, Anderegg WRL, et al. 2017. Vegetation demographics in Earth System Models: A review of progress and priorities. Glob Change Biol. <a href="https://doi.org/10.1111/gcb.13910" class="uri">https://doi.org/10.1111/gcb.13910</a></li>
+<li>Rollinson, C. R., Liu, Y., Raiho, A., Moore, D. J.P., McLachlan, J., Bishop, D. A., Dye, A., Matthes, J. H., Hessl, A., Hickler, T., Pederson, N., Poulter, B., Quaife, T., Schaefer, K., Steinkamp, J. and Dietze, M. C. (2017), Emergent climate and CO2 sensitivities of net primary productivity in ecosystem models do not agree with empirical data in temperate forests of eastern North America. Glob Change Biol. Accepted Author Manuscript. <a href="doi:10.1111/gcb.13626" class="uri">doi:10.1111/gcb.13626</a></li>
+<li>LeBauer, D., Kooper, R., Mulrooney, P., Rohde, S., Wang, D., Long, S. P. and Dietze, M. C. (2017), betydb: a yield, trait, and ecosystem service database applied to second-generation bioenergy feedstock production. GCB Bioenergy. <a href="doi:10.1111/gcbb.12420" class="uri">doi:10.1111/gcbb.12420</a></li>
+<li>Rogers A, BE Medlyn, J Dukes, G Bonan, S von Caemmerer, MC Dietze, J Kattge, ADB Leakey, LM Mercado, U Niinemets, IC Prentice, SP Serbin, S Sitch, DA Way, S Zaehle. 2017. “A Roadmap for Improving the Representation of Photosynthesis in Earth System Models” New Phytologist 213(1):22-42 DOI: 10.1111/nph.14283</li>
+<li>Shiklomanov. A, MC Dietze, T Viskari, PA Townsend, SP Serbin. 2016 “Quantifying the influences of spectral resolution on uncertainty in leaf trait estimates through a Bayesian approach to RTM inversion” Remote Sensing of the Environment 183: 226-238</li>
+<li>Viskari et al. 2015 Model-data assimilation of multiple phenological observations to constrain and forecast leaf area index. Ecological Applications 25(2): 546-558</li>
+<li>Dietze, M. C., S. P. Serbin, C. Davidson, A. R. Desai, X. Feng, R. Kelly, R. Kooper, D. LeBauer, J. Mantooth, K. McHenry, and D. Wang (2014) A quantitative assessment of a terrestrial biosphere model’s data needs across North American biomes. Journal of Geophysical Research-Biogeosciences <a href="http://dx.doi.org/10.1002/2013jg002392">doi:10.1002/2013jg002392</a></li>
+<li>LeBauer, D.S., D. Wang, K. Richter, C. Davidson, &amp; M.C. Dietze. (2013). Facilitating feedbacks between field measurements and ecosystem models. Ecological Monographs. <a href="http://dx.doi.org/10.1890/12-0137.1">doi:10.1890/12-0137.1</a></li>
+<li>Wang, D, D.S. LeBauer, and M.C. Dietze(2013) Predicting yields of short-rotation hybrid poplar (Populus spp.) for the contiguous US through model-data synthesis. Ecological Applications <a href="http://dx.doi.org/10.1890/12-0854.1">doi:10.1890/12-0854.1</a></li>
+<li>Dietze, M.C., D.S LeBauer, R. Kooper (2013) On improving the communication between models and data. Plant, Cell, &amp; Environment <a href="http://dx.doi.org/10.1111/pce.12043">doi:10.1111/pce.12043</a></li>
+</ul>
+<p><a href="https://scholar.google.com/scholar?start=0&amp;q=%22predictive+ecosystem+analyzer+PEcAn%22">Longer / auto-updated list of publications that mention PEcAn’s full name in Google Scholar</a></p>
 
 </div>
             </section>
@@ -380,8 +415,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           </div>
         </div>
       </div>
-
-<a href="project-overview.html" class="navigation navigation-next navigation-unique" aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="index.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="contributor-covenant-code-of-conduct.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -411,7 +446,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/tonygardella/pecan/edit/release/vtonydoc/book_source/index.Rmd",
+"link": "https://github.com/tonygardella/pecan/edit/release/vtonydoc/book_source/01_introduction/01_project_overview.Rmd",
 "text": "Edit"
 },
 "history": {
