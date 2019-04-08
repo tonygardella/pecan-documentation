@@ -5,11 +5,11 @@
 
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>The Predictive Ecosystem Analyzer</title>
-  <meta name="description" content="The Predictive Ecosystem Analyzer">
+  <title>8 PEcAn workflow (web/workflow.R) | The Predictive Ecosystem Analyzer</title>
+  <meta name="description" content="8 PEcAn workflow (web/workflow.R) | The Predictive Ecosystem Analyzer">
   <meta name="generator" content="bookdown  and GitBook 2.6.7">
 
-  <meta property="og:title" content="The Predictive Ecosystem Analyzer" />
+  <meta property="og:title" content="8 PEcAn workflow (web/workflow.R) | The Predictive Ecosystem Analyzer" />
   <meta property="og:type" content="book" />
   
   
@@ -17,7 +17,7 @@
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="The Predictive Ecosystem Analyzer" />
+  <meta name="twitter:title" content="8 PEcAn workflow (web/workflow.R) | The Predictive Ecosystem Analyzer" />
   
   
   
@@ -32,8 +32,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
   
   
-
-<link rel="next" href="project-overview.html">
+<link rel="prev" href="pecanXML.html">
+<link rel="next" href="pecan-models.html">
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -336,7 +336,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="10.11" data-path="available-meteorological-drivers.html"><a href="available-meteorological-drivers.html#data-assimilation-with-dart"><i class="fa fa-check"></i><b>10.11</b> Data assimilation with DART</a></li>
 </ul></li>
 <li class="part"><span><b>IV Appendix</b></span><ul>
-<li class="chapter" data-level="10.12" data-path="index.html"><a href="#todo"><i class="fa fa-check"></i><b>10.12</b> TODO:</a></li>
+<li class="chapter" data-level="10.12" data-path="03_topical_pages/03_R_workflow.html"><a href="#todo"><i class="fa fa-check"></i><b>10.12</b> TODO:</a></li>
 <li class="chapter" data-level="10.13" data-path="available-meteorological-drivers.html"><a href="available-meteorological-drivers.html#faq"><i class="fa fa-check"></i><b>10.13</b> FAQ</a></li>
 </ul></li>
 </ul>
@@ -356,40 +356,113 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="header">
-<h1 class="title">The Predictive Ecosystem Analyzer</h1>
-<p class="author"><em>By: PEcAn Team</em></p>
-<p class="date"><em>2019-04-08</em></p>
+<div id="workflow" class="section level1">
+<h1><span class="header-section-number">8</span> PEcAn workflow (web/workflow.R)</h1>
+<ul>
+<li>How the workflow works</li>
+<li>How each module is called</li>
+<li>How to do outside of web interface</li>
+<li>Link to “folder structure” section below for detailed descriptions</li>
+</ul>
+<div style="width: 640px; height: 960px; margin: 10px; position: relative;">
+<iframe allowfullscreen frameborder="0" style="width:640px; height:480px" src="https://www.lucidchart.com/documents/embeddedchart/93dca2c6-63cb-4df4-b68c-29590d1836fc" id="uAv44V~qLSWE">
+</iframe>
 </div>
-<div id="welcome" class="section level1 unnumbered">
-<h1>Welcome</h1>
-<p><strong>Ecosystem science, policy, and management informed by the best available data and models</strong></p>
-<p><img src="figures/PecanLogo.png" width="50%" height="50%" style="display: block; margin: auto;" /></p>
-<p><strong>Our Mission:</strong></p>
-<p><strong>Develop and promote accessible tools for reproducible ecosystem modeling and forecasting</strong></p>
-<p><a href="http://pecanproject.github.io/">PEcAn Website</a></p>
-<p><a href="https://join.slack.com/t/pecanproject/shared_invite/enQtMzkyODUyMjQyNTgzLTYyZTZiZWQ4NGE1YWU3YWIyMTVmZjEyYzA3OWJhYTZmOWQwMDkwZGU0Mjc4Nzk0NGYwYTIyM2RiZmMyNjg5MTE">Public Chat Room</a></p>
-<p><a href="https://github.com/PecanProject/pecan">Github Repository</a></p>
-<html>
-<head>
-<style>
-.page-inner{max-width:80% !important;}
-</style>
-</head>
-</html>
+<div id="workflow-readsettings" class="section level3">
+<h3><span class="header-section-number">8.0.1</span> Read Settings</h3>
+<p>(TODO: Under construction…)</p>
+</div>
+<div id="workflow-input" class="section level3">
+<h3><span class="header-section-number">8.0.2</span> Input Conversions</h3>
+</div>
+<div id="workflow-input-data" class="section level3">
+<h3><span class="header-section-number">8.0.3</span> Input Data</h3>
+<p>Models require input data as drivers, parameters, and boundary conditions. In order to make a variety of data sources that have unique formats compatible with models, conversion scripts are written to convert them into a PEcAn standard format. That format is a netcdf file with variables names and specified to our standard variable table.</p>
+<p>Within the PEcAn repository, code pertaining to input conversion is in the MODULES directory under the data.atmosphere and data.land directories.</p>
+</div>
+<div id="workflow-input-initial" class="section level3">
+<h3><span class="header-section-number">8.0.4</span> Initial Conditions</h3>
+<p>(TODO: Under construction)</p>
+</div>
+<div id="workflow-met" class="section level3">
+<h3><span class="header-section-number">8.0.5</span> Meteorological Data</h3>
+<p>To convert meterological data into the PEcAn Standard and then into model formats we follow four main steps:</p>
+<ol style="list-style-type: decimal">
+<li>Downloading raw data
+- <a href="">Currently supported products</a>
+- Example Code</li>
+<li>Converting raw data into a CF standard
+- Example Code</li>
+<li>Downscaling and gapfilling
+- Example Code</li>
+<li>Coverting to Model Specific format
+- Example Code</li>
+</ol>
+<p>Common Questions regarding Met Data:</p>
+<p>How do I add my Meterological data product to PEcAn?
+How do I use PEcAn to convert Met data outide the workflow?</p>
+<p>The main script that handles Met Processing, is <a href="https://github.com/PecanProject/pecan/blob/develop/modules/data.atmosphere/R/met.process.R"><code>met.process</code></a>. It acts as a wrapper function that calls individual modules to facilitate the processing of meteorological data from it’s original form to a pecan standard, and then from that standard to model specific formats. It also handles recording these processes in the BETY database.</p>
+<ol style="list-style-type: decimal">
+<li>Downloading raw data
+- <a href="available-meteorological-drivers.html#available-meteorological-drivers">Available Meteorological Drivers</a>
+- Example Code to download <a href="https://github.com/PecanProject/pecan/blob/develop/modules/data.atmosphere/R/download.AmerifluxLBL.R">Ameriflux data</a></li>
+<li>Converting raw data into a CF standard (if needed)
+- Example Code to <a href="https://github.com/PecanProject/pecan/blob/develop/modules/data.atmosphere/R/met2CF.csv.R">convert from raw csv to CF standard</a></li>
+<li>Downscaling and gapfilling(if needed)
+- Example Code to <a href="https://github.com/PecanProject/pecan/blob/develop/modules/data.atmosphere/R/metgapfill.R">gapfill</a></li>
+<li>Coverting to Model Specific format
+- Example Code to <a href="https://github.com/PecanProject/pecan/blob/develop/models/sipnet/R/met2model.SIPNET.R">convert Standard into Sipnet format</a></li>
+</ol>
+<div id="workflow-met-download" class="section level4">
+<h4><span class="header-section-number">8.0.5.1</span> Downloading Raw data (Description of Process)</h4>
+<p>Given the information passed from the pecan.xml met.process will call the <code>download.raw.met.module</code> to facilitate the execution of the necessary functions to download raw data.</p>
+<pre class="sourceCode xml"><code class="sourceCode xml">  <span class="kw">&lt;met&gt;</span>
+    <span class="kw">&lt;source&gt;</span>AmerifluxLBL<span class="kw">&lt;/source&gt;</span>
+    <span class="kw">&lt;output&gt;</span>SIPNET<span class="kw">&lt;/output&gt;</span>
+    <span class="kw">&lt;username&gt;</span>pecan<span class="kw">&lt;/username&gt;</span>
+  <span class="kw">&lt;/met&gt;</span></code></pre>
+</div>
+</div>
+<div id="workflow-met-standard" class="section level3">
+<h3><span class="header-section-number">8.0.6</span> Converting raw data to PEcAn standard</h3>
+</div>
+<div id="workflow-met-downscale" class="section level3">
+<h3><span class="header-section-number">8.0.7</span> Downscaling and gapfilling (optional)</h3>
+</div>
+<div id="workflow-met-model" class="section level3">
+<h3><span class="header-section-number">8.0.8</span> Converting from PEcAn standard to model-specific format</h3>
+</div>
+<div id="workflow-traits" class="section level3">
+<h3><span class="header-section-number">8.0.9</span> Traits</h3>
+<p>(TODO: Under construction)</p>
+</div>
+<div id="workflow-metaanalysis" class="section level3">
+<h3><span class="header-section-number">8.0.10</span> Meta Analysis</h3>
+<p>(TODO: Under construction)</p>
+</div>
+<div id="workflow-modelconfig" class="section level3">
+<h3><span class="header-section-number">8.0.11</span> Model Configuration</h3>
+<p>(TODO: Under construction)</p>
+</div>
+<div id="workflow-modelrun" class="section level3">
+<h3><span class="header-section-number">8.0.12</span> Run Execution</h3>
+<p>(TODO: Under construction)</p>
+</div>
+<div id="workflow-postrun" class="section level3">
+<h3><span class="header-section-number">8.0.13</span> Post Run Analysis</h3>
+<p>(TODO: Under construction)
+### Advanced Analysis {#workflow-advanced}</p>
+<p>(TODO: Under construction)</p>
 
 </div>
-
-
-
 </div>
             </section>
 
           </div>
         </div>
       </div>
-
-<a href="project-overview.html" class="navigation navigation-next navigation-unique" aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="pecanXML.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="pecan-models.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -419,7 +492,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/tonygardella/pecan/edit/release/vtonydoc/book_source/index.Rmd",
+"link": "https://github.com/tonygardella/pecan/edit/release/vtonydoc/book_source/03_topical_pages/03_R_workflow.Rmd",
 "text": "Edit"
 },
 "history": {
