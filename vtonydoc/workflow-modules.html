@@ -5,11 +5,11 @@
 
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>7 PEcAn standard formats | The Predictive Ecosystem Analyzer</title>
-  <meta name="description" content="7 PEcAn standard formats | The Predictive Ecosystem Analyzer">
+  <title>20 Workflow modules | The Predictive Ecosystem Analyzer</title>
+  <meta name="description" content="20 Workflow modules | The Predictive Ecosystem Analyzer">
   <meta name="generator" content="bookdown  and GitBook 2.6.7">
 
-  <meta property="og:title" content="7 PEcAn standard formats | The Predictive Ecosystem Analyzer" />
+  <meta property="og:title" content="20 Workflow modules | The Predictive Ecosystem Analyzer" />
   <meta property="og:type" content="book" />
   
   
@@ -17,7 +17,7 @@
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="7 PEcAn standard formats | The Predictive Ecosystem Analyzer" />
+  <meta name="twitter:title" content="20 Workflow modules | The Predictive Ecosystem Analyzer" />
   
   
   
@@ -32,8 +32,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
   
   
-<link rel="prev" href="developer-guide.html">
-<link rel="next" href="pecanXML.html">
+<link rel="prev" href="database.html">
+<link rel="next" href="data-assimilation-with-dart.html">
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -333,7 +333,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="22.0.3" data-path="pecan-project-use-to-teach-ecological-model-data-synthesis.html"><a href="pecan-project-use-to-teach-ecological-model-data-synthesis.html#selected-publications"><i class="fa fa-check"></i><b>22.0.3</b> Selected Publications</a></li>
 </ul></li>
 <li class="part"><span><b>IV Appendix</b></span><ul>
-<li class="chapter" data-level="22.1" data-path="03_topical_pages/01_pecan_standards.html"><a href="#todo"><i class="fa fa-check"></i><b>22.1</b> TODO:</a></li>
+<li class="chapter" data-level="22.1" data-path="03_topical_pages/92_workflow_modules.html"><a href="#todo"><i class="fa fa-check"></i><b>22.1</b> TODO:</a></li>
 <li class="chapter" data-level="22.2" data-path="pecan-project-use-to-teach-ecological-model-data-synthesis.html"><a href="pecan-project-use-to-teach-ecological-model-data-synthesis.html#faq"><i class="fa fa-check"></i><b>22.2</b> FAQ</a></li>
 </ul></li>
 </ul>
@@ -353,86 +353,91 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="pecan-standards" class="section level1">
-<h1><span class="header-section-number">7</span> PEcAn standard formats</h1>
-<div id="defining-new-input-formats" class="section level2">
-<h2><span class="header-section-number">7.1</span> Defining new input formats</h2>
+<div id="workflow-modules" class="section level1">
+<h1><span class="header-section-number">20</span> Workflow modules</h1>
+<p>NOTE: As of PEcAn 1.2.6 – needs to be updated significantly</p>
+<!--NEEDS TO BE UPDATED SIGNIFICANTLY-->
+<div id="overview" class="section level3">
+<h3><span class="header-section-number">20.0.1</span> Overview</h3>
+<p>Workflow inputs and outputs (click to open in new page, then zoom). Code used to generate this image is provided in <a href="https://github.com/PecanProject/pecan/blob/master/qaqc/vignettes/module_output.Rmd">qaqc/vignettes/module_output.Rmd</a></p>
+<p><a href="http://isda.ncsa.illinois.edu/~kooper/EBI/workflow.svg"><img src="http://isda.ncsa.illinois.edu/~kooper/EBI/workflow.svg" alt="PEcAn Workflow" /></a></p>
+</div>
+<div id="load-settings" class="section level3">
+<h3><span class="header-section-number">20.0.2</span> Load Settings:</h3>
+<div id="read.settingshomepecanpecan.xml" class="section level4">
+<h4><span class="header-section-number">20.0.2.1</span> <code>read.settings(&quot;/home/pecan/pecan.xml&quot;)</code></h4>
 <ul>
-<li>New formats can be defined on the <a href="http://betydb.org/formats">‘formats’ page of BETYdb</a></li>
-<li>After creating a new format, the contents should be defined by specifying the BETYdb variable name and the name used in the file/</li>
+<li>loads settings</li>
+<li>create directories</li>
+<li>generates new xml, put in output folder</li>
 </ul>
 </div>
-<div id="time-standard" class="section level2">
-<h2><span class="header-section-number">7.2</span> Time Standard</h2>
-<p>Internal PEcAn standard time follows ISO_8601 format for dates and time (<a href="https://en.wikipedia.org/wiki/ISO_8601" class="uri">https://en.wikipedia.org/wiki/ISO_8601</a>). For example ordinal dates go from 1 365/366 (<a href="https://en.wikipedia.org/wiki/ISO_8601#Ordinal_dates" class="uri">https://en.wikipedia.org/wiki/ISO_8601#Ordinal_dates</a>). However, time used in met drivers or model outputs follows CF convention with julian dates following the 0 to 364/365 format</p>
-<p>To aid in the conversion between PEcAn internal ISO_8601 standard and CF convention used in all met drivers and PEcAn standard output you can utilize the functions: “cf2datetime”,“datetime2doy”,“cf2doy”, and for SIPNET “sipnet2datetime”</p>
-<div id="input-standards" class="section level3">
-<h3><span class="header-section-number">7.2.1</span> Input Standards</h3>
-<div id="meterology-standards" class="section level4">
-<h4><span class="header-section-number">7.2.1.1</span> Meterology Standards</h4>
-<div id="dimensions" class="section level5">
-<h5><span class="header-section-number">7.2.1.1.1</span> Dimensions:</h5>
-<table>
-<thead>
-<tr class="header">
-<th align="left">CF standard-name</th>
-<th align="left">units</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td align="left">time</td>
-<td align="left">days since 1700-01-01 00:00:00 UTC</td>
-</tr>
-<tr class="even">
-<td align="left">longitude</td>
-<td align="left">degrees_east</td>
-</tr>
-<tr class="odd">
-<td align="left">latitude</td>
-<td align="left">degrees_north</td>
-</tr>
-</tbody>
-</table>
-<p>General Note: dates in the database should be date-time (preferably with timezone), and datetime passed around in PEcAn should be of type POSIXct.</p>
 </div>
-<div id="the-variable-names-should-be-standard_name" class="section level5">
-<h5><span class="header-section-number">7.2.1.1.2</span> The variable names should be <code>standard_name</code></h5>
+<div id="query-database" class="section level3">
+<h3><span class="header-section-number">20.0.3</span> Query Database:</h3>
+<div id="get.trait.data" class="section level4">
+<h4><span class="header-section-number">20.0.3.1</span> <code>get.trait.data()</code></h4>
+<p>Queries the database for both the trait data and prior distributions associated with the PFTs specified in the settings file. The list of variables that are queried is determined by what variables have priors associated with them in the definition of the pft. Likewise, the list of species that are associated with a PFT determines what subset of data is extracted out of all data matching a given variable name.</p>
+</div>
+</div>
+<div id="meta-analysis" class="section level3">
+<h3><span class="header-section-number">20.0.4</span> Meta Analysis:</h3>
+<div id="run.meta.analysis" class="section level4">
+<h4><span class="header-section-number">20.0.4.1</span> <code>run.meta.analysis()</code></h4>
+<p>The meta-analysis code begins by distilling the trait.data to just the values needed for the meta-analysis statistical model, with this being stored in <code>madata.Rdata</code>. This reduced form includes the conversion of all error statistics into precision (1/variance), and the indexing of sites, treatments, and greenhouse. In reality, the core meta-analysis code can be run independent of the trait database as long as input data is correctly formatted into the form shown in <code>madata</code>.</p>
+<p>The evaluation of the meta-analysis is done using a Bayesian statistical software package called JAGS that is called by the R code. For each trait, the R code will generate a [trait].model.bug file that is the JAGS code for the meta-analysis itself. This code is generated on the fly, with PEcAn adding or subtracting the site, treatment, and greenhouse terms depending upon the presence of these effects in the data itself.</p>
+<p>Meta-analyses are run, and summary plots are produced.</p>
+</div>
+</div>
+<div id="write-configuration-files" class="section level3">
+<h3><span class="header-section-number">20.0.5</span> Write Configuration Files</h3>
+<div id="write.configsmodel" class="section level4">
+<h4><span class="header-section-number">20.0.5.1</span> <code>write.configs(model)</code></h4>
 <ul>
-<li>preferred variables indicated in bold</li>
-<li>wind_direction has no CF equivalent and should not be converted, instead the met2CF functions should convert wind_direction and wind_speed to eastward_wind and northward_wind</li>
-<li>standard_name is CF-convention standard names</li>
-<li>units can be converted by udunits, so these can vary (e.g. the time denominator may change with time frequency of inputs)</li>
-<li>soil moisture for the full column, rather than a layer, is soil_moisture_content</li>
-<li>A full list of PEcAn standard variable names, units and dimensions can be found here: <a href="https://github.com/PecanProject/pecan/blob/develop/base/utils/data/standard_vars.csv" class="uri">https://github.com/PecanProject/pecan/blob/develop/base/utils/data/standard_vars.csv</a></li>
+<li>writes out a configuration file for each model run
+** writes 500 configuration files for a 500 member ensemble
+** for <em>n</em> traits, writes <code>6 * n + 1</code> files for running default Sensitivity Analysis (number can be changed in the pecan settings file)</li>
 </ul>
-<p>For example, in the <a href="https://www.betydb.org/inputs/280">MsTMIP-CRUNCEP</a> data, the variable <code>rain</code> should be <code>precipitation_rate</code>.
-We want to standardize the units as well as part of the <code>met2CF.&lt;product&gt;</code> step. I believe we want to use the CF “canonical” units but retain the MsTMIP units any time CF is ambiguous about the units.</p>
-<p>The key is to process each type of met data (site, reanalysis, forecast, climate scenario, etc) to the exact same standard. This way every operation after that (extract, gap fill, downscale, convert to a model, etc) will always have the exact same inputs. This will make everything else much simpler to code and allow us to avoid a lot of unnecessary data checking, tests, etc being repeated in every downstream function.</p>
 </div>
 </div>
-</div>
-<div id="soils-and-vegetation-inputs" class="section level3">
-<h3><span class="header-section-number">7.2.2</span> Soils and Vegetation Inputs</h3>
-<div id="soil-data-1" class="section level5">
-<h5><span class="header-section-number">7.2.2.0.1</span> Soil Data</h5>
-<p>Check out the <a href="pecan-standards.html#soil-data-1">Soil Data</a> section on more into on creating a standard soil data file.</p>
-</div>
-<div id="vegetation-data-1" class="section level5">
-<h5><span class="header-section-number">7.2.2.0.2</span> Vegetation Data</h5>
-<p>Check Out the <a href="pecan-standards.html#vegetation-data-1">Vegetation Data</a> section on more info on creating a standard vegetation data file</p>
+<div id="start-runs" class="section level3">
+<h3><span class="header-section-number">20.0.6</span> Start Runs:</h3>
+<div id="start.runsmodel" class="section level4">
+<h4><span class="header-section-number">20.0.6.1</span> <code>start.runs(model)</code></h4>
+<p>This code starts the model runs using a model specific run function named start.runs.<a href="user-section.html#model">model</a>. If the ecosystem model is running on a remote server, this module also takes care of all of the communication with the remote server and its run queue. Each of your subdirectories should now have a [run.id].out file in it. One instance of the model is run for each configuration file generated by the previous write configs module.</p>
 </div>
 </div>
-<div id="output-standards" class="section level3">
-<h3><span class="header-section-number">7.2.3</span> Output Standards</h3>
+<div id="get-model-output" class="section level3">
+<h3><span class="header-section-number">20.0.7</span> Get Model Output</h3>
+<div id="get.model.outputmodel" class="section level4">
+<h4><span class="header-section-number">20.0.7.1</span> <code>get.model.output(model)</code></h4>
+<p>This code first uses a model-specific model2netcdf.<a href="user-section.html#model">model</a> function to convert the model output into a standard output format (<a href="http://nacp.ornl.gov/MsTMIP_variables.shtml">MsTMIP</a>). Then it extracts the data for requested variables specified in the settings file as <code>settings$ensemble$variable</code>, averages over the time-period specified as <code>start.date</code> and <code>end.date</code>, and stores the output in a file <code>output.Rdata</code>. The <code>output.Rdata</code> file contains two objects, <code>sensitivity.output</code> and <code>ensemble.output</code>, that is the model prediction for the parameter sets specified in <code>sa.samples</code> and <code>ensemble.samples</code>. In order to save bandwidth, if the model output is stored on a remote system PEcAn will perform these operations on the remote host and only return the <code>output.Rdata</code> object.</p>
+</div>
+</div>
+<div id="ensemble-analysis" class="section level3">
+<h3><span class="header-section-number">20.0.8</span> Ensemble Analysis</h3>
+<div id="run.ensemble.analysis" class="section level4">
+<h4><span class="header-section-number">20.0.8.1</span> <code>run.ensemble.analysis()</code></h4>
+<p>This module makes some simple graphs of the ensemble output. Open ensemble.analysis.pdf to view the ensemble prediction as both a histogram and a boxplot. ensemble.ts.pdf provides a timeseries plot of the ensemble mean, meadian, and 95% CI</p>
+</div>
+</div>
+<div id="sensitivity-analysis-variance-decomposition" class="section level3">
+<h3><span class="header-section-number">20.0.9</span> Sensitivity Analysis, Variance Decomposition</h3>
+<div id="run.sensitivity.analysis" class="section level4">
+<h4><span class="header-section-number">20.0.9.1</span> <code>run.sensitivity.analysis()</code></h4>
+<p>This function processes the output of the previous module into sensitivity analysis plots, <code>sensitivityanalysis.pdf</code>, and a variance decomposition plot, <code>variancedecomposition.pdf</code> . In the sensitivity plots you will see the parameter values on the x-axis, the model output on the Y, with the dots being the model evaluations and the line being the spline fit.</p>
+<p>The variance decomposition plot is discussed more below. For your reference, the R list object, sensitivity.results, stored in sensitivity.results.Rdata, contains all the components of the variance decomposition table, as well as the the input parameter space and splines from the sensitivity analysis (reminder: the output parameter space from the sensitivity analysis was in outputs.R).</p>
+<p>The variance decomposition plot contains three columns, the coefficient of variation (normalized posterior variance), the elasticity (normalized sensitivity), and the partial standard deviation of each model parameter. This graph is sorted by the variable explaining the largest amount of variability in the model output (right hand column). From this graph identify the top-tier parameters that you would target for future constraint.</p>
+</div>
+</div>
+<div id="glossary" class="section level3">
+<h3><span class="header-section-number">20.0.10</span> Glossary</h3>
 <ul>
-<li>created by <code>model2netcdf</code> functions</li>
-<li>based on format used by <a href="http://nacp.ornl.gov/MsTMIP_variables.shtml">MsTMIP</a></li>
-<li>Can be seen at HERE</li>
+<li>Inputs: data sets that are used, and file paths leading to them</li>
+<li>Parameters: e.g. info set in settings file</li>
+<li>Outputs: data sets that are dropped, and the file paths leading to them</li>
 </ul>
-<p>We originally used the <a href="http://nacp.ornl.gov/MsTMIP_variables.shtml">MsTMIP</a> conventions. Since then, we’ve added the PaLEON variable conventions to our standard as well. If a variable isn’t in one of those two, we stick to the CF conventions.</p>
 
-</div>
 </div>
 </div>
             </section>
@@ -440,8 +445,8 @@ We want to standardize the units as well as part of the <code>met2CF.&lt;product
           </div>
         </div>
       </div>
-<a href="developer-guide.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="pecanXML.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="database.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="data-assimilation-with-dart.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -471,7 +476,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/tonygardella/pecan/edit/release/vtonydoc/book_source/03_topical_pages/01_pecan_standards.Rmd",
+"link": "https://github.com/tonygardella/pecan/edit/release/vtonydoc/book_source/03_topical_pages/92_workflow_modules.Rmd",
 "text": "Edit"
 },
 "history": {

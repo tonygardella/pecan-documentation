@@ -5,11 +5,11 @@
 
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>7 PEcAn standard formats | The Predictive Ecosystem Analyzer</title>
-  <meta name="description" content="7 PEcAn standard formats | The Predictive Ecosystem Analyzer">
+  <title>13 Database synchronization | The Predictive Ecosystem Analyzer</title>
+  <meta name="description" content="13 Database synchronization | The Predictive Ecosystem Analyzer">
   <meta name="generator" content="bookdown  and GitBook 2.6.7">
 
-  <meta property="og:title" content="7 PEcAn standard formats | The Predictive Ecosystem Analyzer" />
+  <meta property="og:title" content="13 Database synchronization | The Predictive Ecosystem Analyzer" />
   <meta property="og:type" content="book" />
   
   
@@ -17,7 +17,7 @@
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="7 PEcAn standard formats | The Predictive Ecosystem Analyzer" />
+  <meta name="twitter:title" content="13 Database synchronization | The Predictive Ecosystem Analyzer" />
   
   
   
@@ -32,8 +32,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
   
   
-<link rel="prev" href="developer-guide.html">
-<link rel="next" href="pecanXML.html">
+<link rel="prev" href="pecan-api.html">
+<link rel="next" href="standalone-tools-modules.html">
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -333,7 +333,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="22.0.3" data-path="pecan-project-use-to-teach-ecological-model-data-synthesis.html"><a href="pecan-project-use-to-teach-ecological-model-data-synthesis.html#selected-publications"><i class="fa fa-check"></i><b>22.0.3</b> Selected Publications</a></li>
 </ul></li>
 <li class="part"><span><b>IV Appendix</b></span><ul>
-<li class="chapter" data-level="22.1" data-path="03_topical_pages/01_pecan_standards.html"><a href="#todo"><i class="fa fa-check"></i><b>22.1</b> TODO:</a></li>
+<li class="chapter" data-level="22.1" data-path="03_topical_pages/06_Database-Synchronization.html"><a href="#todo"><i class="fa fa-check"></i><b>22.1</b> TODO:</a></li>
 <li class="chapter" data-level="22.2" data-path="pecan-project-use-to-teach-ecological-model-data-synthesis.html"><a href="pecan-project-use-to-teach-ecological-model-data-synthesis.html#faq"><i class="fa fa-check"></i><b>22.2</b> FAQ</a></li>
 </ul></li>
 </ul>
@@ -353,86 +353,196 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="pecan-standards" class="section level1">
-<h1><span class="header-section-number">7</span> PEcAn standard formats</h1>
-<div id="defining-new-input-formats" class="section level2">
-<h2><span class="header-section-number">7.1</span> Defining new input formats</h2>
-<ul>
-<li>New formats can be defined on the <a href="http://betydb.org/formats">‘formats’ page of BETYdb</a></li>
-<li>After creating a new format, the contents should be defined by specifying the BETYdb variable name and the name used in the file/</li>
-</ul>
+<div id="database-synchronization" class="section level1">
+<h1><span class="header-section-number">13</span> Database synchronization</h1>
+<p>The database synchronization consists of 2 parts:
+- Getting the data from the remote servers to your server
+- Sharing your data with everybody else</p>
+<div id="how-does-it-work" class="section level3">
+<h3><span class="header-section-number">13.0.1</span> How does it work?</h3>
+<p>Each server that runs the BETY database will have a unique machine_id and a sequence of ID’s associated. Whenever the user creates a new row in BETY it will receive an ID in the sequence. This allows us to uniquely identify where a row came from. This is information is crucial for the code that works with the synchronization since we can now copy those rows that have an ID in the sequence specified. If you have not asked for a unique ID your ID will be 99.</p>
+<p>The synchronization code itself is split into two parts, loading data with the <code>load.bety.sh</code> script and exporting data using <code>dump.bety.sh</code>. If you do not plan to share data, you only need to use <code>load.bety.sh</code> to update your database.</p>
 </div>
-<div id="time-standard" class="section level2">
-<h2><span class="header-section-number">7.2</span> Time Standard</h2>
-<p>Internal PEcAn standard time follows ISO_8601 format for dates and time (<a href="https://en.wikipedia.org/wiki/ISO_8601" class="uri">https://en.wikipedia.org/wiki/ISO_8601</a>). For example ordinal dates go from 1 365/366 (<a href="https://en.wikipedia.org/wiki/ISO_8601#Ordinal_dates" class="uri">https://en.wikipedia.org/wiki/ISO_8601#Ordinal_dates</a>). However, time used in met drivers or model outputs follows CF convention with julian dates following the 0 to 364/365 format</p>
-<p>To aid in the conversion between PEcAn internal ISO_8601 standard and CF convention used in all met drivers and PEcAn standard output you can utilize the functions: “cf2datetime”,“datetime2doy”,“cf2doy”, and for SIPNET “sipnet2datetime”</p>
-<div id="input-standards" class="section level3">
-<h3><span class="header-section-number">7.2.1</span> Input Standards</h3>
-<div id="meterology-standards" class="section level4">
-<h4><span class="header-section-number">7.2.1.1</span> Meterology Standards</h4>
-<div id="dimensions" class="section level5">
-<h5><span class="header-section-number">7.2.1.1.1</span> Dimensions:</h5>
-<table>
-<thead>
-<tr class="header">
-<th align="left">CF standard-name</th>
-<th align="left">units</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td align="left">time</td>
-<td align="left">days since 1700-01-01 00:00:00 UTC</td>
-</tr>
-<tr class="even">
-<td align="left">longitude</td>
-<td align="left">degrees_east</td>
-</tr>
-<tr class="odd">
-<td align="left">latitude</td>
-<td align="left">degrees_north</td>
-</tr>
-</tbody>
-</table>
-<p>General Note: dates in the database should be date-time (preferably with timezone), and datetime passed around in PEcAn should be of type POSIXct.</p>
+<div id="set-up" class="section level3">
+<h3><span class="header-section-number">13.0.2</span> Set up</h3>
+<p>Requests for new machine ID’s is currently handled manually. To request a machine ID contact Rob Kooper <a href="mailto:kooper@illinois.edu">kooper@illinois.edu</a>. In the examples below this ID is referred to as ‘my siteid’.</p>
+<p>To setup the database to use this ID you need to call load.bety in ‘CREATE’ mode (replacing <my siteid> with the ID if your site)</p>
+<pre><code>sudo -u postgres {$PECAN}/scripts/load.bety.sh -c -u -m &lt;my siteid&gt; </code></pre>
+<p>WARNING: At the moment running CREATE deletes all current records in the database. If you are running from the VM this includes both all runs you have done and all information that the database is prepopulated with (e.g. input and model records). Remote records can be fetched (see below), but local records will be lost (we’re working on improving this!)</p>
 </div>
-<div id="the-variable-names-should-be-standard_name" class="section level5">
-<h5><span class="header-section-number">7.2.1.1.2</span> The variable names should be <code>standard_name</code></h5>
-<ul>
-<li>preferred variables indicated in bold</li>
-<li>wind_direction has no CF equivalent and should not be converted, instead the met2CF functions should convert wind_direction and wind_speed to eastward_wind and northward_wind</li>
-<li>standard_name is CF-convention standard names</li>
-<li>units can be converted by udunits, so these can vary (e.g. the time denominator may change with time frequency of inputs)</li>
-<li>soil moisture for the full column, rather than a layer, is soil_moisture_content</li>
-<li>A full list of PEcAn standard variable names, units and dimensions can be found here: <a href="https://github.com/PecanProject/pecan/blob/develop/base/utils/data/standard_vars.csv" class="uri">https://github.com/PecanProject/pecan/blob/develop/base/utils/data/standard_vars.csv</a></li>
-</ul>
-<p>For example, in the <a href="https://www.betydb.org/inputs/280">MsTMIP-CRUNCEP</a> data, the variable <code>rain</code> should be <code>precipitation_rate</code>.
-We want to standardize the units as well as part of the <code>met2CF.&lt;product&gt;</code> step. I believe we want to use the CF “canonical” units but retain the MsTMIP units any time CF is ambiguous about the units.</p>
-<p>The key is to process each type of met data (site, reanalysis, forecast, climate scenario, etc) to the exact same standard. This way every operation after that (extract, gap fill, downscale, convert to a model, etc) will always have the exact same inputs. This will make everything else much simpler to code and allow us to avoid a lot of unnecessary data checking, tests, etc being repeated in every downstream function.</p>
-</div>
-</div>
-</div>
-<div id="soils-and-vegetation-inputs" class="section level3">
-<h3><span class="header-section-number">7.2.2</span> Soils and Vegetation Inputs</h3>
-<div id="soil-data-1" class="section level5">
-<h5><span class="header-section-number">7.2.2.0.1</span> Soil Data</h5>
-<p>Check out the <a href="pecan-standards.html#soil-data-1">Soil Data</a> section on more into on creating a standard soil data file.</p>
-</div>
-<div id="vegetation-data-1" class="section level5">
-<h5><span class="header-section-number">7.2.2.0.2</span> Vegetation Data</h5>
-<p>Check Out the <a href="pecan-standards.html#vegetation-data-1">Vegetation Data</a> section on more info on creating a standard vegetation data file</p>
-</div>
-</div>
-<div id="output-standards" class="section level3">
-<h3><span class="header-section-number">7.2.3</span> Output Standards</h3>
-<ul>
-<li>created by <code>model2netcdf</code> functions</li>
-<li>based on format used by <a href="http://nacp.ornl.gov/MsTMIP_variables.shtml">MsTMIP</a></li>
-<li>Can be seen at HERE</li>
-</ul>
-<p>We originally used the <a href="http://nacp.ornl.gov/MsTMIP_variables.shtml">MsTMIP</a> conventions. Since then, we’ve added the PaLEON variable conventions to our standard as well. If a variable isn’t in one of those two, we stick to the CF conventions.</p>
+<div id="fetch-latest-data" class="section level3">
+<h3><span class="header-section-number">13.0.3</span> Fetch latest data</h3>
+<p>When logged into the machine you can fetch the latest data using the load.bety.sh script. The script will check what site you want to get the data for and will remove all data in the database associated with that id. It will then reinsert all the data from the remote database.</p>
+<p>The script is configured using environment variables. The following variables are recognized:
+- DATABASE: the database where the script should write the results. The default is <code>bety</code>.
+- OWNER: the owner of the database (if it is to be created). The default is <code>bety</code>.
+- PG_OPT: additional options to be added to psql (default is nothing).
+- MYSITE: the (numerical) ID of your site. If you have not requested an ID, use 99; this is used for all sites that do not want to share their data (i.e. VM). 99 is in fact the default.
+- REMOTESITE: the ID of the site you want to fetch the data from. The default is 0 (EBI).
+- CREATE: If ‘YES’, this indicates that the existing database (<code>bety</code>, or the one specified by DATABASE) should be removed. Set to YES (in caps) to remove the database. <strong>THIS WILL REMOVE ALL DATA</strong> in DATABASE. The default is NO.
+- KEEPTMP: indicates whether the downloaded file should be preserved. Set to YES (in caps) to keep downloaded files; the default is NO.
+- USERS: determines if default users should be created. Set to YES (in caps) to create default users with default passwords. The default is NO.</p>
+<p>All of these variables can be specified as command line arguments as well, to see the options use -h.</p>
+<pre><code>load.bety.sh -h
+./scripts/load.bety.sh [-c YES|NO] [-d database] [-h] [-m my siteid] [-o owner] [-p psql options] [-r remote siteid] [-t YES|NO] [-u YES|NO]
+ -c create database, THIS WILL ERASE THE CURRENT DATABASE, default is NO
+ -d database, default is bety
+ -h this help page
+ -m site id, default is 99 (VM)
+ -o owner of the database, default is bety
+ -p additional psql command line options, default is empty
+ -r remote site id, default is 0 (EBI)
+ -t keep temp folder, default is NO
+ -u create carya users, this will create some default users
 
+dump.bety.sh -h
+./scripts/dump.bety.sh [-a YES|NO] [-d database] [-h] [-l 0,1,2,3,4] [-m my siteid] [-o folder] [-p psql options] [-u YES|NO]
+ -a use anonymous user, default is YES
+ -d database, default is bety
+ -h this help page
+ -l level of data that can be dumped, default is 3
+ -m site id, default is 99 (VM)
+ -o output folder where dumped data is written, default is dump
+ -p additional psql command line options, default is -U bety
+ -u should unchecked data be dumped, default is NO</code></pre>
 </div>
+<div id="sharing-data" class="section level3">
+<h3><span class="header-section-number">13.0.4</span> Sharing data</h3>
+<p>Sharing your data requires a few steps. First, before entering any data, you will need to request an ID from the PEcAn developers. Simply open an issue at github and we will generate an ID for you. If possible, add the URL of your data host.</p>
+<p>You will now need to synchronize the database again and use your ID. For example if you are given ID=42 you can use the following command: <code>MYID=42 REMOTEID=0 ./scripts/load.bety.sh</code>. This will load the EBI database and set the ID’s such that any data you insert will have the right ID.</p>
+<p>To share your data you can now run the dump.bey.sh. The script is configured using environment variables, the following variables are recognized:
+- DATABASE: the database where the script should write the results. The default is <code>bety</code>.
+- PG_OPT: additional options to be added to psql (default is nothing).
+- MYSITE: the ID of your site. If you have not requested an ID, use 99, which is used for all sites that do not want to share their data (i.e. VM). 99 is the default.
+- LEVEL: the minimum access-protection level of the data to be dumped (0=private, 1=restricted, 2=internal collaborators, 3=external collaborators, 4=public). The default level for exported data is level 3.
+- note that currently only the traits and yields tables have restrictions on sharing. If you share data, records from other (meta-data) tables will be shared. If you wish to extend the access_level to other tables please <a href="https://github.com/pecanproject/bety/issues/new">submit a feature request</a>.
+- UNCHECKED: specifies whether unchecked traits and yields be dumped. Set to YES (all caps) to dump unchecked data. The default is NO.
+- ANONYMOUS: specifies whether all users be anonymized. Set to YES (all caps) to keep the original users (<strong>INCLUDING PASSWORD</strong>) in the dump file. The default is NO.
+- OUTPUT: the location of where on disk to write the result file. The default is <code>${PWD}/dump</code>.</p>
+<p>NOTE: If you want your dumps to be accessible to other PEcAn servers you need to perform the following additional steps</p>
+<ol style="list-style-type: decimal">
+<li>Open pecan/scripts/load.bety.sh</li>
+<li>In the DUMPURL section of the code add a new record indicating where you are dumping your data. Below is the example for SITE number 1 (Boston University)</li>
+</ol>
+<pre><code> elif [ &quot;${REMOTESITE}&quot; == &quot;1&quot; ]; then
+ DUMPURL=&quot;http://psql-pecan.bu.edu/sync/dump/bety.tar.gz&quot;</code></pre>
+<ol start="3" style="list-style-type: decimal">
+<li>Check your Apache settings to make sure this location is public</li>
+<li>Commit this code and submit a Pull Request</li>
+<li>From the URL in the Pull Request, PEcAn administrators will update the machines table, the status map, and notify other users to update their cron jobs (see Automation below)</li>
+</ol>
+<p>Plans to simplify this process are in the works</p>
+</div>
+<div id="automation" class="section level3">
+<h3><span class="header-section-number">13.0.5</span> Automation</h3>
+<p>Below is an example of a script to synchronize PEcAn database instances across the network.</p>
+<p>db.sync.sh</p>
+<pre><code>#!/bin/bash 
+## make sure psql is in PATH
+export PATH=/usr/pgsql-9.3/bin/:$PATH 
+## move to export directory
+cd /fs/data3/sync 
+## Dump Data
+MYSITE=1 /home/dietze/pecan/scripts/dump.bety.sh 
+## Load Data from other sites
+MYSITE=1 REMOTESITE=2 /home/dietze/pecan/scripts/load.bety.sh 
+MYSITE=1 REMOTESITE=5 /home/dietze/pecan/scripts/load.bety.sh 
+MYSITE=1 REMOTESITE=0 /home/dietze/pecan/scripts/load.bety.sh 
+## Timestamp sync log
+echo $(date +%c) &gt;&gt; /home/dietze/db.sync.log</code></pre>
+<p>Typically such a script is set up to run as a cron job. Make sure to schedule this job (<code>crontab -e</code>) as the user that has database privileges (typically postgres). The example below is a cron table that runs the sync every hour at 12 min after the hour.</p>
+<pre><code>MAILTO=user@yourUniversity.edu
+12 * * * * /home/dietze/db.sync.sh</code></pre>
+</div>
+<div id="database-maintentance" class="section level3">
+<h3><span class="header-section-number">13.0.6</span> Database maintentance</h3>
+<p>All databases need maintenance performed on them. Depending upon the database type this can happen automatically, or it needs to be run through a scheduler or manually. The BETYdb database is Postgresql and it needs to be reindexed and vacuumed on a regular basis. Reindexing introduces efficiencies back into the database by reorganizing the indexes. Vacuuming the database frees up resources to the database by rearranging and compacting the database. Both of these operations are necessary and safe. As always if there’s a concern, a backup of the database should be made ahead of time. While running the reindexing and vacuuming commands, users will notice a slowdown at times. Therefore it’s better to run these maintenance tasks during off hours.</p>
+<div id="reindexing-the-database" class="section level4">
+<h4><span class="header-section-number">13.0.6.1</span> Reindexing the database</h4>
+<p>As mentioned above, reindexing allows the database to become more efficient. Over time as data gets updated and deleted, the indexes become less efficient. This has a negative inpact on executed statements. Reindexing makes the indexes efficient again (at least for a while) allowing faster statement execution and reducing the overall load on the database.</p>
+<p>The reindex.bety.sh script is provided to simplify reindexing the database.</p>
+<pre><code>reindex.bety.sh -h
+./reindex.bety.sh [-c datalog] [-d database] [-h] [-i table names] [-p psql options] [-q] [-s] [-t tablename]
+ -c catalog, database catalog name used to search for tables, default is bety
+ -d database, default is bety
+ -h this help page
+ -i table names, list of space-separated table names to skip over when reindexing
+ -p additional psql command line options, default is -U bety
+ -q the reindexing should be quiet
+ -s reindex the database after reindexing the tables (this should be done sparingly)
+ -t tablename, the name of the one table to reindex</code></pre>
+<p>If the database is small enough it’s reasonable to reindex the entire database at one time. To do this manually run or schedule the REINDEX statement. For example:</p>
+<pre><code>reindex.bety.sh -s</code></pre>
+<p>For larger databases it may be desireable to reindex entire tables at a time. An efficient way to do this is to reindex the larger tables and then the entire database. For example:</p>
+<pre><code>reindex.bety.sh -t traits; reindex.bety.sh -t yields;
+reindex.bety.sh -s</code></pre>
+<p>For very large databases it may be desirable to reindex one or more individual indexes before reindexing tables and the databases. In this case running specific psql commands to reindex those specific indexes, followed by reindexing the table is a possible approach. For example:</p>
+<pre><code>psql -U bety -c &quot;REINDEX INDEX index_yields_on_citation_id; REINDEX INDEX index_yields_on_cultivar_id;&quot;
+reindex.bety.sh -t yields;</code></pre>
+<p>Splitting up the indexing commands over time allows the database to operate efficiently with minimal impact on users. One approach is to schedule the reindexing of large, complex tables at a spcific off-time during the week, followed by a general reindexing and excluding those large tables on a weekend night.</p>
+<p>Please refere to the Automation section above for information on using cron to schedule reindexing commands.</p>
+</div>
+<div id="vacuuming-the-database" class="section level4">
+<h4><span class="header-section-number">13.0.6.2</span> Vacuuming the database</h4>
+<p>Vacuuming the BETYdb Postgresql database reduces the amount of resources it uses and introduces its own efficiencies.</p>
+<p>Over time, modified and deleted records leave ‘holes’ in the storage of the database. This is a common feature for most databases. Each database has its own way of handing this, in Postgresql it’s the VACUUM command. The VACUUM command performs two main operations: cleaning up tables to make memory use more efficient, and analyze tables for optimum statement execution. The use of the keyword ANALYZE indicates the second operation should take place.</p>
+<p>The vacuum.bety.sh script is provided to simplify vacuuming the database.</p>
+<pre><code>vacuum.bety.db -h
+./vacuum.bety.sh [-c datalog] [-d database] [-f] [-h] [-i table names] [-n] [-p psql options] [-q] [-s] [-t tablename] [-z]
+ -c catalog, database catalog name used to search for tables, default is bety
+ -d database, default is bety
+ -f perform a full vacuum to return resources to the system. Specify rarely, if ever
+ -h this help page
+ -i table names, list of space-separated table names to skip over when vacuuming
+ -n only vacuum the tables and do not analyze, default is to first vacuum and then analyze
+ -p additional psql command line options, default is -U bety
+ -q the export should be quiet
+ -s skip vacuuming the database after vacuuming the tables
+ -t tablename, the name of the one table to vacuum
+ -z only perform analyze, do not perform a regular vacuum, overrides -n and -f, sets -s</code></pre>
+<p>For small databases with light loads it may be possible to set aside a time for a complete vacuum. During this time, commands executed against the database might fail (a temporary condition as the database gets cleaned up). The following commands can be used to perform all the vaccum operations in one go.</p>
+<pre><code>vacuum.bety.sh -f</code></pre>
+<p>Generally it’s not desireable to have down time. If the system running the database doesn’t need resources that the database is using returned to it, a FULL vacuum can be avoided. This is the default behavior of the script</p>
+<pre><code>vacuum.bety.sh</code></pre>
+<p>In larger databases, vacuuming the entire database can take a long time causing a negative impact on users. This means that individual tables need to be vacuumed. How often a vacuum needs to be performed is dependent upon a table’s activity. The more frequently updates and deletes occur on a table, the more frequent the vaccum should be. For large tables it may be desireable to separate the table cleanup from the analysis. An example for completely vacuuming and analyzing a table is:</p>
+<pre><code>psql -U bety -c &quot;VACUUM traits; VACUUM ANALYZE traits;&quot;</code></pre>
+<p>Similar to indexes, vacuuming the most active tables followed by general database vacuuming and vacuum analyze may be a desireable approach.</p>
+<p>Also note that it isn’t necessary to run VACUUM ANALYZE for each vacuum performed. Separating the commands and performing a VACUUM ANALYZE after several regular vacuums may be sufficient, with less load on the database.</p>
+<p>If the BETYdb database is running on a system with limited resources, or with resources that have become limited, the VACCUM command can return resources to the system from the database. The normal vacuuming process releases resources back to the database for reuse, but not to the system; generally this isn’t a problem. Postgresql has a VACUUM keyword FULL that returns resources back to the system. Requesting a FULL vacuum will lock the table being vacuumed while it is being re-written preventing any statements from being executed against it. If performing VECUUM FULL against the entire database, only the table being actively worked on is locked.</p>
+<p>To minimize the impact a VACUUM FULL has on users, it’s best to perform a normal vacuum before a FULL vacuum. If this approach is taken, there sould be a minimal time gap between the normal VACUUM and the VACUUM FULL commands. A normal vacuum allows changes to be made thus requiring the full vacuum to handle those changes, extending it’s run time. Reducing the time between the two commands lessens the work VACUUM FULL needs to do.</p>
+<pre><code>psql -U bety -c &quot;VACUUM yields; VACUUM FULL yields; VACUUM ANALYZE yields;&quot;</code></pre>
+<p>Give its impact, it’s typically not desireable to perform a VACUUM FULL after every normal vacuum; it should be done on an “as needed” basis or infrequently.</p>
+</div>
+</div>
+<div id="troubleshooting-3" class="section level3">
+<h3><span class="header-section-number">13.0.7</span> Troubleshooting</h3>
+<p>There are several possibilities if a scheduled cron job apepars to be running but isn’t producing the expected results. The following are suggestions on what to try to resolve the issue.</p>
+<div id="username-and-password" class="section level5">
+<h5><span class="header-section-number">13.0.7.0.1</span> Username and password</h5>
+<p>The user that scheduled a cron job may not have access permissions to the database. This can be easily confirmed by running the command line from the cron job while logged in as the user that scheduled the job. An error message will be shown if the user doesn’t have permissions.</p>
+<p>To resolve this, be sure to include a valid database user (not a BETYdb user) with their credentials on the command in crontab.</p>
+</div>
+<div id="db_hba.conf-file" class="section level5">
+<h5><span class="header-section-number">13.0.7.0.2</span> db_hba.conf file</h5>
+<p>Iit’s possible that the machine hosting the docker image of the database doesn’t have permissions to access the database. This may due to the cron job running on a machine that is not the docker instance of the database.</p>
+<p>It may be necessary to look at the loga on the hosting machine to determine if database access permissions are causing a problem. Logs are stored in different locations depending upon the Operating System of the host and upon other environmental factors. This document doesn’t provide information on where to find the logs.</p>
+<p>To begin, it’s best to look at the contents of the relevent database configuration file. The following command will display the contents of the db_hba.conf file.</p>
+<pre><code>psql -U postgres -qAt -c &quot;show hba_file&quot; | xargs grep -v -E &#39;^[[:space:]]*#&#39;</code></pre>
+<p>This command should return a series of text lines. For each row except those begining with ‘local’, the fourth item describes the machines that can access the database. In some cases an IP mask is specified in the fifth that further restricts the machines that have access. The special work ‘all’ in the fourth column grants permissions to all machines. The last column on each line contains the authentication option for the machine(s) specified in the fourth column (with a possible fifth column IP mask modifier).</p>
+<p>Ensure that the host machine is listed under the fourth column (machine addresse range, or ‘all’), is also included in the IP mask if one was specified, and finally that any authentication option are not set to ‘reject’. If the host machine is not included the db_hba.conf file will need to be updated to allow access.</p>
+</div>
+</div>
+<div id="network-status-map" class="section level3">
+<h3><span class="header-section-number">13.0.8</span> Network Status Map</h3>
+<p><a href="https://pecan2.bu.edu/pecan/status.php" class="uri">https://pecan2.bu.edu/pecan/status.php</a></p>
+<p>Nodes: red = down, yellow = out-of-date schema, green = good</p>
+<p>Edges: red = fail, yellow = out-of-date sync, green = good</p>
+</div>
+<div id="tasks" class="section level3">
+<h3><span class="header-section-number">13.0.9</span> Tasks</h3>
+<p>Following is a list of tasks we plan on working on to improve these scripts:
+- <a href="https://github.com/PecanProject/bety/issues/368">pecanproject/bety#368</a> allow site-specific customization of information and UI elements including title, contacts, logo, color scheme.</p>
+
 </div>
 </div>
             </section>
@@ -440,8 +550,8 @@ We want to standardize the units as well as part of the <code>met2CF.&lt;product
           </div>
         </div>
       </div>
-<a href="developer-guide.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="pecanXML.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="pecan-api.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="standalone-tools-modules.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -471,7 +581,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/tonygardella/pecan/edit/release/vtonydoc/book_source/03_topical_pages/01_pecan_standards.Rmd",
+"link": "https://github.com/tonygardella/pecan/edit/release/vtonydoc/book_source/03_topical_pages/06_Database-Synchronization.Rmd",
 "text": "Edit"
 },
 "history": {

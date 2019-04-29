@@ -5,11 +5,11 @@
 
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>7 PEcAn standard formats | The Predictive Ecosystem Analyzer</title>
-  <meta name="description" content="7 PEcAn standard formats | The Predictive Ecosystem Analyzer">
+  <title>19 BETY Database Administration | The Predictive Ecosystem Analyzer</title>
+  <meta name="description" content="19 BETY Database Administration | The Predictive Ecosystem Analyzer">
   <meta name="generator" content="bookdown  and GitBook 2.6.7">
 
-  <meta property="og:title" content="7 PEcAn standard formats | The Predictive Ecosystem Analyzer" />
+  <meta property="og:title" content="19 BETY Database Administration | The Predictive Ecosystem Analyzer" />
   <meta property="og:type" content="book" />
   
   
@@ -17,7 +17,7 @@
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="7 PEcAn standard formats | The Predictive Ecosystem Analyzer" />
+  <meta name="twitter:title" content="19 BETY Database Administration | The Predictive Ecosystem Analyzer" />
   
   
   
@@ -32,8 +32,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
   
   
-<link rel="prev" href="developer-guide.html">
-<link rel="next" href="pecanXML.html">
+<link rel="prev" href="rabbitmq.html">
+<link rel="next" href="workflow-modules.html">
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -333,7 +333,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="22.0.3" data-path="pecan-project-use-to-teach-ecological-model-data-synthesis.html"><a href="pecan-project-use-to-teach-ecological-model-data-synthesis.html#selected-publications"><i class="fa fa-check"></i><b>22.0.3</b> Selected Publications</a></li>
 </ul></li>
 <li class="part"><span><b>IV Appendix</b></span><ul>
-<li class="chapter" data-level="22.1" data-path="03_topical_pages/01_pecan_standards.html"><a href="#todo"><i class="fa fa-check"></i><b>22.1</b> TODO:</a></li>
+<li class="chapter" data-level="22.1" data-path="03_topical_pages/14_backup.html"><a href="#todo"><i class="fa fa-check"></i><b>22.1</b> TODO:</a></li>
 <li class="chapter" data-level="22.2" data-path="pecan-project-use-to-teach-ecological-model-data-synthesis.html"><a href="pecan-project-use-to-teach-ecological-model-data-synthesis.html#faq"><i class="fa fa-check"></i><b>22.2</b> FAQ</a></li>
 </ul></li>
 </ul>
@@ -353,86 +353,39 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="pecan-standards" class="section level1">
-<h1><span class="header-section-number">7</span> PEcAn standard formats</h1>
-<div id="defining-new-input-formats" class="section level2">
-<h2><span class="header-section-number">7.1</span> Defining new input formats</h2>
-<ul>
-<li>New formats can be defined on the <a href="http://betydb.org/formats">‘formats’ page of BETYdb</a></li>
-<li>After creating a new format, the contents should be defined by specifying the BETYdb variable name and the name used in the file/</li>
-</ul>
+<div id="database" class="section level1">
+<h1><span class="header-section-number">19</span> BETY Database Administration</h1>
+<p>This section provides additional details about the BETY database used by PEcAn. It will discuss best practices for setting up the BETY database, how to backup the database and how to restore the database.</p>
+<div id="database-setup" class="section level3">
+<h3><span class="header-section-number">19.0.1</span> Best practices</h3>
+<p>When using the BETY database in non testing mode, it is best not to use the default users. This is accomplished when running the initialize of the database. When the database is initally created the database will be created with some default users (best known is the carya user) as well as the guestuser that can be used in the BETY web application. To disable these users you will either need to disable the users from the web interface, or you can reinitialize the database and remove the <code>-u</code> flag from the command line (the <code>-u</code> flag will create the default users). To disable the guestuser as well you can remove the <code>-g</code> flag from the command line, or disable the account from BETY.</p>
+<p>The default installation of BETY and PEcAn will assume there is a database called bety with a default username and password. The default installation will setup the database account to not have any superuser abilities. It is also best to limit access to the postgres database from trusted hosts, either by using firewalls, or configuring postgresql to only accept connections from a limited set of hosts.</p>
 </div>
-<div id="time-standard" class="section level2">
-<h2><span class="header-section-number">7.2</span> Time Standard</h2>
-<p>Internal PEcAn standard time follows ISO_8601 format for dates and time (<a href="https://en.wikipedia.org/wiki/ISO_8601" class="uri">https://en.wikipedia.org/wiki/ISO_8601</a>). For example ordinal dates go from 1 365/366 (<a href="https://en.wikipedia.org/wiki/ISO_8601#Ordinal_dates" class="uri">https://en.wikipedia.org/wiki/ISO_8601#Ordinal_dates</a>). However, time used in met drivers or model outputs follows CF convention with julian dates following the 0 to 364/365 format</p>
-<p>To aid in the conversion between PEcAn internal ISO_8601 standard and CF convention used in all met drivers and PEcAn standard output you can utilize the functions: “cf2datetime”,“datetime2doy”,“cf2doy”, and for SIPNET “sipnet2datetime”</p>
-<div id="input-standards" class="section level3">
-<h3><span class="header-section-number">7.2.1</span> Input Standards</h3>
-<div id="meterology-standards" class="section level4">
-<h4><span class="header-section-number">7.2.1.1</span> Meterology Standards</h4>
-<div id="dimensions" class="section level5">
-<h5><span class="header-section-number">7.2.1.1.1</span> Dimensions:</h5>
-<table>
-<thead>
-<tr class="header">
-<th align="left">CF standard-name</th>
-<th align="left">units</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td align="left">time</td>
-<td align="left">days since 1700-01-01 00:00:00 UTC</td>
-</tr>
-<tr class="even">
-<td align="left">longitude</td>
-<td align="left">degrees_east</td>
-</tr>
-<tr class="odd">
-<td align="left">latitude</td>
-<td align="left">degrees_north</td>
-</tr>
-</tbody>
-</table>
-<p>General Note: dates in the database should be date-time (preferably with timezone), and datetime passed around in PEcAn should be of type POSIXct.</p>
+<div id="backup-of-bety-database" class="section level3">
+<h3><span class="header-section-number">19.0.2</span> Backup of BETY database</h3>
+<p>It is good practice to make sure you backup the BETY database. Just creating a copy of the files on disk is not enough to ensure you have a valid backup. Most likely if you do this you will end up with a corrupted backup of the database.</p>
+<p>To backup the database you can use the <code>pg_dump</code> command, which will make sure the database id backed up in a consistent state. You can run <code>sudo -u postgres pg_dump -d bety -Z 9 -f bety.sql.gz</code>, this will create a compressed file that can be used to resotore the database.</p>
+<p>In the PEcAn distribution in scripts folder there is a script called <code>backup.bety.sh</code>. This script will create the backup of the database. It will create multiple backups allowing you to restore the database from one of these copies. The database will be backed up to one of the following files:
+- bety-d-X, daily backup, where X is the day of the month.
+- bety-w-X, weekly backup, where X is the week number in the year
+- bety-m-X, montly backup, where X is the month of the year
+- bety-y-X, yearly backup, where X is the actual year.
+Using this scheme, we can restore the database using any of the files generated.</p>
+<p>It is recommeneded to run this script using a cronjob at midnight such that you have a daily backup of the database and do not have to remember to create these backups. When running this script (either cron or by hand) make sure to place the backups on a different machine than the machine that holds the database in case of a larger system failure.</p>
 </div>
-<div id="the-variable-names-should-be-standard_name" class="section level5">
-<h5><span class="header-section-number">7.2.1.1.2</span> The variable names should be <code>standard_name</code></h5>
-<ul>
-<li>preferred variables indicated in bold</li>
-<li>wind_direction has no CF equivalent and should not be converted, instead the met2CF functions should convert wind_direction and wind_speed to eastward_wind and northward_wind</li>
-<li>standard_name is CF-convention standard names</li>
-<li>units can be converted by udunits, so these can vary (e.g. the time denominator may change with time frequency of inputs)</li>
-<li>soil moisture for the full column, rather than a layer, is soil_moisture_content</li>
-<li>A full list of PEcAn standard variable names, units and dimensions can be found here: <a href="https://github.com/PecanProject/pecan/blob/develop/base/utils/data/standard_vars.csv" class="uri">https://github.com/PecanProject/pecan/blob/develop/base/utils/data/standard_vars.csv</a></li>
-</ul>
-<p>For example, in the <a href="https://www.betydb.org/inputs/280">MsTMIP-CRUNCEP</a> data, the variable <code>rain</code> should be <code>precipitation_rate</code>.
-We want to standardize the units as well as part of the <code>met2CF.&lt;product&gt;</code> step. I believe we want to use the CF “canonical” units but retain the MsTMIP units any time CF is ambiguous about the units.</p>
-<p>The key is to process each type of met data (site, reanalysis, forecast, climate scenario, etc) to the exact same standard. This way every operation after that (extract, gap fill, downscale, convert to a model, etc) will always have the exact same inputs. This will make everything else much simpler to code and allow us to avoid a lot of unnecessary data checking, tests, etc being repeated in every downstream function.</p>
-</div>
-</div>
-</div>
-<div id="soils-and-vegetation-inputs" class="section level3">
-<h3><span class="header-section-number">7.2.2</span> Soils and Vegetation Inputs</h3>
-<div id="soil-data-1" class="section level5">
-<h5><span class="header-section-number">7.2.2.0.1</span> Soil Data</h5>
-<p>Check out the <a href="pecan-standards.html#soil-data-1">Soil Data</a> section on more into on creating a standard soil data file.</p>
-</div>
-<div id="vegetation-data-1" class="section level5">
-<h5><span class="header-section-number">7.2.2.0.2</span> Vegetation Data</h5>
-<p>Check Out the <a href="pecan-standards.html#vegetation-data-1">Vegetation Data</a> section on more info on creating a standard vegetation data file</p>
-</div>
-</div>
-<div id="output-standards" class="section level3">
-<h3><span class="header-section-number">7.2.3</span> Output Standards</h3>
-<ul>
-<li>created by <code>model2netcdf</code> functions</li>
-<li>based on format used by <a href="http://nacp.ornl.gov/MsTMIP_variables.shtml">MsTMIP</a></li>
-<li>Can be seen at HERE</li>
-</ul>
-<p>We originally used the <a href="http://nacp.ornl.gov/MsTMIP_variables.shtml">MsTMIP</a> conventions. Since then, we’ve added the PaLEON variable conventions to our standard as well. If a variable isn’t in one of those two, we stick to the CF conventions.</p>
+<div id="restore-of-bety-database" class="section level3">
+<h3><span class="header-section-number">19.0.3</span> Restore of BETY database</h3>
+<p>Hopefully this section will never need to be used. Following are 5 steps that have been used to restore the database. Before you start it is worth it to read up online a bit on restoring the database as well as join the slack channel and ask any of the people there for help.</p>
+<ol style="list-style-type: decimal">
+<li>stop apache (BETY/PEcAn web apps) <code>service httpd stop</code> or <code>service apache2 stop</code></li>
+<li>backup database (you know just incase) <code>pg_dump -d bety &gt; baddb.sql</code></li>
+<li>drop database <code>sudo -u postgres psql -c 'drop database bety'</code></li>
+<li>create database <code>sudo -u postgres psql -c 'create database bety with owner bety'</code></li>
+<li>load database (assuming dump is called bety.sql.gz) <code>zcat bety.sql.gz | grep -v  search_path |  sudo -u postgres psql -d bety</code></li>
+<li>start apache again <code>service httpd start</code> or <code>service apache2 start</code></li>
+</ol>
+<p>If during step 5 there is a lot of errors, it is helpful to add <code>-v ON_ERROR_STOP=1</code> to the end of the command. This will stop the restore at the first error and will help with debugging the issue.</p>
 
-</div>
 </div>
 </div>
             </section>
@@ -440,8 +393,8 @@ We want to standardize the units as well as part of the <code>met2CF.&lt;product
           </div>
         </div>
       </div>
-<a href="developer-guide.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="pecanXML.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="rabbitmq.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="workflow-modules.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -471,7 +424,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/tonygardella/pecan/edit/release/vtonydoc/book_source/03_topical_pages/01_pecan_standards.Rmd",
+"link": "https://github.com/tonygardella/pecan/edit/release/vtonydoc/book_source/03_topical_pages/14_backup.Rmd",
 "text": "Edit"
 },
 "history": {

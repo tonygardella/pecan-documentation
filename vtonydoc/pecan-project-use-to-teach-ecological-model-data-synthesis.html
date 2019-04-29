@@ -5,11 +5,11 @@
 
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>7 PEcAn standard formats | The Predictive Ecosystem Analyzer</title>
-  <meta name="description" content="7 PEcAn standard formats | The Predictive Ecosystem Analyzer">
+  <title>22 PEcAn Project use to teach Ecological model-data synthesis | The Predictive Ecosystem Analyzer</title>
+  <meta name="description" content="22 PEcAn Project use to teach Ecological model-data synthesis | The Predictive Ecosystem Analyzer">
   <meta name="generator" content="bookdown  and GitBook 2.6.7">
 
-  <meta property="og:title" content="7 PEcAn standard formats | The Predictive Ecosystem Analyzer" />
+  <meta property="og:title" content="22 PEcAn Project use to teach Ecological model-data synthesis | The Predictive Ecosystem Analyzer" />
   <meta property="og:type" content="book" />
   
   
@@ -17,7 +17,7 @@
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="7 PEcAn standard formats | The Predictive Ecosystem Analyzer" />
+  <meta name="twitter:title" content="22 PEcAn Project use to teach Ecological model-data synthesis | The Predictive Ecosystem Analyzer" />
   
   
   
@@ -32,8 +32,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
   
   
-<link rel="prev" href="developer-guide.html">
-<link rel="next" href="pecanXML.html">
+<link rel="prev" href="data-assimilation-with-dart.html">
+
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -333,7 +333,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="22.0.3" data-path="pecan-project-use-to-teach-ecological-model-data-synthesis.html"><a href="pecan-project-use-to-teach-ecological-model-data-synthesis.html#selected-publications"><i class="fa fa-check"></i><b>22.0.3</b> Selected Publications</a></li>
 </ul></li>
 <li class="part"><span><b>IV Appendix</b></span><ul>
-<li class="chapter" data-level="22.1" data-path="03_topical_pages/01_pecan_standards.html"><a href="#todo"><i class="fa fa-check"></i><b>22.1</b> TODO:</a></li>
+<li class="chapter" data-level="22.1" data-path="04_appendix/12_courses_taught.html"><a href="#todo"><i class="fa fa-check"></i><b>22.1</b> TODO:</a></li>
 <li class="chapter" data-level="22.2" data-path="pecan-project-use-to-teach-ecological-model-data-synthesis.html"><a href="pecan-project-use-to-teach-ecological-model-data-synthesis.html#faq"><i class="fa fa-check"></i><b>22.2</b> FAQ</a></li>
 </ul></li>
 </ul>
@@ -353,86 +353,60 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="pecan-standards" class="section level1">
-<h1><span class="header-section-number">7</span> PEcAn standard formats</h1>
-<div id="defining-new-input-formats" class="section level2">
-<h2><span class="header-section-number">7.1</span> Defining new input formats</h2>
-<ul>
-<li>New formats can be defined on the <a href="http://betydb.org/formats">‘formats’ page of BETYdb</a></li>
-<li>After creating a new format, the contents should be defined by specifying the BETYdb variable name and the name used in the file/</li>
-</ul>
-</div>
-<div id="time-standard" class="section level2">
-<h2><span class="header-section-number">7.2</span> Time Standard</h2>
-<p>Internal PEcAn standard time follows ISO_8601 format for dates and time (<a href="https://en.wikipedia.org/wiki/ISO_8601" class="uri">https://en.wikipedia.org/wiki/ISO_8601</a>). For example ordinal dates go from 1 365/366 (<a href="https://en.wikipedia.org/wiki/ISO_8601#Ordinal_dates" class="uri">https://en.wikipedia.org/wiki/ISO_8601#Ordinal_dates</a>). However, time used in met drivers or model outputs follows CF convention with julian dates following the 0 to 364/365 format</p>
-<p>To aid in the conversion between PEcAn internal ISO_8601 standard and CF convention used in all met drivers and PEcAn standard output you can utilize the functions: “cf2datetime”,“datetime2doy”,“cf2doy”, and for SIPNET “sipnet2datetime”</p>
-<div id="input-standards" class="section level3">
-<h3><span class="header-section-number">7.2.1</span> Input Standards</h3>
-<div id="meterology-standards" class="section level4">
-<h4><span class="header-section-number">7.2.1.1</span> Meterology Standards</h4>
-<div id="dimensions" class="section level5">
-<h5><span class="header-section-number">7.2.1.1.1</span> Dimensions:</h5>
-<table>
-<thead>
-<tr class="header">
-<th align="left">CF standard-name</th>
-<th align="left">units</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td align="left">time</td>
-<td align="left">days since 1700-01-01 00:00:00 UTC</td>
-</tr>
-<tr class="even">
-<td align="left">longitude</td>
-<td align="left">degrees_east</td>
-</tr>
-<tr class="odd">
-<td align="left">latitude</td>
-<td align="left">degrees_north</td>
-</tr>
-</tbody>
-</table>
-<p>General Note: dates in the database should be date-time (preferably with timezone), and datetime passed around in PEcAn should be of type POSIXct.</p>
-</div>
-<div id="the-variable-names-should-be-standard_name" class="section level5">
-<h5><span class="header-section-number">7.2.1.1.2</span> The variable names should be <code>standard_name</code></h5>
-<ul>
-<li>preferred variables indicated in bold</li>
-<li>wind_direction has no CF equivalent and should not be converted, instead the met2CF functions should convert wind_direction and wind_speed to eastward_wind and northward_wind</li>
-<li>standard_name is CF-convention standard names</li>
-<li>units can be converted by udunits, so these can vary (e.g. the time denominator may change with time frequency of inputs)</li>
-<li>soil moisture for the full column, rather than a layer, is soil_moisture_content</li>
-<li>A full list of PEcAn standard variable names, units and dimensions can be found here: <a href="https://github.com/PecanProject/pecan/blob/develop/base/utils/data/standard_vars.csv" class="uri">https://github.com/PecanProject/pecan/blob/develop/base/utils/data/standard_vars.csv</a></li>
-</ul>
-<p>For example, in the <a href="https://www.betydb.org/inputs/280">MsTMIP-CRUNCEP</a> data, the variable <code>rain</code> should be <code>precipitation_rate</code>.
-We want to standardize the units as well as part of the <code>met2CF.&lt;product&gt;</code> step. I believe we want to use the CF “canonical” units but retain the MsTMIP units any time CF is ambiguous about the units.</p>
-<p>The key is to process each type of met data (site, reanalysis, forecast, climate scenario, etc) to the exact same standard. This way every operation after that (extract, gap fill, downscale, convert to a model, etc) will always have the exact same inputs. This will make everything else much simpler to code and allow us to avoid a lot of unnecessary data checking, tests, etc being repeated in every downstream function.</p>
+<div id="pecan-project-use-to-teach-ecological-model-data-synthesis" class="section level1">
+<h1><span class="header-section-number">22</span> PEcAn Project use to teach Ecological model-data synthesis</h1>
+<div id="university-classes" class="section level3">
+<h3><span class="header-section-number">22.0.1</span> University classes</h3>
+<div id="ge-375---environmental-modeling---spring-2013-2014-mike-dietze-boston-university" class="section level4">
+<h4><span class="header-section-number">22.0.1.1</span> GE 375 - Environmental Modeling - Spring 2013, 2014 (Mike Dietze, Boston University)</h4>
+<p>The final “Case Study: Terrestrial Ecosystem Models” is a PEcAn-based hands-on activity. Each class has been 25 students.</p>
+<p>GE 585 - Ecological forecasting Fall 2013 (Mike Dietze, Boston University)</p>
 </div>
 </div>
+<div id="summer-courses-workshops" class="section level3">
+<h3><span class="header-section-number">22.0.2</span> Summer Courses / Workshops</h3>
+<div id="annual-summer-course-in-flux-measurement-and-advanced-modeling-mike-dietze-ankur-desai-niwot-ridge-co" class="section level4">
+<h4><span class="header-section-number">22.0.2.1</span> Annual summer course in flux measurement and advanced modeling (Mike Dietze, Ankur Desai) Niwot Ridge, CO</h4>
+<p>About 1/3 lecture, 2/3 hands-on (the syllabus is actually wrong as it list the other way around). Each class has 24 students.</p>
+<p><a href="http://www.fluxcourse.org/files/SyllabusFluxcourse_2013.pdf">2013 Syllabus</a> see Tuesday Week 2 Data Assimilation lectures and PEcAn demo and the Class projects and presentations on Thursday and Friday. (Most students use PEcAn for their group projects. 2014 will be the third year that PEcAn has been used for this course.</p>
 </div>
-<div id="soils-and-vegetation-inputs" class="section level3">
-<h3><span class="header-section-number">7.2.2</span> Soils and Vegetation Inputs</h3>
-<div id="soil-data-1" class="section level5">
-<h5><span class="header-section-number">7.2.2.0.1</span> Soil Data</h5>
-<p>Check out the <a href="pecan-standards.html#soil-data-1">Soil Data</a> section on more into on creating a standard soil data file.</p>
+<div id="assimilating-long-term-data-into-ecosystem-models-paleo-ecological-observatory-network-paleon-project" class="section level4">
+<h4><span class="header-section-number">22.0.2.2</span> Assimilating Long-Term Data into Ecosystem Models: Paleo-Ecological Observatory Network (PalEON) Project</h4>
+<p>Here is a link to the course: <a href="https://www3.nd.edu/~paleolab/paleonproject/summer-course/" class="uri">https://www3.nd.edu/~paleolab/paleonproject/summer-course/</a></p>
+<p>This course uses the same demo as above, including collecting data in the field and assimilating it (part 3)</p>
 </div>
-<div id="vegetation-data-1" class="section level5">
-<h5><span class="header-section-number">7.2.2.0.2</span> Vegetation Data</h5>
-<p>Check Out the <a href="pecan-standards.html#vegetation-data-1">Vegetation Data</a> section on more info on creating a standard vegetation data file</p>
+<div id="integrating-evidence-on-forest-response-to-climate-change-physiology-to-regional-abundance" class="section level4">
+<h4><span class="header-section-number">22.0.2.3</span> Integrating Evidence on Forest Response to Climate Change: Physiology to Regional Abundance</h4>
+<p><a href="http://blue.for.msu.edu/macrosystems/workshop" class="uri">http://blue.for.msu.edu/macrosystems/workshop</a></p>
+<p>May 13-14, 2013</p>
+<p>Session 4: Integrating Forest Data Into Ecosystem Models</p>
+</div>
+<div id="ecological-society-of-america-meetings" class="section level4">
+<h4><span class="header-section-number">22.0.2.4</span> Ecological Society of America meetings</h4>
+<p><a href="http://eco.confex.com/eco/2013/webprogram/Session9007.html">Workshop: Combining Field Measurements and Ecosystem Models</a></p>
 </div>
 </div>
-<div id="output-standards" class="section level3">
-<h3><span class="header-section-number">7.2.3</span> Output Standards</h3>
-<ul>
-<li>created by <code>model2netcdf</code> functions</li>
-<li>based on format used by <a href="http://nacp.ornl.gov/MsTMIP_variables.shtml">MsTMIP</a></li>
-<li>Can be seen at HERE</li>
-</ul>
-<p>We originally used the <a href="http://nacp.ornl.gov/MsTMIP_variables.shtml">MsTMIP</a> conventions. Since then, we’ve added the PaLEON variable conventions to our standard as well. If a variable isn’t in one of those two, we stick to the CF conventions.</p>
+<div id="selected-publications" class="section level3">
+<h3><span class="header-section-number">22.0.3</span> Selected Publications</h3>
+<ol style="list-style-type: decimal">
+<li>Dietze, M.C., D.S LeBauer, R. Kooper (2013) <a href="https://github.com/PecanProject/pecan/blob/master/documentation/dietze2013oic.pdf?raw=true">On improving the communication between models and data</a>. Plant, Cell, &amp; Environment <a href="doi:10.1111/pce.12043" class="uri">doi:10.1111/pce.12043</a></li>
+<li>LeBauer, D.S., D. Wang, K. Richter, C. Davidson, &amp; M.C. Dietze. (2013). <a href="https://github.com/PecanProject/pecan/blob/master/documentation/lebauer2013ffb.pdf?raw=true">Facilitating feedbacks between field measurements and ecosystem models</a>. Ecological Monographs. <a href="doi:10.1890/12-0137.1" class="uri">doi:10.1890/12-0137.1</a></li>
+</ol>
 
 </div>
+</div>
+
+
+
+<h2><span class="header-section-number">22.1</span> TODO:</h2>
+<ul>
+<li>Add list of developers</li>
+</ul>
+
+</div>
+<div id="faq" class="section level2">
+<h2><span class="header-section-number">22.2</span> FAQ</h2>
+
 </div>
 </div>
             </section>
@@ -440,8 +414,8 @@ We want to standardize the units as well as part of the <code>met2CF.&lt;product
           </div>
         </div>
       </div>
-<a href="developer-guide.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="pecanXML.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="data-assimilation-with-dart.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -471,7 +445,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/tonygardella/pecan/edit/release/vtonydoc/book_source/03_topical_pages/01_pecan_standards.Rmd",
+"link": "https://github.com/tonygardella/pecan/edit/release/vtonydoc/book_source/04_appendix/12_courses_taught.Rmd",
 "text": "Edit"
 },
 "history": {

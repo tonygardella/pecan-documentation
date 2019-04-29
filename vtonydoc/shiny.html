@@ -5,11 +5,11 @@
 
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>7 PEcAn standard formats | The Predictive Ecosystem Analyzer</title>
-  <meta name="description" content="7 PEcAn standard formats | The Predictive Ecosystem Analyzer">
+  <title>15 SHINY | The Predictive Ecosystem Analyzer</title>
+  <meta name="description" content="15 SHINY | The Predictive Ecosystem Analyzer">
   <meta name="generator" content="bookdown  and GitBook 2.6.7">
 
-  <meta property="og:title" content="7 PEcAn standard formats | The Predictive Ecosystem Analyzer" />
+  <meta property="og:title" content="15 SHINY | The Predictive Ecosystem Analyzer" />
   <meta property="og:type" content="book" />
   
   
@@ -17,7 +17,7 @@
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="7 PEcAn standard formats | The Predictive Ecosystem Analyzer" />
+  <meta name="twitter:title" content="15 SHINY | The Predictive Ecosystem Analyzer" />
   
   
   
@@ -32,8 +32,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
   
   
-<link rel="prev" href="developer-guide.html">
-<link rel="next" href="pecanXML.html">
+<link rel="prev" href="standalone-tools-modules.html">
+<link rel="next" href="debugging.html">
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -333,7 +333,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="22.0.3" data-path="pecan-project-use-to-teach-ecological-model-data-synthesis.html"><a href="pecan-project-use-to-teach-ecological-model-data-synthesis.html#selected-publications"><i class="fa fa-check"></i><b>22.0.3</b> Selected Publications</a></li>
 </ul></li>
 <li class="part"><span><b>IV Appendix</b></span><ul>
-<li class="chapter" data-level="22.1" data-path="03_topical_pages/01_pecan_standards.html"><a href="#todo"><i class="fa fa-check"></i><b>22.1</b> TODO:</a></li>
+<li class="chapter" data-level="22.1" data-path="03_topical_pages/09_shiny/shiny.html"><a href="#todo"><i class="fa fa-check"></i><b>22.1</b> TODO:</a></li>
 <li class="chapter" data-level="22.2" data-path="pecan-project-use-to-teach-ecological-model-data-synthesis.html"><a href="pecan-project-use-to-teach-ecological-model-data-synthesis.html#faq"><i class="fa fa-check"></i><b>22.2</b> FAQ</a></li>
 </ul></li>
 </ul>
@@ -353,84 +353,22 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="pecan-standards" class="section level1">
-<h1><span class="header-section-number">7</span> PEcAn standard formats</h1>
-<div id="defining-new-input-formats" class="section level2">
-<h2><span class="header-section-number">7.1</span> Defining new input formats</h2>
-<ul>
-<li>New formats can be defined on the <a href="http://betydb.org/formats">‘formats’ page of BETYdb</a></li>
-<li>After creating a new format, the contents should be defined by specifying the BETYdb variable name and the name used in the file/</li>
-</ul>
-</div>
-<div id="time-standard" class="section level2">
-<h2><span class="header-section-number">7.2</span> Time Standard</h2>
-<p>Internal PEcAn standard time follows ISO_8601 format for dates and time (<a href="https://en.wikipedia.org/wiki/ISO_8601" class="uri">https://en.wikipedia.org/wiki/ISO_8601</a>). For example ordinal dates go from 1 365/366 (<a href="https://en.wikipedia.org/wiki/ISO_8601#Ordinal_dates" class="uri">https://en.wikipedia.org/wiki/ISO_8601#Ordinal_dates</a>). However, time used in met drivers or model outputs follows CF convention with julian dates following the 0 to 364/365 format</p>
-<p>To aid in the conversion between PEcAn internal ISO_8601 standard and CF convention used in all met drivers and PEcAn standard output you can utilize the functions: “cf2datetime”,“datetime2doy”,“cf2doy”, and for SIPNET “sipnet2datetime”</p>
-<div id="input-standards" class="section level3">
-<h3><span class="header-section-number">7.2.1</span> Input Standards</h3>
-<div id="meterology-standards" class="section level4">
-<h4><span class="header-section-number">7.2.1.1</span> Meterology Standards</h4>
-<div id="dimensions" class="section level5">
-<h5><span class="header-section-number">7.2.1.1.1</span> Dimensions:</h5>
-<table>
-<thead>
-<tr class="header">
-<th align="left">CF standard-name</th>
-<th align="left">units</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td align="left">time</td>
-<td align="left">days since 1700-01-01 00:00:00 UTC</td>
-</tr>
-<tr class="even">
-<td align="left">longitude</td>
-<td align="left">degrees_east</td>
-</tr>
-<tr class="odd">
-<td align="left">latitude</td>
-<td align="left">degrees_north</td>
-</tr>
-</tbody>
-</table>
-<p>General Note: dates in the database should be date-time (preferably with timezone), and datetime passed around in PEcAn should be of type POSIXct.</p>
-</div>
-<div id="the-variable-names-should-be-standard_name" class="section level5">
-<h5><span class="header-section-number">7.2.1.1.2</span> The variable names should be <code>standard_name</code></h5>
-<ul>
-<li>preferred variables indicated in bold</li>
-<li>wind_direction has no CF equivalent and should not be converted, instead the met2CF functions should convert wind_direction and wind_speed to eastward_wind and northward_wind</li>
-<li>standard_name is CF-convention standard names</li>
-<li>units can be converted by udunits, so these can vary (e.g. the time denominator may change with time frequency of inputs)</li>
-<li>soil moisture for the full column, rather than a layer, is soil_moisture_content</li>
-<li>A full list of PEcAn standard variable names, units and dimensions can be found here: <a href="https://github.com/PecanProject/pecan/blob/develop/base/utils/data/standard_vars.csv" class="uri">https://github.com/PecanProject/pecan/blob/develop/base/utils/data/standard_vars.csv</a></li>
-</ul>
-<p>For example, in the <a href="https://www.betydb.org/inputs/280">MsTMIP-CRUNCEP</a> data, the variable <code>rain</code> should be <code>precipitation_rate</code>.
-We want to standardize the units as well as part of the <code>met2CF.&lt;product&gt;</code> step. I believe we want to use the CF “canonical” units but retain the MsTMIP units any time CF is ambiguous about the units.</p>
-<p>The key is to process each type of met data (site, reanalysis, forecast, climate scenario, etc) to the exact same standard. This way every operation after that (extract, gap fill, downscale, convert to a model, etc) will always have the exact same inputs. This will make everything else much simpler to code and allow us to avoid a lot of unnecessary data checking, tests, etc being repeated in every downstream function.</p>
-</div>
-</div>
-</div>
-<div id="soils-and-vegetation-inputs" class="section level3">
-<h3><span class="header-section-number">7.2.2</span> Soils and Vegetation Inputs</h3>
-<div id="soil-data-1" class="section level5">
-<h5><span class="header-section-number">7.2.2.0.1</span> Soil Data</h5>
-<p>Check out the <a href="pecan-standards.html#soil-data-1">Soil Data</a> section on more into on creating a standard soil data file.</p>
-</div>
-<div id="vegetation-data-1" class="section level5">
-<h5><span class="header-section-number">7.2.2.0.2</span> Vegetation Data</h5>
-<p>Check Out the <a href="pecan-standards.html#vegetation-data-1">Vegetation Data</a> section on more info on creating a standard vegetation data file</p>
-</div>
-</div>
-<div id="output-standards" class="section level3">
-<h3><span class="header-section-number">7.2.3</span> Output Standards</h3>
-<ul>
-<li>created by <code>model2netcdf</code> functions</li>
-<li>based on format used by <a href="http://nacp.ornl.gov/MsTMIP_variables.shtml">MsTMIP</a></li>
-<li>Can be seen at HERE</li>
-</ul>
-<p>We originally used the <a href="http://nacp.ornl.gov/MsTMIP_variables.shtml">MsTMIP</a> conventions. Since then, we’ve added the PaLEON variable conventions to our standard as well. If a variable isn’t in one of those two, we stick to the CF conventions.</p>
+<div id="shiny" class="section level1">
+<h1><span class="header-section-number">15</span> SHINY</h1>
+<div id="debugging-shiny-apps" class="section level3">
+<h3><span class="header-section-number">15.0.1</span> Debugging Shiny Apps</h3>
+<p>When developing shiny apps you can run the application from rstudio and place breakpoints int he code. To do this you will need to do the following steps first (already done on the VM) before starting rstudio:
+- echo “options(shiny.port = 6438)” &gt;&gt; ${HOME}/.Rprofile
+- echo “options(shiny.launch.browser = ‘FALSE’)” &gt;&gt; ${HOME}/.Rprofile</p>
+<p>Next you will need to create a tunnel for port 6438 to the VM, which will be used to open the shiny app, the following command will creat this tunnel: <code>ssh -l carya -p 6422 -L 6438:localhost:6438 localhost</code>.</p>
+<p>Now you can from rstudio run your application using <code>shiny::runApp()</code> and it will show the output from the application in your console. You can now place breakpoints and evaluate the output.</p>
+<div id="checking-log-files" class="section level4">
+<h4><span class="header-section-number">15.0.1.1</span> Checking Log Files</h4>
+<p>To create Log files on the VM, execute the following:</p>
+<pre><code>sudo -s
+echo &quot;preserve_logs true;&quot; &gt;&gt; /etc/shiny-server/shiny-server.conf
+service shiny-server restart</code></pre>
+<p>Then within the directory <code>/var/log/shiny-server</code> you will see log files for your specific shiny apps.</p>
 
 </div>
 </div>
@@ -440,8 +378,8 @@ We want to standardize the units as well as part of the <code>met2CF.&lt;product
           </div>
         </div>
       </div>
-<a href="developer-guide.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="pecanXML.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="standalone-tools-modules.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="debugging.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -471,7 +409,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/tonygardella/pecan/edit/release/vtonydoc/book_source/03_topical_pages/01_pecan_standards.Rmd",
+"link": "https://github.com/tonygardella/pecan/edit/release/vtonydoc/book_source/03_topical_pages/09_shiny/shiny.Rmd",
 "text": "Edit"
 },
 "history": {
