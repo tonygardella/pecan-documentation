@@ -377,16 +377,16 @@ $(document).ready(function () {
 </div>
 
 
-<div id="demo-02-sensitivity-and-uncertainty-analysis" class="section level1">
-<h1>Demo 02: Sensitivity and Uncertainty Analysis</h1>
+<div id="demo-02-sensitivity-and-uncertainty-analysis" class="section level2">
+<h2>Demo 02: Sensitivity and Uncertainty Analysis</h2>
 <p>In Demo 2 we will be looking at how PEcAn can use information about parameter uncertainty to perform three automated analyses:</p>
 <ul>
 <li><strong>Ensemble Analysis</strong>: Repeat numerous model runs, each sampling from the parameter uncertainty, to generate a probability distribution of model projections. <strong>Allows us to put a confidence interval on the model</strong></li>
 <li><strong>Sensitivity Analysis</strong>: Repeats numerous model runs to assess how changes in model parameters will affect model outputs. <strong>Allows us to identify which parameters the model is most sensitive to.</strong></li>
 <li><strong>Uncertainty Analysis</strong>: Combines information about model sensitivity with information about parameter uncertainty to determine the contribution of each model parameter to the uncertainty in model outputs. <strong>Allow us to identify which parameters are driving model uncertainty.</strong></li>
 </ul>
-<div id="run-specification" class="section level2">
-<h2>Run Specification</h2>
+<div id="run-specification" class="section level3">
+<h3>Run Specification</h3>
 <ol style="list-style-type: decimal">
 <li><p>Return to the main menu for the PEcAn web interface: <strong>URL &gt; Run Models</strong></p></li>
 <li><p>Repeat the steps for site selection and run specification from Demo 01, but also <strong>click on “Advanced setup”</strong>, then click Next.</p></li>
@@ -398,6 +398,7 @@ $(document).ready(function () {
 <li><p>We also can tell PEcAn which variable to run the sensitivity on. Here, <strong>set Variables to NEE</strong>, so we can compare against flux tower NEE observations.</p></li>
 </ul>
 <p><strong>Click Next</strong></p>
+</div>
 <div id="additional-outputs" class="section level3">
 <h3>Additional Outputs:</h3>
 <p>The PEcAn workflow will take considerably longer to complete since we have just asked for over a hundred model runs. Once the runs are complete you will return to the output visualization page were there will be a few new outputs to explore, as well as outputs that were present earlier that we’ll explore in greater details:</p>
@@ -501,7 +502,6 @@ $(document).ready(function () {
 <h3>More info about tools, analyses, and specific tasks…</h3>
 <p>Additional information about specific tasks (adding sites, models, data; software updates; etc.) and analyses (e.g. data assimilation) can be found in the PEcAn <a href="https://pecanproject.github.io/pecan-documentation/">documentation</a></p>
 <p>If you encounter a problem with PEcAn that’s not covered in the documentation, or if PEcAn is missing functionality you need, please search <a href="https://github.com/PecanProject/pecan/issues?q=">known bugs and issues</a>, submit a <a href="https://github.com/PecanProject/pecan/issues/new">bug report</a>, or ask a question in our <a href="https://join.slack.com/t/pecanproject/shared_invite/enQtMzkyODUyMjQyNTgzLTYyZTZiZWQ4NGE1YWU3YWIyMTVmZjEyYzA3OWJhYTZmOWQwMDkwZGU0Mjc4Nzk0NGYwYTIyM2RiZmMyNjg5MTE">chat room</a>. Additional questions can be directed to the <a href="mailto:tonygard@bu.edu?subject=PEcAn%20Demo::">project manager</a></p>
-</div>
 </div>
 </div>
 
