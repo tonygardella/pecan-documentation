@@ -475,9 +475,8 @@ $(document).ready(function () {
 <li><code>ensemble.ts.[RunID].[Variable].[StartYear].[EndYear].pdf</code> contains a time-series plot of the ensemble mean, median, and 95% CI</li>
 </ul>
 </div>
-</div>
-<div id="global-sensitivity-shiny" class="section level2">
-<h2>Global Sensitivity: Shiny</h2>
+<div id="global-sensitivity-shiny" class="section level3">
+<h3>Global Sensitivity: Shiny</h3>
 <p><strong>Navigate to URL/shiny/global-sensitivity.</strong></p>
 <p>This app uses the output from the ENSEMBLE runs to perform a global Monte Carlo sensitivity analysis. There are three modes controlled by Output type:</p>
 <ol style="list-style-type: decimal">
@@ -486,6 +485,7 @@ $(document).ready(function () {
 <li><strong>All variables</strong> looks at how all outputs are affected by a specific parameter(X)</li>
 </ol>
 <p>In all of these analyses, the app also fits a linear regression to these scatterplots and reports a number of summary statistics. Among these, the slope is an indicator of <strong>global sensitivity</strong> and the R2 is an indicator of the contribution to <strong>global uncertainty</strong></p>
+</div>
 <div id="next-steps" class="section level3">
 <h3>Next Steps</h3>
 <p>The next set of tutorials will focus on the process of data assimilation and parameter estimation. The next two steps are in “.Rmd” files which can be viewed online.</p>
