@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>26 FAQ | The Predictive Ecosystem Analyzer</title>
-  <meta name="description" content="26 FAQ | The Predictive Ecosystem Analyzer" />
+  <title>4 Install PEcAn | The Predictive Ecosystem Analyzer</title>
+  <meta name="description" content="4 Install PEcAn | The Predictive Ecosystem Analyzer" />
   <meta name="generator" content="bookdown 0.11 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="26 FAQ | The Predictive Ecosystem Analyzer" />
+  <meta property="og:title" content="4 Install PEcAn | The Predictive Ecosystem Analyzer" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="26 FAQ | The Predictive Ecosystem Analyzer" />
+  <meta name="twitter:title" content="4 Install PEcAn | The Predictive Ecosystem Analyzer" />
   
   
   
@@ -31,8 +31,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="miscellaneous.html">
-<link rel="next" href="pecan-project-used-in-courses.html">
+<link rel="prev" href="about-the-pecan-book.html">
+<link rel="next" href="user-section.html">
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -490,17 +490,126 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="faq" class="section level1">
-<h1><span class="header-section-number">26</span> FAQ</h1>
+<div id="pecan-manual-setup" class="section level1">
+<h1><span class="header-section-number">4</span> Install PEcAn</h1>
+<p>These instructions are provided to document how to install and setup PEcAn. It includes:</p>
+<ul>
+<li><a href="pecan-manual-setup.html#install-vm">Virtual machine</a></li>
+<li><a href="pecan-manual-setup.html#install-docker">PEcAn Docker</a></li>
+<li><a href="pecan-manual-setup.html#install-native">PEcAn OS specific installation</a></li>
+</ul>
+<p>The PEcAn code and necessary infrastructure can be obtained and compiled in different ways.
+This set of instructions will help facilitate your path and the steps necessary to move forward to have a fully a functioning PEcAn environment.</p>
+<div id="install-vm" class="section level2">
+<h2><span class="header-section-number">4.1</span> Virtual Machine (VM)</h2>
+<p>The PEcAn virtual machine consists of all of PEcAn pre-compiled within a Linux operating system and saved in a “virtual machine” (VM).
+Virtual machines allow for running consistent set-ups without worrying about differences between operating systems, library dependencies, compiling the code, etc.</p>
+<ol style="list-style-type: decimal">
+<li><p><strong>Install VirtualBox</strong> This is the software that runs the virtual machine. You can find the download link and instructions at <a href="http://www.virtualbox.org" class="uri">http://www.virtualbox.org</a>. <em>NOTE: On Windows you may see a warning about Logo testing, it is okay to ignore the warning.</em></p></li>
+<li><p><strong>Download the PEcAn VM</strong> You can find the download link at <a href="http://opensource.ncsa.illinois.edu/projects/artifacts.php?key=PECAN" class="uri">http://opensource.ncsa.illinois.edu/projects/artifacts.php?key=PECAN</a>, under the “<strong>Files</strong>” header. Click the “.ova” file to begin the download. Note that the file is ~7 GB, so this download can take several minutes to hours depending on your connection speed. Also, the VM requires &gt;4 GB of RAM to operate correctly. Please check current usage of RAM and shutdown processes as needed.</p></li>
+<li><p><strong>Import the VM</strong> Once the download is complete, open VirtualBox. In the VirtualBox menus, go to “File” → “Import Appliance” and locate the downloaded “.ova” file.</p></li>
+</ol>
+<p>For Virtualbox version 5.x: In the Appliance Import Settings, make sure you select “Reinitialize the MAC address of all network cards” (picture below). This is not selected by default and can result in networking issues since multiple machines might claim to have the same network MAC Address.</p>
+<p><img src="figures/pic1.jpg" width="259" style="display: block; margin: auto;" /></p>
+<p>For Virtualbox versions starting with 6.0, there is a slightly different interface (see figure). Select “Generate new MAC addresses for all network adapters” from the MAC Address Policy:</p>
+<p><img src="figures/pic1v2.png" width="510" style="display: block; margin: auto;" /></p>
+<p>NOTE: If you experience network connection difficulties in the VM with this enabled, try re-importing the VM without this setting selected).</p>
+<p>Finally, click “Import” to build the Virtual Machine from its image.</p>
+<ol start="4" style="list-style-type: decimal">
+<li><strong>Launch PEcAn</strong> Double click the icon for the PEcAn VM. A terminal window will pop up showing the machine booting up which may take a minute. It is done booting when you get to the <code>pecan login:</code> prompt. You do not need to login as the VM behaves like a server that we will be accessing through you web browser. Feel free to minimize the VM window.</li>
+</ol>
+<ul>
+<li>If you <em>do</em> want to login to the VM, the credentials are as follows: <code>username: carya</code>, <code>password: illinois</code> (after the pecan tree, [<em>Carya illinoinensis</em>][pecan-wikipedia]).</li>
+</ul>
+<ol start="5" style="list-style-type: decimal">
+<li><p><strong>Open the PEcAn web interface</strong> With the VM running in the background, open any web browser on the same machine and navigate to <code>localhost:6480/pecan/</code> to start the PEcAn workflow. (NOTE: The trailing backslash may be necessary depending on your browser)</p></li>
+<li><p><strong>Advanced interaction with the VM is mostly done through the command line.</strong> You can perform these manipulations from inside the VM window. However, the VM is also configured for SSH access (username <code>carya</code>, hostname <code>localhost</code>, port 6422). For instance, to open an interactive shell inside the VM from a terminal on the host machine, use a command like <code>ssh -l carya -p 6422 localhost</code> (when prompted, the password is <code>illinois</code>, as above).</p></li>
+</ol>
+<p>These steps should be enough to get you started with running models and performing basic analyses with PEcAn.
+For advanced details on VM configuration and maintenance, see the <a href="working-with-vm.html#working-with-vm">Advanced VM section</a>.</p>
+</div>
+<div id="install-docker" class="section level2">
+<h2><span class="header-section-number">4.2</span> Docker</h2>
+<p>This is a short documentation on how to start with Docker and PEcAn.
+This will not go into much detail about about how to use Docker – for more details, see the main <a href="docker-index.html#docker-intro">Docker topical page</a>.</p>
+<ol style="list-style-type: decimal">
+<li><p><strong>Install Docker</strong>. Follow the instructions for your operating system at <a href="https://www.docker.com/community-edition#/download" class="uri">https://www.docker.com/community-edition#/download</a>.
+Once Docker is installed, make sure it is running.
+To test that Docker is installed and running, open a terminal and run the following commands:</p>
+<pre class="sourceCode bash"><code class="sourceCode bash"><span class="ex">docker</span> run hello-world</code></pre>
+<p>If successful, this should return a message starting with <code>&quot;Hello from Docker!&quot;</code>.
+If this doesn’t work, there is something wrong with your configuration.
+Refer to the Docker documentation for debugging.</p>
+<p>NOTE: Depending on how Docker is installed and configured, you may have to run this command as <code>sudo</code>.
+Try running the command without <code>sudo</code> first.
+If that fails, but running as <code>sudo</code> succeeds, see <a href="https://docs.docker.com/install/linux/linux-postinstall/">these instructions</a> for steps to use Docker as a non-root user.</p></li>
+<li><p><strong>Install docker-compose</strong>. If you are running this on a Mac or Windows this might be already installed. On Linux you will need to install this it separately; see <a href="https://docs.docker.com/compose/install/" class="uri">https://docs.docker.com/compose/install/</a>.</p>
+<p>To see if docker-compose is successfully installed, use the following shell command:</p>
+<pre class="sourceCode bash"><code class="sourceCode bash"><span class="ex">docker-compose</span> -v</code></pre>
+<p>This should print the current version of docker-compose. We have tested the instruction below with versions of docker-compose 1.22 and above.</p></li>
+<li><p><strong>Download the PEcAn docker-compose file</strong>. It is located in the root directory of the <a href="https://github.com/pecanproject/pecan">PEcAn source code</a>. For reference, here are direct links to the <a href="https://raw.githubusercontent.com/PecanProject/pecan/master/docker-compose.yml">latest stable version</a> and the <a href="https://raw.githubusercontent.com/PecanProject/pecan/master/docker-compose.yml">bleeding edge development version</a>. (To download the files, you should be able to right click the link and select “Save link as”.) Make sure the file is saved as <code>docker-compose.yml</code> in a directory called <code>pecan</code>.</p></li>
+<li><p><strong>Initialize the PEcAn database and data images</strong>. The following <code>docker-compose</code> commands are used to download all the data PEcAn needs to start working. For more on how they work, see our <a href="docker-index.html#pecan-docker-quickstart-init">Docker topical pages</a>.</p>
+<ol style="list-style-type: lower-alpha">
+<li><p>Create and start the PEcAn database container (without any data)</p>
+<pre class="sourceCode bash"><code class="sourceCode bash"><span class="ex">docker-compose</span> up -d postgres</code></pre>
+<p>If this is successful, the end of the output should look like the following:</p>
+<pre><code>Creating pecan_postgres_1 ... done</code></pre></li>
+<li><p>“Initialize” the data for the PEcAn database.</p>
+<pre class="sourceCode bash"><code class="sourceCode bash"><span class="ex">docker-compose</span> run --rm bety initialize</code></pre>
+<p>This should produce a lot of output describing the database operations happening under the hood.
+Some of these will look like errors (including starting with <code>ERROR</code>), but <em>this is normal</em>.
+This command succeeded if the output ends with the following:</p>
+<pre><code>Added carya41 with access_level=4 and page_access_level=1 with id=323
+Added carya42 with access_level=4 and page_access_level=2 with id=325
+Added carya43 with access_level=4 and page_access_level=3 with id=327
+Added carya44 with access_level=4 and page_access_level=4 with id=329
+Added guestuser with access_level=4 and page_access_level=4 with id=331</code></pre></li>
+<li><p>Download and configure the core PEcAn database files.</p>
+<pre class="sourceCode bash"><code class="sourceCode bash"><span class="ex">docker</span> run -ti --rm --network pecan_pecan --volume pecan_pecan:/data --env FQDN=docker pecan/data:develop</code></pre>
+<p>This will produce a lot of output describing file operations.
+This command succeeded if the output ends with the following:</p>
+<pre><code>######################################################################
+Done!
+###################################################################### </code></pre></li>
+</ol></li>
+<li><p><strong>Start the PEcAn stack</strong>. Assuming all of the steps above completed successfully, start the full stack by running the following shell command:</p>
+<pre class="sourceCode bash"><code class="sourceCode bash"><span class="ex">docker-compose</span> up -d</code></pre>
+<p>If all of the containers started successfully, you should be able to access the various components from a browser via the following URLs (if you run these commands on a remote machine replace localhost with the actual hostname).</p>
+<ul>
+<li>PEcAn web interface (running models) – <a href="http://localhost:8000/pecan/" class="uri">http://localhost:8000/pecan/</a> (NOTE: The trailing backslash is necessary.)</li>
+<li>PEcAn documentation and home page – <a href="http://localhost:8000/" class="uri">http://localhost:8000/</a></li>
+<li>BETY web interface – <a href="http://localhost:8000/bety/" class="uri">http://localhost:8000/bety/</a></li>
+<li>File browser (minio) – <a href="http://localhost:8000/minio/" class="uri">http://localhost:8000/minio/</a></li>
+<li>RabbitMQ management console (for managing queued processes) – <a href="http://localhost:8000/rabbitmq/" class="uri">http://localhost:8000/rabbitmq/</a></li>
+<li>Traefik, webserver showing maps from URLs onto their respective containers – <a href="http://localhost:8000/traefik/" class="uri">http://localhost:8000/traefik/</a></li>
+<li>Monitor, service that monitors models and shows all models that are online as well as how many instances are online and the number of jobs waiting. The output is in JSON – <a href="http://localhost:8000/monitor/" class="uri">http://localhost:8000/monitor/</a></li>
+</ul></li>
+</ol>
+<p>For troubleshooting and advanced configuration, see our <a href="docker-index.html#docker-index">Docker topical pages</a>.</p>
+</div>
+<div id="install-native" class="section level2">
+<h2><span class="header-section-number">4.3</span> (Advanced) Native install</h2>
+<p>The full PEcAn system has a lot of dependencies, including R packages, compiled C and Fortran libraries, and system services and utilities.
+Installing all of these side by side, and getting them to work harmoniously, is very time-consuming and challenging, which is why we <strong>strongly</strong> encourage new users to use the VM or Docker if possible.</p>
+<p>In a nutshell, the process for manual installation is as follows:</p>
+<ol style="list-style-type: decimal">
+<li><p><strong>Download the <a href="https://github.com/pecanproject/pecan">PEcAn source code</a> from GitHub</strong>. The recommended way to do this is with the shell command <code>git clone</code>, i.e. <code>git clone https://github.com/pecanproject/pecan</code>.</p></li>
+<li><p><strong>Download the BETY source code from GitHub</strong>.</p></li>
+<li><p><strong>Install the PEcAn R packages and their dependencies</strong>. This can be done by running the shell command <code>make</code> inside the PEcAn source code directory. Note that many of the R packages on which PEcAn depends have system dependencies that are not included by default on most operating systems, but almost all of which should be available via your operating system’s package manager (e.g. Homebrew for MacOS, <code>apt</code> for Ubuntu/Debian/Mint Linux, <code>yum</code> for RedHat Fedora/CentOS).</p></li>
+<li><strong>Install and configure PostgreSQL</strong></li>
+<li><p><strong>Install and configure the Apache web server</strong>.</p></li>
+</ol>
+<p>For more details, see our notes about <a href="workflow-modules.html#osinstall">OS Specific Installations</a>.</p>
 
+</div>
 </div>
             </section>
 
           </div>
         </div>
       </div>
-<a href="miscellaneous.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="pecan-project-used-in-courses.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="about-the-pecan-book.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="user-section.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -530,7 +639,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/tonygardella/pecan/edit/release/vtonydoc/book_source/04_appendix/01_faq.Rmd",
+"link": "https://github.com/tonygardella/pecan/edit/release/vtonydoc/book_source/02_demos_tutorials_workflows/01_install_pecan.Rmd",
 "text": "Edit"
 },
 "history": {

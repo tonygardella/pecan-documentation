@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>26 FAQ | The Predictive Ecosystem Analyzer</title>
-  <meta name="description" content="26 FAQ | The Predictive Ecosystem Analyzer" />
+  <title>19 Troubleshooting and Debugging PEcAn | The Predictive Ecosystem Analyzer</title>
+  <meta name="description" content="19 Troubleshooting and Debugging PEcAn | The Predictive Ecosystem Analyzer" />
   <meta name="generator" content="bookdown 0.11 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="26 FAQ | The Predictive Ecosystem Analyzer" />
+  <meta property="og:title" content="19 Troubleshooting and Debugging PEcAn | The Predictive Ecosystem Analyzer" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="26 FAQ | The Predictive Ecosystem Analyzer" />
+  <meta name="twitter:title" content="19 Troubleshooting and Debugging PEcAn | The Predictive Ecosystem Analyzer" />
   
   
   
@@ -31,8 +31,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="miscellaneous.html">
-<link rel="next" href="pecan-project-used-in-courses.html">
+<link rel="prev" href="adding-to-pecan.html">
+<link rel="next" href="database.html">
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -490,17 +490,54 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="faq" class="section level1">
-<h1><span class="header-section-number">26</span> FAQ</h1>
+<div id="troubleshooting-and-debugging-pecan" class="section level1">
+<h1><span class="header-section-number">19</span> Troubleshooting and Debugging PEcAn</h1>
+<div id="cookies-and-pecan-web-pages" class="section level3">
+<h3><span class="header-section-number">19.0.1</span> Cookies and pecan web pages</h3>
+<p>You may need to disable cookies specifically for the pecan webserver in your browser. This shouldn’t be a problem running from the virtual machine, but your installation of php can include a ‘PHPSESSID’ that is quite long, and this can overflow the params field of the workflows table, depending on how long your hostname, model name, site name, etc are.</p>
+</div>
+<div id="warning-mkdir-function.mkdir-no-such-file-or-directory" class="section level3">
+<h3><span class="header-section-number">19.0.2</span> <code>Warning: mkdir() [function.mkdir]: No such file or directory</code></h3>
+<p>If you are seeing: <code>Warning: mkdir() [function.mkdir]: No such file or directory in /path/to/pecan/web/runpecan.php at line 169</code> it is because you have used a relative path for $output_folder in system.php.</p>
+</div>
+<div id="after-creating-a-new-pft-the-tag-for-pft-not-passed-to-config.xml-in-ed" class="section level3">
+<h3><span class="header-section-number">19.0.3</span> After creating a new PFT the <num> tag for PFT not passed to config.xml in ED</h3>
+<p>This is a result of the rather clunky way we currently have adding PFTs to PEcAn. This is happening because you need to edit the ./pecan/models/ed/data/pftmapping.csv file to include your new PFTs.</p>
+<p>This is what the file looks like:</p>
+<pre><code>PEcAn;ED
+ebifarm.acru;11
+ebifarm.acsa3;11
+...</code></pre>
+<p>You just need to edit this file (in a text editor, no Excel) and add your PFT names and associated number to the end of the file. Once you do this, recompile PEcAn and it should then work for you. We currently need to reference this file in order to properly set the PFT number and maintain internal consistency between PEcAn and ED2.</p>
+</div>
+<div id="debugging" class="section level2">
+<h2><span class="header-section-number">19.1</span> Debugging</h2>
+<p>How to identify the source of a problem.</p>
+<div id="using-testsworkflow.r" class="section level3">
+<h3><span class="header-section-number">19.1.1</span> Using <code>tests/workflow.R</code></h3>
+<p>This script, along with model-specific settings files in the <code>tests</code> folder, provide a working example. From inside the tests folder, <code>R CMD --vanilla -- --settings pecan.&lt;model&gt;.xml &lt; workflow.R</code> should work.</p>
+<p>The next step is to add <code>debugonce(&lt;broken.function.name&gt;)</code> before running the test workflow.</p>
+<p>This allows you can step through the function and evaluate the different objects as they are created and/or transformed.</p>
+<p>See <a href="https://github.com/PecanProject/pecan/blob/master/tests/README.md">tests README</a> for more information.</p>
+</div>
+<div id="useful-scripts" class="section level3">
+<h3><span class="header-section-number">19.1.2</span> Useful scripts</h3>
+<p>The following scripts (in <code>qaqc/vignettes</code> identify, respectively:</p>
+<ol style="list-style-type: decimal">
+<li><a href="https://github.com/PecanProject/pecan/blob/master/qaqc/vignettes/function_relationships.Rmd">relationships among functions across packages</a></li>
+<li><a href="https://github.com/PecanProject/pecan/blob/master/qaqc/vignettes/module_output.Rmd">function inputs and outputs</a> (e.g. that will identify which functions and outputs are used in a workflow).</li>
+</ol>
 
+</div>
+</div>
 </div>
             </section>
 
           </div>
         </div>
       </div>
-<a href="miscellaneous.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="pecan-project-used-in-courses.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="adding-to-pecan.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="database.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -530,7 +567,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/tonygardella/pecan/edit/release/vtonydoc/book_source/04_appendix/01_faq.Rmd",
+"link": "https://github.com/tonygardella/pecan/edit/release/vtonydoc/book_source/03_topical_pages/12_troubleshooting-pecan.Rmd",
 "text": "Edit"
 },
 "history": {
